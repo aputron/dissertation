@@ -77,7 +77,7 @@ While these endeavors can be demanding and might necessitate collaboration with 
 
 ## Case study: Protein Engineering Stack
 
-![](images/paste-1.png)
+![](images/HiAPE.png)
 
 This thesis focuses on the development of workflows and software tools with a focus on protein engineering.
 
