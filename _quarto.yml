@@ -1,0 +1,40 @@
+project:
+  type: book
+
+book:
+  title: "Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology "
+  author: "Aporva Gupta"
+
+  chapters:
+    - index.qmd
+    - chapters/introduction.qmd
+    - chapters/computational_tools.qmd
+    - chapters/data_coll.qmd
+    - chapters/mutant_gen.qmd
+    - chapters/dsembler.qmd
+    # - chapters/design.qmd
+    # - chapters/build.qmd
+    # - chapters/test.qmd
+    # - chapters/learn.qmd
+    # - chapters/evaluation.qmd
+    - chapters/conclusion.qmd
+    - chapters/references.qmd
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: book
+    # geometry:
+    # - inner=2in
+    geometry:
+#    - inner=2in
+    - twoside
+    header-includes:
+      - \usepackage{amsthm} # for theorem environments
+      - \usepackage{lipsum} # for sample text
+
+

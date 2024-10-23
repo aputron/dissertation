@@ -1,0 +1,37 @@
+# Biofoundry based production of mutants and long DNA sequences
+
+## Introduction
+
+## Design
+
+-   In-silico Modelling:
+
+    -   Random
+
+    -   Generative AI
+
+-   Primer Design
+
+-   Biofoundry equipment mapping
+
+## Build
+
+-   SDM
+
+\newpage
+
+## Test: High-throughput mutant screening
+
+### Multiplexed barcode PCR sequencing
+
+### Nanopore analysis
+
+The output of the Nanopore sequencing is the pooled result of the above PCR products, which comprises of different samples with different samples. It is important to demultiplex the samples to differentiate the sequences appropriately. Follow the steps to run
+
+### Phenotyping
+
+\newpage
+
+## Learn
+
+-   Structure Predictions and Simulations

@@ -1,0 +1,47 @@
+# Data Collection for AI-based Protein Engineering
+
+## Introduction
+
+-   Problems with Protein Engineering
+
+-   AI solutions
+
+-   Problems with AI based Engineering
+
+## Design
+
+-   Biosensor
+
+-   ELN
+
+-   Server Conformity
+
+## Build
+
+-   Gibson Assembly
+
+-   Mutant Library
+
+## Test
+
+-   FACS
+
+-   Nanopore Sequencing
+
+-   FACS Visualization
+
+## Learn
+
+-   Data Processing
+
+-   AI
+
+-   Binary Relevance vs Classifier vs Multiclass Classifications
+
+## Evaluations
+
+-   DmpR
+
+-   MPH
+
+## Future Considerations

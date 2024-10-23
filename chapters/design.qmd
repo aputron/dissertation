@@ -1,0 +1,47 @@
+# Design Principles and Tools
+
+## Introduction
+
+### Literature Review of Traditional Synthetic Biology design rules
+
+### Constructing plasmids and genomes
+
+### Designing Genetic circuits
+
+## Dsembler
+
+### Introduction
+
+-   Limited tools/ Not better than manually working though them- Labour intensive
+
+-   Synthesizing Large fragments is challenging
+
+### Consideration for designing oligomers
+
+-   Number of overlaps
+
+-   No repeats
+
+-   GC%
+
+-   No A at 3' end
+
+### Psuedocode
+
+### User Interface
+
+-   Python- Flask
+
+-   R- Shiny
+
+### Discussion
+
+-   Integrating with the Biofoundry and sample tracking to mass produce samples
+
+## In-silico Mutational candidates
+
+### Introduction
+
+### Randomizing approaches
+
+### Generative AI approaches
