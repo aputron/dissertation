@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology - 1&nbsp; Computational Tools for Streamlined Biofoundry Workflows</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/data_coll.html" rel="next">
+<link href="../chapters/introduction.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/computational_tools.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computational Tools for Streamlined Biofoundry Workflows</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/computational_tools.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computational Tools for Streamlined Biofoundry Workflows</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/data_coll.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/mutant_gen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Biofoundry based production of mutants and long DNA sequences</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/dsembler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dsembler - DNA Assembly Designer: A tool for Facilitating Assembly of Long DNA</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1.1</span> Introduction</a></li>
+  <li><a href="#considerations-required-for-biofoundry-development" id="toc-considerations-required-for-biofoundry-development" class="nav-link" data-scroll-target="#considerations-required-for-biofoundry-development"><span class="header-section-number">1.2</span> Considerations required for biofoundry development</a>
+  <ul class="collapse">
+  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware"><span class="header-section-number">1.2.1</span> Hardware</a></li>
+  <li><a href="#workflows" id="toc-workflows" class="nav-link" data-scroll-target="#workflows"><span class="header-section-number">1.2.2</span> Workflows</a></li>
+  <li><a href="#key-gaps-in-workflows" id="toc-key-gaps-in-workflows" class="nav-link" data-scroll-target="#key-gaps-in-workflows"><span class="header-section-number">1.2.3</span> Key Gaps in workflows:</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software"><span class="header-section-number">1.2.4</span> Software</a></li>
+  <li><a href="#key-gaps-in-software" id="toc-key-gaps-in-software" class="nav-link" data-scroll-target="#key-gaps-in-software"><span class="header-section-number">1.2.5</span> Key Gaps in Software</a></li>
+  </ul></li>
+  <li><a href="#case-study-protein-engineering-stack" id="toc-case-study-protein-engineering-stack" class="nav-link" data-scroll-target="#case-study-protein-engineering-stack"><span class="header-section-number">1.3</span> Case study: Protein Engineering Stack</a></li>
+  <li><a href="#computational-tools" id="toc-computational-tools" class="nav-link" data-scroll-target="#computational-tools"><span class="header-section-number">1.4</span> Computational Tools:</a>
+  <ul class="collapse">
+  <li><a href="#tools-for-data-logging-and-collaboration" id="toc-tools-for-data-logging-and-collaboration" class="nav-link" data-scroll-target="#tools-for-data-logging-and-collaboration"><span class="header-section-number">1.4.1</span> Tools for Data Logging and Collaboration:</a></li>
+  <li><a href="#accesibility-to-modelling-tools" id="toc-accesibility-to-modelling-tools" class="nav-link" data-scroll-target="#accesibility-to-modelling-tools"><span class="header-section-number">1.4.2</span> Accesibility to Modelling Tools:</a></li>
+  <li><a href="#visualization-tools" id="toc-visualization-tools" class="nav-link" data-scroll-target="#visualization-tools"><span class="header-section-number">1.4.3</span> Visualization Tools:</a></li>
+  <li><a href="#design-tools" id="toc-design-tools" class="nav-link" data-scroll-target="#design-tools"><span class="header-section-number">1.4.4</span> Design Tools:</a></li>
+  <li><a href="#machine-interoperability" id="toc-machine-interoperability" class="nav-link" data-scroll-target="#machine-interoperability"><span class="header-section-number">1.4.5</span> Machine Interoperability:</a></li>
+  <li><a href="#analysis-tools" id="toc-analysis-tools" class="nav-link" data-scroll-target="#analysis-tools"><span class="header-section-number">1.4.6</span> Analysis Tools:</a></li>
+  <li><a href="#tools-for-data-storage-and-sharing" id="toc-tools-for-data-storage-and-sharing" class="nav-link" data-scroll-target="#tools-for-data-storage-and-sharing"><span class="header-section-number">1.4.7</span> Tools for Data Storage and Sharing:</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computational Tools for Streamlined Biofoundry Workflows</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
+<p>The Design-Build-Test-Learn (DBTL) cycle, a foundational methodology of synthetic biology, adopts engineering principles to enhance reproducibility and efficiency in biological research. Yet, the Build and Test phases pose considerable challenges to their labor-intensive and time-consuming nature. For instance, the assembly of three DNA fragments often requires a week per circuit assembly by a skilled graduate student. Furthermore, optimizing the expression of a gene with promoters, RBSs, and terminator parts - three different types for each – necessitates creating and testing 27 distinct DNA combinations. This process could extend a graduate student’s workload to four to six months for the construction of an optimal genetic circuit.</p>
+<p>On an industrial scale, the Build and Test stages present similarly formidable challenges. The development and commercialization of Artemisinin, a treatment for malaria by Amyris, demanded an investment of $15 million and ten years, equivalent to roughly 150 person-years. Similarly, DuPont’s production of 1,3-propanediol required 575 person-years, highlighting the extensive resource commitment in synthetic biology projects [1]. These instances underline the significant time and labor investments needed to harness the benefits of synthetic biology, explaining why the field, which emerged in the early 2000s, took about a decade to prove its value.</p>
+<p>The incorporation of robotics into biology has significantly reduced the manual labor and time constraints traditionally associated with biological experiments. This advancement was pioneered by Dr.&nbsp;Ross D. King in 2004 [2], who developed the robotic scientists Adam and Eve to autonomously investigate yeast metabolism and enzyme discovery [3]. Despite their innovative potential, the application of these robotic scientists has faced limitations due to the need for specialized automation equipment tailored for specific research projects. This requirement often limits the flexibility needed to conduct a wide array of complex biological experiments, leading to significant costs and efforts to adapt commercial equipment for various research needs.</p>
+<p>However, the fundamental principles of synthetic biology, including standardized parts, assembly techniques, and an engineering-focused DBTL strategy, have demonstrated significant compatibility with automation and robotics. This synergy has not only enhanced research but also found practical industrial applications. A notable example is Lanzatech’s production of ethanol from greenhouse gases using its clostridiaBiofoundry (cBioFab) [4], which combines cell-free systems with machine learning technology to achieve remarkable industrial breakthroughs [5, 6] in producing 1-hexanol and hexanoic acid (&gt;100x improvement).</p>
+<p>A biofoundry integrates the entire DBTL cycle, from initial DNA design to testing cells modified with that DNA, by systematically linking automated hardware and software to streamline the process from gene synthesis to the final product. A key strategy in constructing an efficient biofoundry is the careful design of each DBTL stage to ensure seamless operation and eliminate bottlenecks, significantly improving development speed and throughput. For instance, Ginkgo Bioworks has shown considerable efficiency gains, with its throughput increasing two to four times annually between 2014 and 2020. In 2017, the company achieved a milestone when the cost of testing per strain became lower than that of manual handling [7]. Amyris, having launched its biofoundry in 2011, has successfully commercialized 15 new substances at a consistent rate over the last seven years [8], marking a productivity increase of more than twentyfold compared to its earlier efforts with Artemisinin. These developments underscore the transformative impact of biofoundries on synthetic biology, providing scalable and cost-efficient solutions for bioproduct development. By optimizing the bioproduct development process, biofoundries substantially reduce the time and cost associated with bringing new products to market, representing a significant advancement in biotechnological innovation.</p>
+</section>
+<section id="considerations-required-for-biofoundry-development" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="considerations-required-for-biofoundry-development"><span class="header-section-number">1.2</span> Considerations required for biofoundry development</h2>
+<section id="hardware" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="hardware"><span class="header-section-number">1.2.1</span> Hardware</h3>
+<p>The concept of a biofoundry often evokes images of automated robotics operating within a biological laboratory. Given this association, automation is deemed essential for the development of biofoundries. However, the deployment of advanced automation machinery, including robotic arms, in fully automated biofoundries requires careful attention to planning. While devices like liquid handlers are crucial for high-throughput well plate-based experiments, incorporating robotic arms with other automated devices, such as automated thermal cyclers or automated incubators, significantly raises both initial and ongoing maintenance costs. Adopting a semi-automated DBTL cycle is one of the strategies that offer maximum flexibility at minimal cost.</p>
+<p>Currently, the availability of automated equipment is restricted to a handful of global companies. To broaden the options for users and ensure the provision of high-quality services, ongoing development of such equipment is essential. This necessitates long-term and continuous investment, supported by governmental policies, especially given the current limited market availability. The emphasis in hardware development should be on enhancing the connectivity and flexibility of devices to boost the overall efficiency of the DBTL cycle, rather than focusing solely on individual device specifications.</p>
+<p>Furthermore, an increase in hardware throughput does not guarantee an improvement in overall biofoundry performance. One of the major reasons automated equipment may remain underutilized or idle in universities or research institutions is that data management and analysis are failed to keep pace with the hardware’s throughput. In this context, the workflows and software discussed in the subsequent chapters are pivotal considerations prior to hardware deployment.</p>
+</section>
+<section id="workflows" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="workflows"><span class="header-section-number">1.2.2</span> Workflows</h3>
+<p>Before delving further into biofoundry development, it’s necessary to define some key terms associated with biofoundry operation for ease of understanding. We introduce two fundamental terms: ‘workflow’ and ‘unit process.’ A unit process is the smallest protocol executed by an automated machine, while a workflow is a sequence of unit processes organized to produce a desired product. The terms ‘protocol’ and ‘process’ are employed broadly. Both unit processes and workflows can be formulated as standard operating procedures (SOPs) which are detailed instructions designed to standardize and enhance the reproducibility of operations.</p>
+<p>In constructing a biofoundry, workflows are developed by re-optimizing established manual protocols. Manual protocols frequently overlook or oversimplify sample preparation, deemed apparent. Conversely, automated protocols demand more detailed specifications, including the quantity, position, and handing of reagents and equipment, especially when using multi-well plates.</p>
+<p>Developing a workflow involves assessing the level of automation feasible with the available equipment and consumables. The initial level may resemble manual operations, progressing to the use of liquid handlers capable of managing experiments based on 96 or 384-well plates. Utilizing high-throughput equipment not only enhances experiment throughput but also improves reproducibility. Establishing quantitatively measurable metrics within the tier system is crucial for ensuring the reliability and interoperability of workflows.</p>
+<p>To enhance a biofoundry’s efficiency, it’s essential to reduce the operational costs associated with workflows and enable the simultaneous running of multiple workflows, which is key to maximizing efficiency and productivity. This challenge can be tackled in two ways. One approach is consolidating samples onto a single plate when different researchers request the same workflow. Alternatively, when different workflows are requested, they can be integrated by considering the run times of each unit process and scheduled as a single workflow. These scheduling strategies, more suitable for semi-automated biofoundries, are essential for enhancing biofoundry performance, given the limited number of machines. Additionally, waste in research, often due to avoidable design flaws or incomplete experiments, is a significant concern. Over 50% of research remains unpublished, half of which is attributable to preventable errors [9]. An integrated biofoundry can minimize these mistakes by facilitating more informed decisions from a broader range of experiments.</p>
+</section>
+<section id="key-gaps-in-workflows" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="key-gaps-in-workflows"><span class="header-section-number">1.2.3</span> Key Gaps in workflows:</h3>
+<ul>
+<li><p><strong>Fragmented Workflows</strong>: Many biofoundries have disjointed processes across different stages of research and production, making it challenging to maintain a seamless flow from design to implementation.</p></li>
+<li><p><strong>Lack of Standard Operating Procedures (SOPs)</strong>: Inconsistent or absent SOPs can lead to variability in experiments, making reproducibility difficult and complicating data comparison.</p></li>
+<li><p><strong>Integration of Automation</strong>: While automation is essential for scaling processes, many workflows do not fully integrate automated systems, leading to inefficiencies and increased manual work.</p></li>
+<li><p><strong>Data Management and Sharing</strong>: Ineffective data management practices can result in difficulties in data access and sharing among team members, hampering collaboration and progress.</p></li>
+<li><p><strong>Feedback Loops</strong>: There may be insufficient mechanisms for feedback between different stages of the workflow, preventing insights from experimental results from being effectively integrated into future designs.</p></li>
+<li><p><strong>Cross-Disciplinary Collaboration</strong>: Workflows often lack structures that promote collaboration across disciplines, which is crucial in a multidisciplinary field like synthetic biology.</p></li>
+<li><p><strong>Real-Time Monitoring</strong>: Many workflows do not incorporate real-time monitoring and analytics, which can help in making timely adjustments and decisions during experiments.</p></li>
+<li><p><strong>Scalability Protocols</strong>: Procedures for scaling up from lab-scale experiments to large-scale production are often underdeveloped, posing challenges for commercialization.</p></li>
+<li><p><strong>Training and Onboarding</strong>: Inefficient onboarding processes for new personnel can slow down productivity and lead to misunderstandings about protocols and workflows.</p></li>
+</ul>
+</section>
+<section id="software" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="software"><span class="header-section-number">1.2.4</span> Software</h3>
+<p>Despite the increasing necessity for constructing biofoundries, the availability of software specifically designed for biofoundry operations remains limited. While some existing solutions for Electronic Laboratory Notebooks (ELN) or Laboratory Information Management Systems (LIMS) [10] are available, they often do not meet the unique requirements of biofoundry operations comprehensively. Furthermore, the cost of these solutions can be prohibitive for use in an extensively scaled biofoundry environment with a large team.</p>
+<p>Developing software for biofoundry operations is indispensable. Creating software that coordinates biological experiments across various stages of the DBTL cycle requires the collaborative, intensive efforts of IT engineers and biologists. To address this challenge, we advocate for a ‘rapid prototyping and soft integration strategy.’ This approach emphasizes the quick development of specific functionalities necessary for biofoundry operations and their integration with existing tools, like Snapgene and GitLab. Modern frameworks for developing web-based applications, such as Python’s Streamlit or R’s Shiny, are invaluable for rapidly producing streamlined software applications. Integrated Development Environments (IDEs) like Visual Studio Code (VSCode) or RStudio are instrumental in managing the entire DBTL cycle, thereby significantly boosting the efficiency and synchronization of biofoundry operations. This approach of ‘rapid prototyping and soft integration’ underscores the importance of continuous software maintenance and updates to support equipment and technological advancements, alongside evolving scientific interests.</p>
+<p>Concerning the functional requirements of biofoundry software, a major challenge in biofoundry design is operational costs. It is imperative to reduce the consumption of consumables, time, and labor in individual workflows. Initially, efforts should concentrate on optimizing workflows within a semi-automated system. Software that persistently monitors the availability of automated equipment and materials plays a vital role in maximizing resource use and coordinating the execution of workflows from various users. Moreover, given the extensive number of samples processed by a biofoundry, its operational software must manage a significantly larger volume of equipment, materials, experiments, and operations than a conventional laboratory. This necessitates a seamless system to ensure equipment availability, smooth supply of materials, and swift data analysis for designing subsequent high-throughput experiments. Furthermore, constructing an operational system capable of controlling automated devices from diverse manufacturers requires APIs that can translate the interactions between user-designed workflows and automated equipment into a universally understandable language, such as JSON.</p>
+<p>While these endeavors can be demanding and might necessitate collaboration with equipment vendors, initiating software development that monitors equipment status and suggests optimized workflows in a semi-automated system is feasible. The adaptability and compatibility offered by such a system are crucial for enhancing accessibility and interoperability among biofoundry facilities.</p>
+</section>
+<section id="key-gaps-in-software" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="key-gaps-in-software"><span class="header-section-number">1.2.5</span> Key Gaps in Software</h3>
+<ul>
+<li><strong>Data Integration</strong>: Many biofoundries utilize disparate systems for data collection and analysis, leading to challenges in integrating and interpreting data from various sources.</li>
+<li><strong>User-Friendly Interfaces</strong>: Existing software often lacks intuitive interfaces, making it difficult for non-experts to use advanced tools and access data effectively.</li>
+<li><strong>Collaboration Tools</strong>: There is often a shortage of robust collaboration platforms that facilitate communication and project management among multidisciplinary teams.</li>
+<li><strong>Standardized Workflows</strong>: A lack of standardized software workflows can lead to inconsistencies in experimental processes and results, hindering reproducibility.</li>
+<li><strong>Simulation and Modeling Tools</strong>: Advanced tools for simulating biological processes and modeling systems biology are often limited or not user-friendly, which restricts their use in design and optimization.</li>
+<li><strong>Automated Data Analysis</strong>: There is a need for more sophisticated software solutions for automated data analysis and interpretation, particularly for large datasets generated by high-throughput experiments.</li>
+<li><strong>Visualization Tools</strong>: Enhanced visualization software is often needed to effectively represent complex biological data and results, making them more accessible to researchers and stakeholders.</li>
+<li><strong>Version Control</strong>: Effective version control systems for experimental protocols, data, and software tools are often not well-integrated, leading to potential errors and confusion.</li>
+<li><strong>Interoperability</strong>: Many biofoundry software tools lack interoperability, making it difficult to exchange data and functionalities between different platforms and tools</li>
+<li><strong>Regulatory Compliance</strong>: Software solutions that aid in ensuring compliance with regulatory requirements are often lacking, making it difficult to manage documentation and quality control.</li>
+</ul>
+</section>
+</section>
+<section id="case-study-protein-engineering-stack" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="case-study-protein-engineering-stack"><span class="header-section-number">1.3</span> Case study: Protein Engineering Stack</h2>
+<p><img src="images/HiAPE.png" class="img-fluid"></p>
+<p>This thesis focuses on the development of workflows and software tools with a focus on protein engineering.</p>
+</section>
+<section id="computational-tools" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="computational-tools"><span class="header-section-number">1.4</span> Computational Tools:</h2>
+<section id="tools-for-data-logging-and-collaboration" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="tools-for-data-logging-and-collaboration"><span class="header-section-number">1.4.1</span> Tools for Data Logging and Collaboration:</h3>
+<p><img src="images/paste-1.png" class="img-fluid" width="352"></p>
+<section id="electronic-lab-notebooks" class="level4" data-number="1.4.1.1">
+<h4 data-number="1.4.1.1" class="anchored" data-anchor-id="electronic-lab-notebooks"><span class="header-section-number">1.4.1.1</span> Electronic Lab Notebooks:</h4>
+<p>Electronic Lab Notebooks (ELNs) are essential tools in modern research environments, offering several key advantages over traditional paper notebooks. They facilitate efficient data management by allowing researchers to easily organize, store, and retrieve experimental data. ELNs enhance collaboration among team members by enabling real-time sharing and commenting on data, which fosters greater communication and collective insights. Moreover, they improve data integrity and reproducibility through built-in version control and automated backups, reducing the risk of data loss or errors. ELNs also streamline compliance with regulatory requirements by providing secure, auditable records of experiments. Additionally, their integration with other digital tools and platforms can enhance workflows and automate routine tasks, ultimately increasing productivity and accelerating the research process[10].</p>
+<p>While there are free options for ELN software, many vendors limit data storage, file sizes, and the number of users, which can hinder larger teams or projects. Portability of files can also be a concern depending upon the ELN provider; for example if it ceases operations or raises prices, users may only receive a PDF export of their data, complicating transitions to other platforms. Although infrequent, security breaches, are a potential risk that users should be aware of. Additionally, not all electronic solutions cater to every lab’s needs; for example, some ELNs do not integrate with specific biotools like CRISPR/Cas9 genome editing software. Furthermore, user experience can vary significantly; many reviews point out issues with nonintuitive interfaces and the need for extensive training, which can slow down effective implementation in the lab [11].</p>
+<p>Here, we describe using Visual Studio (VS) Code along with quarto markdown files as an ELN. VS Code is compatible with most types of files. VS Code allows for the creation of Markdown files, which can be used to document experiments, protocols, and results in a structured and easily readable format. The built-in version control system (Git) enables users to track changes over time, making it simple to maintain a history of experiments and revisions. Open-sourced extensions allow integration of other software such as Docker, GitHub, and Notion which can be standardized through a free account.</p>
+<p>Moreover, integration of Jupyter Notebooks allow for interactive data analysis and visualization, integrating coding directly with documentation. This can be particularly useful for analyzing data using programming languages such as Python or R. Users can also benefit from VS Code’s robust search capabilities, making it easy to locate specific notes or data points across multiple files. Overall, using VS Code as an ELN combines flexibility, organization, and collaboration, making it a compelling choice for researchers looking to streamline their documentation processes.</p>
+</section>
+<section id="version-control" class="level4" data-number="1.4.1.2">
+<h4 data-number="1.4.1.2" class="anchored" data-anchor-id="version-control"><span class="header-section-number">1.4.1.2</span> Version Control:</h4>
+<p>Collaboration is streamlined on GitHub, as multiple team members can work on the same project simultaneously. Additionally, the ability to store files in cloud-based repositories (like GitHub or GitLab) ensures data portability and accessibility, even if the original workspace changes. This allows users to track changes over time, providing a clear history of modifications, which is essential for reproducibility and accountability. Users can create branches to explore new ideas or experiment with changes without affecting the main content. Pull requests enable thorough discussions and reviews of proposed changes before merging, ensuring that all contributions are vetted and enhancing the quality of the documentation.</p>
+<p>GitHub also supports Markdown, making it easy to format notes for clarity and readability. With features like issue tracking, users can manage tasks and monitor project progress efficiently. The platform’s cloud-based storage ensures that data is accessible from anywhere, minimizing the risk of loss. Overall, using GitHub for version control in an ELN not only improves organization and collaboration but also enhances the integrity and transparency of the research process.</p>
+<p>Using Docker to share workflow environments offers a powerful solution for ensuring consistency and reproducibility in research and development projects. Docker allows users to create containerized environments that encapsulate all necessary dependencies, libraries, and configurations required to run a specific application or workflow. This means that researchers can share their entire computational environment, ensuring that collaborators can run the same code with the same results, regardless of their local setups.</p>
+<p>By creating a Docker image, users can package their workflows along with any required software, making it easy to distribute and deploy on any system that supports Docker. This eliminates the common “it works on my machine” problem, as the container will behave the same way on any platform. Additionally, Docker supports versioning, allowing teams to track changes in their environment over time and roll back to previous configurations if needed. [12, 13]</p>
+<p>Models and datasets can be uploaded on AI sharing platforms such as Huggingface.</p>
+</section>
+</section>
+<section id="accesibility-to-modelling-tools" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="accesibility-to-modelling-tools"><span class="header-section-number">1.4.2</span> Accesibility to Modelling Tools:</h3>
+<p>Simulation and modeling tools play a crucial role in understanding and optimizing biological processes, particularly in fields like systems biology, synthetic biology, and drug development. However, many of these advanced tools are often limited in accessibility and user-friendliness, which can restrict their widespread adoption and effective use in research and application.</p>
+<p>Many of the available tools require specialized knowledge of programming and mathematical modeling, creating a steep learning curve for researchers who may not have a strong computational background. This can discourage scientists from utilizing these tools, even when they could significantly enhance their research. Additionally, some tools may lack comprehensive documentation or user support, making it difficult for users to troubleshoot issues or fully leverage the tool’s capabilities.</p>
+<p>Even when large models are made accessible on platforms like Google Colab, such as ColabFold, their functionality can be limited due to several factors. Firstly, computational resources on free or tiered cloud platforms may be restricted, leading to longer processing times or the inability to run particularly large or complex models that require significant computational power. This limitation can frustrate users who need to conduct extensive simulations or analyses. Additionally, Colab’s environment may not support all the necessary libraries or specific versions of software that users require for their models. While Colab offers a range of pre-installed packages, researchers may still encounter compatibility issues, requiring extra time to set up their environments properly. Furthermore, the reliance on internet connectivity can also pose challenges. Interruptions or slow connections can hinder users’ ability to run or save their work, potentially resulting in data loss or incomplete analyses [14]. Having locally hosted databases and models downloaded allows for more accurate analysis and predictions [15].</p>
+<p>To address these challenges, there is a growing need for more intuitive simulation and modeling tools that offer user-friendly interfaces and robust support for data integration. Enhancements such as visual modeling environments, drag-and-drop functionalities, and real-time feedback can make these tools more accessible to a broader audience. Furthermore, fostering collaborations between computational scientists and biologists can help ensure that the tools developed are tailored to the specific needs of the research community. [16]</p>
+<section id="alphafoldrosettafold-ui" class="level4" data-number="1.4.2.1">
+<h4 data-number="1.4.2.1" class="anchored" data-anchor-id="alphafoldrosettafold-ui"><span class="header-section-number">1.4.2.1</span> AlphaFold/RosettaFold UI:</h4>
+<p><img src="images/paste-2.png" class="img-fluid" width="255"></p>
+</section>
+</section>
+<section id="visualization-tools" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="visualization-tools"><span class="header-section-number">1.4.3</span> Visualization Tools:</h3>
+<p>Biological data can be intricate and multidimensional, often involving large datasets from experiments such as genomics, proteomics, and metabolomics. Visualization tools help translate this data into graphical formats, making it easier for researchers to identify patterns, trends, and anomalies that might not be apparent in raw data. [17]</p>
+<p>These tools facilitate exploratory data analysis, allowing scientists to visualize relationships and interactions among biological variables. For instance, network diagrams can depict interactions between proteins, while heatmaps can show gene expression levels across different conditions, helping researchers draw meaningful conclusions and generate hypotheses. [18,19, 20]</p>
+<section id="facs-visualization" class="level4" data-number="1.4.3.1">
+<h4 data-number="1.4.3.1" class="anchored" data-anchor-id="facs-visualization"><span class="header-section-number">1.4.3.1</span> FACS Visualization:</h4>
+</section>
+<section id="mutant-variability-visualizer" class="level4" data-number="1.4.3.2">
+<h4 data-number="1.4.3.2" class="anchored" data-anchor-id="mutant-variability-visualizer"><span class="header-section-number">1.4.3.2</span> Mutant Variability Visualizer:</h4>
+</section>
+</section>
+<section id="design-tools" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="design-tools"><span class="header-section-number">1.4.4</span> Design Tools:</h3>
+<section id="primer-design" class="level4" data-number="1.4.4.1">
+<h4 data-number="1.4.4.1" class="anchored" data-anchor-id="primer-design"><span class="header-section-number">1.4.4.1</span> Primer design:</h4>
+</section>
+<section id="in-silico-mutant-generator" class="level4" data-number="1.4.4.2">
+<h4 data-number="1.4.4.2" class="anchored" data-anchor-id="in-silico-mutant-generator"><span class="header-section-number">1.4.4.2</span> In-silico Mutant Generator:</h4>
+</section>
+</section>
+<section id="machine-interoperability" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="machine-interoperability"><span class="header-section-number">1.4.5</span> Machine Interoperability:</h3>
+<section id="well-mapping" class="level4" data-number="1.4.5.1">
+<h4 data-number="1.4.5.1" class="anchored" data-anchor-id="well-mapping"><span class="header-section-number">1.4.5.1</span> Well Mapping:</h4>
+</section>
+</section>
+<section id="analysis-tools" class="level3" data-number="1.4.6">
+<h3 data-number="1.4.6" class="anchored" data-anchor-id="analysis-tools"><span class="header-section-number">1.4.6</span> Analysis Tools:</h3>
+<section id="nanopore-analysis" class="level4" data-number="1.4.6.1">
+<h4 data-number="1.4.6.1" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">1.4.6.1</span> Nanopore Analysis:</h4>
+</section>
+</section>
+<section id="tools-for-data-storage-and-sharing" class="level3" data-number="1.4.7">
+<h3 data-number="1.4.7" class="anchored" data-anchor-id="tools-for-data-storage-and-sharing"><span class="header-section-number">1.4.7</span> Tools for Data Storage and Sharing:</h3>
+<section id="server-management" class="level4" data-number="1.4.7.1">
+<h4 data-number="1.4.7.1" class="anchored" data-anchor-id="server-management"><span class="header-section-number">1.4.7.1</span> Server Management:</h4>
+</section>
+</section>
+</section>
+<section id="references" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> References</h1>
+<ol type="1">
+<li><p>Hodgman CE, Jewett MC (2012) Cell-free synthetic biology: thinking outside the cell. Metab Eng 14:261–269. https://doi.org/ 10.1016/j.ymben.2011.09.002</p></li>
+<li><p>King RD, Whelan KE, Jones FM et al (2004) Functional genomic hypothesis generation and experimentation by a robot scientist. Nature 427:247–252. https://doi.org/10.1038/nature02236</p></li>
+<li><p>King RD, Rowland J, Oliver SG et al (2009) The automation of science. Science 324:85–89. https://doi.org/10.1126/science. 1165620</p></li>
+<li><p>Köpke M, Simpson SD (2020) Pollution to products: recycling of “above ground” carbon by gas fermentation. Curr Opin Biotechnol 65:180–189. https://doi.org/10.1016/j.copbio.2020.02.017</p></li>
+<li><p>Vögeli B, Schulz L, Garg S et al (2022) Cell-free prototyping ena- bles implementation of optimized reverse β-oxidation pathways in heterotrophic and autotrophic bacteria. Nat Commun 13:3058. https://doi.org/10.1038/s41467-022-30571-6</p></li>
+<li><p>Kim KJ, Lee SJ, Kim DM (2023) The use of cell-free protein synthesis to push the boundaries of synthetic biology. Biotechnol Bioprocess Eng. https://doi.org/10.1007/s12257-022-0279-2</p></li>
+<li><p>Kelly J (2022) Grow with ginkgo. Ginkgo Bioworks. https://s28. q4cdn.com/823357996/files/doc_presentations/2022/01/2022.01. 12-Ginkgo-DNA-JPM-2022.pdf.</p></li>
+<li><p><a href="https://www.cowen.com/transactions/amyris-inc-6-4-2020/" class="uri">https://www.cowen.com/transactions/amyris-inc-6-4-2020/</a></p></li>
+<li><p>Sogi GM (2023) Research waste. Contemp Clin Dent 14:179.</p></li>
+<li><p>Kwok R (2018) How to pick an electronic laboratory notebook. Nature 560:269–270. https:// doi. org/ 10. 1038/ d41586-018-05895-3</p></li>
+<li><p><a href="https://www.idtdna.com/pages/community/blog/post/thinking-about-making-the-switch-to-an-electronic-lab-notebook-here-are-some-pros-and-cons" class="uri">https://www.idtdna.com/pages/community/blog/post/thinking-about-making-the-switch-to-an-electronic-lab-notebook-here-are-some-pros-and-cons</a></p></li>
+<li><p>David Eyers, Sarah Stevens, Andy Turner and Jeremy Cohen, Containers for reproducible research. <a href="https://github.com/ImperialCollegeLondon/2020-07-13-Containers-Online/blob/gh-pages/CITATION" class="uri">https://github.com/ImperialCollegeLondon/2020-07-13-Containers-Online/blob/gh-pages/CITATION</a></p></li>
+<li><p>Leahy, Darragh, and Christina Thorpe. “Zero trust container architecture (ztca): A framework for applying zero trust principals to docker containers.” <em>International Conference on Cyber Warfare and Security</em>. Vol. 17. No.&nbsp;1. 2022.</p></li>
+<li><p>Mirdita, M., Schütze, K., Moriwaki, Y., Heo, L., Ovchinnikov, S. and Steinegger, M., 2022. ColabFold: making protein folding accessible to all. <em>Nature methods</em>, <em>19</em>(6), pp.679-682.</p></li>
+<li><p>Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., Tunyasuvunakool, K., Bates, R., Žídek, A., Potapenko, A. and Bridgland, A., 2021. Highly accurate protein structure prediction with AlphaFold. <em>nature</em>, <em>596</em>(7873), pp.583-589.</p></li>
+<li><p>Eblen-Zayas, M., 2015. Comparing electronic and traditional Lab Notebooks in the advanced lab. In <em>Conference on Laboratory Instruction: Beyond the First Year of College, College Park, MD. Retrieved from https://www. compadre. org/Repository/document/ServeFile. cfm</em>.</p></li>
+<li><p>Wong, B., 2012. Visualizing biological data. <em>Nat Methods</em>, <em>9</em>(12), pp.1131-1131.</p></li>
+<li><p><a href="https://github.com/keller-mark/awesome-biological-visualizations" class="uri">https://github.com/keller-mark/awesome-biological-visualizations</a></p></li>
+<li><p>Verschaffelt, P., Collier, J., Botzki, A., Martens, L., Dawyndt, P. and Mesuere, B., 2022. Unipept Visualizations: an interactive visualization library for biological data. <em>Bioinformatics</em>, <em>38</em>(2), pp.562-563.</p></li>
+<li><p>Kerren, A., Kucher, K., Li, Y.F. and Schreiber, F., 2017. BioVis Explorer: A visual guide for biological data visualization techniques. <em>PLoS One</em>, <em>12</em>(11), p.e0187341.</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/introduction.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/data_coll.html" class="pagination-link" aria-label="Data Collection for AI-based Protein Engineering">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
