@@ -133,13 +133,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/mutant_gen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production of mutants and long DNA sequences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production and multiplexed identification of mutants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/dsembler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dsembler - DNA Assembly Designer: A tool for Facilitating Assembly of Long DNA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -179,16 +179,17 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software"><span class="header-section-number">2.2.4</span> Software</a></li>
   <li><a href="#key-gaps-in-software" id="toc-key-gaps-in-software" class="nav-link" data-scroll-target="#key-gaps-in-software"><span class="header-section-number">2.2.5</span> Key Gaps in Software</a></li>
   </ul></li>
-  <li><a href="#case-study-protein-engineering-stack" id="toc-case-study-protein-engineering-stack" class="nav-link" data-scroll-target="#case-study-protein-engineering-stack"><span class="header-section-number">2.3</span> Case study: Protein Engineering Stack</a></li>
-  <li><a href="#computational-tools" id="toc-computational-tools" class="nav-link" data-scroll-target="#computational-tools"><span class="header-section-number">2.4</span> Computational Tools:</a>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">2.3</span> Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">2.4</span> Results</a></li>
+  <li><a href="#computational-tools" id="toc-computational-tools" class="nav-link" data-scroll-target="#computational-tools"><span class="header-section-number">2.5</span> Computational Tools:</a>
   <ul class="collapse">
-  <li><a href="#tools-for-data-logging-and-collaboration" id="toc-tools-for-data-logging-and-collaboration" class="nav-link" data-scroll-target="#tools-for-data-logging-and-collaboration"><span class="header-section-number">2.4.1</span> Tools for Data Logging and Collaboration:</a></li>
-  <li><a href="#accesibility-to-modelling-tools" id="toc-accesibility-to-modelling-tools" class="nav-link" data-scroll-target="#accesibility-to-modelling-tools"><span class="header-section-number">2.4.2</span> Accesibility to Modelling Tools:</a></li>
-  <li><a href="#visualization-tools" id="toc-visualization-tools" class="nav-link" data-scroll-target="#visualization-tools"><span class="header-section-number">2.4.3</span> Visualization Tools:</a></li>
-  <li><a href="#design-tools" id="toc-design-tools" class="nav-link" data-scroll-target="#design-tools"><span class="header-section-number">2.4.4</span> Design Tools:</a></li>
-  <li><a href="#machine-interoperability" id="toc-machine-interoperability" class="nav-link" data-scroll-target="#machine-interoperability"><span class="header-section-number">2.4.5</span> Machine Interoperability:</a></li>
-  <li><a href="#analysis-tools" id="toc-analysis-tools" class="nav-link" data-scroll-target="#analysis-tools"><span class="header-section-number">2.4.6</span> Analysis Tools:</a></li>
-  <li><a href="#tools-for-data-storage-and-sharing" id="toc-tools-for-data-storage-and-sharing" class="nav-link" data-scroll-target="#tools-for-data-storage-and-sharing"><span class="header-section-number">2.4.7</span> Tools for Data Storage and Sharing:</a></li>
+  <li><a href="#tools-for-data-logging-and-collaboration" id="toc-tools-for-data-logging-and-collaboration" class="nav-link" data-scroll-target="#tools-for-data-logging-and-collaboration"><span class="header-section-number">2.5.1</span> Tools for Data Logging and Collaboration:</a></li>
+  <li><a href="#accesibility-to-modelling-tools" id="toc-accesibility-to-modelling-tools" class="nav-link" data-scroll-target="#accesibility-to-modelling-tools"><span class="header-section-number">2.5.2</span> Accesibility to Modelling Tools:</a></li>
+  <li><a href="#visualization-tools" id="toc-visualization-tools" class="nav-link" data-scroll-target="#visualization-tools"><span class="header-section-number">2.5.3</span> Visualization Tools:</a></li>
+  <li><a href="#design-tools" id="toc-design-tools" class="nav-link" data-scroll-target="#design-tools"><span class="header-section-number">2.5.4</span> Design Tools:</a></li>
+  <li><a href="#machine-interoperability" id="toc-machine-interoperability" class="nav-link" data-scroll-target="#machine-interoperability"><span class="header-section-number">2.5.5</span> Machine Interoperability:</a></li>
+  <li><a href="#analysis-tools" id="toc-analysis-tools" class="nav-link" data-scroll-target="#analysis-tools"><span class="header-section-number">2.5.6</span> Analysis Tools:</a></li>
+  <li><a href="#tools-for-data-storage-and-sharing" id="toc-tools-for-data-storage-and-sharing" class="nav-link" data-scroll-target="#tools-for-data-storage-and-sharing"><span class="header-section-number">2.5.7</span> Tools for Data Storage and Sharing:</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
   </ul>
@@ -276,25 +277,26 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="case-study-protein-engineering-stack" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="case-study-protein-engineering-stack"><span class="header-section-number">2.3</span> Case study: Protein Engineering Stack</h2>
-<p><img src="images/HiAPE.png" class="img-fluid"></p>
-<p>This thesis focuses on the development of workflows and software tools with a focus on protein engineering.</p>
+<section id="methods" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="methods"><span class="header-section-number">2.3</span> Methods</h2>
 </section>
-<section id="computational-tools" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="computational-tools"><span class="header-section-number">2.4</span> Computational Tools:</h2>
-<section id="tools-for-data-logging-and-collaboration" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="tools-for-data-logging-and-collaboration"><span class="header-section-number">2.4.1</span> Tools for Data Logging and Collaboration:</h3>
+<section id="results" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="results"><span class="header-section-number">2.4</span> Results</h2>
+</section>
+<section id="computational-tools" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="computational-tools"><span class="header-section-number">2.5</span> Computational Tools:</h2>
+<section id="tools-for-data-logging-and-collaboration" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="tools-for-data-logging-and-collaboration"><span class="header-section-number">2.5.1</span> Tools for Data Logging and Collaboration:</h3>
 <p><img src="images/paste-1.png" class="img-fluid" width="352"></p>
-<section id="electronic-lab-notebooks" class="level4" data-number="2.4.1.1">
-<h4 data-number="2.4.1.1" class="anchored" data-anchor-id="electronic-lab-notebooks"><span class="header-section-number">2.4.1.1</span> Electronic Lab Notebooks:</h4>
+<section id="electronic-lab-notebooks" class="level4" data-number="2.5.1.1">
+<h4 data-number="2.5.1.1" class="anchored" data-anchor-id="electronic-lab-notebooks"><span class="header-section-number">2.5.1.1</span> Electronic Lab Notebooks:</h4>
 <p>Electronic Lab Notebooks (ELNs) are essential tools in modern research environments, offering several key advantages over traditional paper notebooks. They facilitate efficient data management by allowing researchers to easily organize, store, and retrieve experimental data. ELNs enhance collaboration among team members by enabling real-time sharing and commenting on data, which fosters greater communication and collective insights. Moreover, they improve data integrity and reproducibility through built-in version control and automated backups, reducing the risk of data loss or errors. ELNs also streamline compliance with regulatory requirements by providing secure, auditable records of experiments. Additionally, their integration with other digital tools and platforms can enhance workflows and automate routine tasks, ultimately increasing productivity and accelerating the research process[10].</p>
 <p>While there are free options for ELN software, many vendors limit data storage, file sizes, and the number of users, which can hinder larger teams or projects. Portability of files can also be a concern depending upon the ELN provider; for example if it ceases operations or raises prices, users may only receive a PDF export of their data, complicating transitions to other platforms. Although infrequent, security breaches, are a potential risk that users should be aware of. Additionally, not all electronic solutions cater to every lab’s needs; for example, some ELNs do not integrate with specific biotools like CRISPR/Cas9 genome editing software. Furthermore, user experience can vary significantly; many reviews point out issues with nonintuitive interfaces and the need for extensive training, which can slow down effective implementation in the lab [11].</p>
 <p>Here, we describe using Visual Studio (VS) Code along with quarto markdown files as an ELN. VS Code is compatible with most types of files. VS Code allows for the creation of Markdown files, which can be used to document experiments, protocols, and results in a structured and easily readable format. The built-in version control system (Git) enables users to track changes over time, making it simple to maintain a history of experiments and revisions. Open-sourced extensions allow integration of other software such as Docker, GitHub, and Notion which can be standardized through a free account.</p>
 <p>Moreover, integration of Jupyter Notebooks allow for interactive data analysis and visualization, integrating coding directly with documentation. This can be particularly useful for analyzing data using programming languages such as Python or R. Users can also benefit from VS Code’s robust search capabilities, making it easy to locate specific notes or data points across multiple files. Overall, using VS Code as an ELN combines flexibility, organization, and collaboration, making it a compelling choice for researchers looking to streamline their documentation processes.</p>
 </section>
-<section id="version-control" class="level4" data-number="2.4.1.2">
-<h4 data-number="2.4.1.2" class="anchored" data-anchor-id="version-control"><span class="header-section-number">2.4.1.2</span> Version Control:</h4>
+<section id="version-control" class="level4" data-number="2.5.1.2">
+<h4 data-number="2.5.1.2" class="anchored" data-anchor-id="version-control"><span class="header-section-number">2.5.1.2</span> Version Control:</h4>
 <p>Collaboration is streamlined on GitHub, as multiple team members can work on the same project simultaneously. Additionally, the ability to store files in cloud-based repositories (like GitHub or GitLab) ensures data portability and accessibility, even if the original workspace changes. This allows users to track changes over time, providing a clear history of modifications, which is essential for reproducibility and accountability. Users can create branches to explore new ideas or experiment with changes without affecting the main content. Pull requests enable thorough discussions and reviews of proposed changes before merging, ensuring that all contributions are vetted and enhancing the quality of the documentation.</p>
 <p>GitHub also supports Markdown, making it easy to format notes for clarity and readability. With features like issue tracking, users can manage tasks and monitor project progress efficiently. The platform’s cloud-based storage ensures that data is accessible from anywhere, minimizing the risk of loss. Overall, using GitHub for version control in an ELN not only improves organization and collaboration but also enhances the integrity and transparency of the research process.</p>
 <p>Using Docker to share workflow environments offers a powerful solution for ensuring consistency and reproducibility in research and development projects. Docker allows users to create containerized environments that encapsulate all necessary dependencies, libraries, and configurations required to run a specific application or workflow. This means that researchers can share their entire computational environment, ensuring that collaborators can run the same code with the same results, regardless of their local setups.</p>
@@ -302,53 +304,54 @@ ul.task-list li input[type="checkbox"] {
 <p>Models and datasets can be uploaded on AI sharing platforms such as Huggingface.</p>
 </section>
 </section>
-<section id="accesibility-to-modelling-tools" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="accesibility-to-modelling-tools"><span class="header-section-number">2.4.2</span> Accesibility to Modelling Tools:</h3>
+<section id="accesibility-to-modelling-tools" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="accesibility-to-modelling-tools"><span class="header-section-number">2.5.2</span> Accesibility to Modelling Tools:</h3>
 <p>Simulation and modeling tools play a crucial role in understanding and optimizing biological processes, particularly in fields like systems biology, synthetic biology, and drug development. However, many of these advanced tools are often limited in accessibility and user-friendliness, which can restrict their widespread adoption and effective use in research and application.</p>
 <p>Many of the available tools require specialized knowledge of programming and mathematical modeling, creating a steep learning curve for researchers who may not have a strong computational background. This can discourage scientists from utilizing these tools, even when they could significantly enhance their research. Additionally, some tools may lack comprehensive documentation or user support, making it difficult for users to troubleshoot issues or fully leverage the tool’s capabilities.</p>
 <p>Even when large models are made accessible on platforms like Google Colab, such as ColabFold, their functionality can be limited due to several factors. Firstly, computational resources on free or tiered cloud platforms may be restricted, leading to longer processing times or the inability to run particularly large or complex models that require significant computational power. This limitation can frustrate users who need to conduct extensive simulations or analyses. Additionally, Colab’s environment may not support all the necessary libraries or specific versions of software that users require for their models. While Colab offers a range of pre-installed packages, researchers may still encounter compatibility issues, requiring extra time to set up their environments properly. Furthermore, the reliance on internet connectivity can also pose challenges. Interruptions or slow connections can hinder users’ ability to run or save their work, potentially resulting in data loss or incomplete analyses [14]. Having locally hosted databases and models downloaded allows for more accurate analysis and predictions [15].</p>
 <p>To address these challenges, there is a growing need for more intuitive simulation and modeling tools that offer user-friendly interfaces and robust support for data integration. Enhancements such as visual modeling environments, drag-and-drop functionalities, and real-time feedback can make these tools more accessible to a broader audience. Furthermore, fostering collaborations between computational scientists and biologists can help ensure that the tools developed are tailored to the specific needs of the research community. [16]</p>
-<section id="alphafoldrosettafold-ui" class="level4" data-number="2.4.2.1">
-<h4 data-number="2.4.2.1" class="anchored" data-anchor-id="alphafoldrosettafold-ui"><span class="header-section-number">2.4.2.1</span> AlphaFold/RosettaFold UI:</h4>
+<section id="alphafoldrosettafold-ui" class="level4" data-number="2.5.2.1">
+<h4 data-number="2.5.2.1" class="anchored" data-anchor-id="alphafoldrosettafold-ui"><span class="header-section-number">2.5.2.1</span> AlphaFold/RosettaFold UI:</h4>
 <p><img src="images/paste-2.png" class="img-fluid" width="255"></p>
 </section>
 </section>
-<section id="visualization-tools" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="visualization-tools"><span class="header-section-number">2.4.3</span> Visualization Tools:</h3>
+<section id="visualization-tools" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="visualization-tools"><span class="header-section-number">2.5.3</span> Visualization Tools:</h3>
 <p>Biological data can be intricate and multidimensional, often involving large datasets from experiments such as genomics, proteomics, and metabolomics. Visualization tools help translate this data into graphical formats, making it easier for researchers to identify patterns, trends, and anomalies that might not be apparent in raw data. [17]</p>
 <p>These tools facilitate exploratory data analysis, allowing scientists to visualize relationships and interactions among biological variables. For instance, network diagrams can depict interactions between proteins, while heatmaps can show gene expression levels across different conditions, helping researchers draw meaningful conclusions and generate hypotheses. [18,19, 20]</p>
-<section id="facs-visualization" class="level4" data-number="2.4.3.1">
-<h4 data-number="2.4.3.1" class="anchored" data-anchor-id="facs-visualization"><span class="header-section-number">2.4.3.1</span> FACS Visualization:</h4>
+<section id="facs-visualization" class="level4" data-number="2.5.3.1">
+<h4 data-number="2.5.3.1" class="anchored" data-anchor-id="facs-visualization"><span class="header-section-number">2.5.3.1</span> FACS Visualization:</h4>
+<p><img src="images/paste-3.png" class="img-fluid" width="439"></p>
 </section>
-<section id="mutant-variability-visualizer" class="level4" data-number="2.4.3.2">
-<h4 data-number="2.4.3.2" class="anchored" data-anchor-id="mutant-variability-visualizer"><span class="header-section-number">2.4.3.2</span> Mutant Variability Visualizer:</h4>
-</section>
-</section>
-<section id="design-tools" class="level3" data-number="2.4.4">
-<h3 data-number="2.4.4" class="anchored" data-anchor-id="design-tools"><span class="header-section-number">2.4.4</span> Design Tools:</h3>
-<section id="primer-design" class="level4" data-number="2.4.4.1">
-<h4 data-number="2.4.4.1" class="anchored" data-anchor-id="primer-design"><span class="header-section-number">2.4.4.1</span> Primer design:</h4>
-</section>
-<section id="in-silico-mutant-generator" class="level4" data-number="2.4.4.2">
-<h4 data-number="2.4.4.2" class="anchored" data-anchor-id="in-silico-mutant-generator"><span class="header-section-number">2.4.4.2</span> In-silico Mutant Generator:</h4>
+<section id="mutant-variability-visualizer" class="level4" data-number="2.5.3.2">
+<h4 data-number="2.5.3.2" class="anchored" data-anchor-id="mutant-variability-visualizer"><span class="header-section-number">2.5.3.2</span> Mutant Variability Visualizer:</h4>
 </section>
 </section>
-<section id="machine-interoperability" class="level3" data-number="2.4.5">
-<h3 data-number="2.4.5" class="anchored" data-anchor-id="machine-interoperability"><span class="header-section-number">2.4.5</span> Machine Interoperability:</h3>
-<section id="well-mapping" class="level4" data-number="2.4.5.1">
-<h4 data-number="2.4.5.1" class="anchored" data-anchor-id="well-mapping"><span class="header-section-number">2.4.5.1</span> Well Mapping:</h4>
+<section id="design-tools" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="design-tools"><span class="header-section-number">2.5.4</span> Design Tools:</h3>
+<section id="primer-design" class="level4" data-number="2.5.4.1">
+<h4 data-number="2.5.4.1" class="anchored" data-anchor-id="primer-design"><span class="header-section-number">2.5.4.1</span> Primer design:</h4>
+</section>
+<section id="in-silico-mutant-generator" class="level4" data-number="2.5.4.2">
+<h4 data-number="2.5.4.2" class="anchored" data-anchor-id="in-silico-mutant-generator"><span class="header-section-number">2.5.4.2</span> In-silico Mutant Generator:</h4>
 </section>
 </section>
-<section id="analysis-tools" class="level3" data-number="2.4.6">
-<h3 data-number="2.4.6" class="anchored" data-anchor-id="analysis-tools"><span class="header-section-number">2.4.6</span> Analysis Tools:</h3>
-<section id="nanopore-analysis" class="level4" data-number="2.4.6.1">
-<h4 data-number="2.4.6.1" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">2.4.6.1</span> Nanopore Analysis:</h4>
+<section id="machine-interoperability" class="level3" data-number="2.5.5">
+<h3 data-number="2.5.5" class="anchored" data-anchor-id="machine-interoperability"><span class="header-section-number">2.5.5</span> Machine Interoperability:</h3>
+<section id="well-mapping" class="level4" data-number="2.5.5.1">
+<h4 data-number="2.5.5.1" class="anchored" data-anchor-id="well-mapping"><span class="header-section-number">2.5.5.1</span> Well Mapping:</h4>
 </section>
 </section>
-<section id="tools-for-data-storage-and-sharing" class="level3" data-number="2.4.7">
-<h3 data-number="2.4.7" class="anchored" data-anchor-id="tools-for-data-storage-and-sharing"><span class="header-section-number">2.4.7</span> Tools for Data Storage and Sharing:</h3>
-<section id="server-management" class="level4" data-number="2.4.7.1">
-<h4 data-number="2.4.7.1" class="anchored" data-anchor-id="server-management"><span class="header-section-number">2.4.7.1</span> Server Management:</h4>
+<section id="analysis-tools" class="level3" data-number="2.5.6">
+<h3 data-number="2.5.6" class="anchored" data-anchor-id="analysis-tools"><span class="header-section-number">2.5.6</span> Analysis Tools:</h3>
+<section id="nanopore-analysis" class="level4" data-number="2.5.6.1">
+<h4 data-number="2.5.6.1" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">2.5.6.1</span> Nanopore Analysis:</h4>
+</section>
+</section>
+<section id="tools-for-data-storage-and-sharing" class="level3" data-number="2.5.7">
+<h3 data-number="2.5.7" class="anchored" data-anchor-id="tools-for-data-storage-and-sharing"><span class="header-section-number">2.5.7</span> Tools for Data Storage and Sharing:</h3>
+<section id="server-management" class="level4" data-number="2.5.7.1">
+<h4 data-number="2.5.7.1" class="anchored" data-anchor-id="server-management"><span class="header-section-number">2.5.7.1</span> Server Management:</h4>
 </section>
 </section>
 </section>

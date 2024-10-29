@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology - 4&nbsp; Biofoundry based production of mutants and long DNA sequences</title>
+<title>Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology - 4&nbsp; Biofoundry based production and multiplexed identification of mutants</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/mutant_gen.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production of mutants and long DNA sequences</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/mutant_gen.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production and multiplexed identification of mutants</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -133,13 +133,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/mutant_gen.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production of mutants and long DNA sequences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production and multiplexed identification of mutants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/dsembler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dsembler - DNA Assembly Designer: A tool for Facilitating Assembly of Long DNA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -171,15 +171,15 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
-  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design"><span class="header-section-number">4.2</span> Design</a></li>
-  <li><a href="#build" id="toc-build" class="nav-link" data-scroll-target="#build"><span class="header-section-number">4.3</span> Build</a></li>
-  <li><a href="#test-high-throughput-mutant-screening" id="toc-test-high-throughput-mutant-screening" class="nav-link" data-scroll-target="#test-high-throughput-mutant-screening"><span class="header-section-number">4.4</span> Test: High-throughput mutant screening</a>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">4.2</span> Methods</a>
   <ul class="collapse">
-  <li><a href="#multiplexed-barcode-pcr-sequencing" id="toc-multiplexed-barcode-pcr-sequencing" class="nav-link" data-scroll-target="#multiplexed-barcode-pcr-sequencing"><span class="header-section-number">4.4.1</span> Multiplexed barcode PCR sequencing</a></li>
-  <li><a href="#nanopore-analysis" id="toc-nanopore-analysis" class="nav-link" data-scroll-target="#nanopore-analysis"><span class="header-section-number">4.4.2</span> Nanopore analysis</a></li>
-  <li><a href="#phenotyping" id="toc-phenotyping" class="nav-link" data-scroll-target="#phenotyping"><span class="header-section-number">4.4.3</span> Phenotyping</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design"><span class="header-section-number">4.2.1</span> Design</a></li>
+  <li><a href="#build" id="toc-build" class="nav-link" data-scroll-target="#build"><span class="header-section-number">4.2.2</span> Build</a></li>
+  <li><a href="#test-high-throughput-mutant-screening" id="toc-test-high-throughput-mutant-screening" class="nav-link" data-scroll-target="#test-high-throughput-mutant-screening"><span class="header-section-number">4.2.3</span> Test: High-throughput mutant screening</a></li>
+  <li><a href="#learn" id="toc-learn" class="nav-link" data-scroll-target="#learn"><span class="header-section-number">4.2.4</span> Learn</a></li>
   </ul></li>
-  <li><a href="#learn" id="toc-learn" class="nav-link" data-scroll-target="#learn"><span class="header-section-number">4.5</span> Learn</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4.3</span> Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4.4</span> Discussion</a></li>
   </ul>
 </nav>
     </div>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production of mutants and long DNA sequences</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production and multiplexed identification of mutants</span></h1>
 </div>
 
 
@@ -208,8 +208,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
 </section>
-<section id="design" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="design"><span class="header-section-number">4.2</span> Design</h2>
+<section id="methods" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">4.2</span> Methods</h2>
+<section id="design" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="design"><span class="header-section-number">4.2.1</span> Design</h3>
 <ul>
 <li><p>In-silico Modelling:</p>
 <ul>
@@ -220,31 +222,40 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Biofoundry equipment mapping</p></li>
 </ul>
 </section>
-<section id="build" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="build"><span class="header-section-number">4.3</span> Build</h2>
+<section id="build" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="build"><span class="header-section-number">4.2.2</span> Build</h3>
 <ul>
 <li>SDM</li>
 </ul>
 </section>
-<section id="test-high-throughput-mutant-screening" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="test-high-throughput-mutant-screening"><span class="header-section-number">4.4</span> Test: High-throughput mutant screening</h2>
-<section id="multiplexed-barcode-pcr-sequencing" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="multiplexed-barcode-pcr-sequencing"><span class="header-section-number">4.4.1</span> Multiplexed barcode PCR sequencing</h3>
+<section id="test-high-throughput-mutant-screening" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="test-high-throughput-mutant-screening"><span class="header-section-number">4.2.3</span> Test: High-throughput mutant screening</h3>
+<section id="multiplexed-barcode-pcr-sequencing" class="level4" data-number="4.2.3.1">
+<h4 data-number="4.2.3.1" class="anchored" data-anchor-id="multiplexed-barcode-pcr-sequencing"><span class="header-section-number">4.2.3.1</span> Multiplexed barcode PCR sequencing</h4>
 </section>
-<section id="nanopore-analysis" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">4.4.2</span> Nanopore analysis</h3>
+<section id="nanopore-analysis" class="level4" data-number="4.2.3.2">
+<h4 data-number="4.2.3.2" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">4.2.3.2</span> Nanopore analysis</h4>
 <p>The output of the Nanopore sequencing is the pooled result of the above PCR products, which comprises of different samples with different samples. It is important to demultiplex the samples to differentiate the sequences appropriately. Follow the steps to run</p>
 </section>
-<section id="phenotyping" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="phenotyping"><span class="header-section-number">4.4.3</span> Phenotyping</h3>
+<section id="phenotyping" class="level4" data-number="4.2.3.3">
+<h4 data-number="4.2.3.3" class="anchored" data-anchor-id="phenotyping"><span class="header-section-number">4.2.3.3</span> Phenotyping</h4>
 
 </section>
 </section>
-<section id="learn" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="learn"><span class="header-section-number">4.5</span> Learn</h2>
+<section id="learn" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="learn"><span class="header-section-number">4.2.4</span> Learn</h3>
 <ul>
 <li>Structure Predictions and Simulations</li>
 </ul>
+</section>
+</section>
+<section id="results" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="results"><span class="header-section-number">4.3</span> Results</h2>
+<p>DmpR</p>
+<p>MPH</p>
+</section>
+<section id="discussion" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="discussion"><span class="header-section-number">4.4</span> Discussion</h2>
 
 
 </section>
@@ -644,8 +655,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/dsembler.html" class="pagination-link" aria-label="Dsembler - DNA Assembly Designer: A tool for Facilitating Assembly of Long DNA">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Dsembler - DNA Assembly Designer: A tool for Facilitating Assembly of Long DNA</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/dsembler.html" class="pagination-link" aria-label="Assembling Long-DNA">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
