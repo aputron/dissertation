@@ -1,1 +1,5 @@
 # Conclusion {.unnumbered}
+
+Case study: Protein Engineering Stack
+
+![](images/HiAPE.png)This thesis focuses on the development of workflows and software tools with a focus on protein engineering.

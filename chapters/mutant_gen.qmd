@@ -1,8 +1,10 @@
-# Biofoundry based production of mutants and long DNA sequences
+# Biofoundry based production and multiplexed identification of mutants
 
 ## Introduction
 
-## Design
+## Methods
+
+### Design
 
 -   In-silico Modelling:
 
@@ -14,24 +16,36 @@
 
 -   Biofoundry equipment mapping
 
-## Build
+### Build
 
 -   SDM
 
 \newpage
 
-## Test: High-throughput mutant screening
+### Test: High-throughput mutant screening
 
-### Multiplexed barcode PCR sequencing
+#### Multiplexed barcode PCR sequencing
 
-### Nanopore analysis
+#### Nanopore analysis
 
 The output of the Nanopore sequencing is the pooled result of the above PCR products, which comprises of different samples with different samples. It is important to demultiplex the samples to differentiate the sequences appropriately. Follow the steps to run
 
-### Phenotyping
+#### Phenotyping
 
 \newpage
 
-## Learn
+### Learn
 
 -   Structure Predictions and Simulations
+
+## Results
+
+Top 19 mutants were parallely constructed rapidly, and were identified with an in-house biofoundry workflow (Methods: Mutant generation and evaluation). 89% of the samples had comparable background to wild type, with 53% being less than that of WT. 58% of the samples had comparable signal to WT with 42% being more than that of WT. None of the samples had high background with high activity, owing to the prefrence given to background while selecting the candidates. 33% of the samples (Mutants M45L, I168T, D91E, D91H, M320R and P482Q) had a higher fold change than that of WT.
+
+Using the positional information, the role and importance of the residue can be interpreted. For example, P482Q is present at a linker between the ATPase domain and the DNA binding domain. Substituting proline for glutamine may promote water-based H-bonding which improves flexible binding and release of the TF from the promoter DNA.
+
+DmpR
+
+MPH
+
+## Discussion

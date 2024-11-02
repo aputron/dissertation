@@ -1,0 +1,3 @@
+# Appendix {.unnumbered}
+
+![A: Activity Bar showcasing the extensions installed locally. B: Primary Side Bar that displays the layout of files and Source code changes. C: Main window to edit markdown and jupyter notebook files. D: A Preview panel to view PDF and HTML files.](images/VS_code.png)
