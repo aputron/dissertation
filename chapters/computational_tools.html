@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -89,6 +109,35 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -209,8 +258,8 @@ MathJax = {
   <li><a href="#visualization-tools" id="toc-visualization-tools" class="nav-link" data-scroll-target="#visualization-tools"><span class="header-section-number">2.3.6</span> Visualization Tools:</a></li>
   <li><a href="#tools-for-data-storage-and-sharing" id="toc-tools-for-data-storage-and-sharing" class="nav-link" data-scroll-target="#tools-for-data-storage-and-sharing"><span class="header-section-number">2.3.7</span> Tools for Data Storage and Sharing:</a></li>
   </ul></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">2.4</span> Methods</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">2.4</span> Conclusion</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">2.5</span> Methods</a></li>
   </ul>
 </nav>
     </div>
@@ -238,21 +287,18 @@ MathJax = {
 
 <section id="introduction" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
-<blockquote class="blockquote">
-<p>In the context of a biofoundry that necessitates the development of diverse workflows tailored to multiple applications, the adoption of open-source software is critical. Open-source solutions offer the advantage of seamless integration with various modules, enabling researchers to construct adaptable and efficient workflows.</p>
-</blockquote>
-<p>The Design-Build-Test-Learn (DBTL) cycle, a foundational methodology of synthetic biology, adopts engineering principles to enhance reproducibility and efficiency in biological research. Yet, the Build and Test phases pose considerable challenges to their labor-intensive and time-consuming nature. For instance, the assembly of three DNA fragments often requires a week per circuit assembly by a skilled graduate student. Furthermore, optimizing the expression of a gene with promoters, RBSs, and terminator parts - three different types for each – necessitates creating and testing 27 distinct DNA combinations. This process could extend a graduate student’s workload to four to six months for the construction of an optimal genetic circuit.</p>
-<p>On an industrial scale, the Build and Test stages present similarly formidable challenges. The development and commercialization of Artemisinin, a treatment for malaria by Amyris, demanded an investment of $15 million and ten years, equivalent to roughly 150 person-years. Similarly, DuPont’s production of 1,3-propanediol required 575 person-years, highlighting the extensive resource commitment in synthetic biology projects [1]. These instances underline the significant time and labor investments needed to harness the benefits of synthetic biology, explaining why the field, which emerged in the early 2000s, took about a decade to prove its value.</p>
-<p>The incorporation of robotics into biology has significantly reduced the manual labor and time constraints traditionally associated with biological experiments. This advancement was pioneered by Dr.&nbsp;Ross D. King in 2004 [2], who developed the robotic scientists Adam and Eve to autonomously investigate yeast metabolism and enzyme discovery [3]. Despite their innovative potential, the application of these robotic scientists has faced limitations due to the need for specialized automation equipment tailored for specific research projects. This requirement often limits the flexibility needed to conduct a wide array of complex biological experiments, leading to significant costs and efforts to adapt commercial equipment for various research needs.</p>
-<p>However, the fundamental principles of synthetic biology, including standardized parts, assembly techniques, and an engineering-focused DBTL strategy, have demonstrated significant compatibility with automation and robotics. This synergy has not only enhanced research but also found practical industrial applications. A notable example is Lanzatech’s production of ethanol from greenhouse gases using its clostridiaBiofoundry (cBioFab) [4], which combines cell-free systems with machine learning technology to achieve remarkable industrial breakthroughs [5, 6] in producing 1-hexanol and hexanoic acid (&gt;100x improvement).</p>
-<p>A biofoundry integrates the entire DBTL cycle, from initial DNA design to testing cells modified with that DNA, by systematically linking automated hardware and software to streamline the process from gene synthesis to the final product. A key strategy in constructing an efficient biofoundry is the careful design of each DBTL stage to ensure seamless operation and eliminate bottlenecks, significantly improving development speed and throughput. For instance, Ginkgo Bioworks has shown considerable efficiency gains, with its throughput increasing two to four times annually between 2014 and 2020. In 2017, the company achieved a milestone when the cost of testing per strain became lower than that of manual handling [7]. Amyris, having launched its biofoundry in 2011, has successfully commercialized 15 new substances at a consistent rate over the last seven years [8], marking a productivity increase of more than twentyfold compared to its earlier efforts with Artemisinin. These developments underscore the transformative impact of biofoundries on synthetic biology, providing scalable and cost-efficient solutions for bioproduct development. By optimizing the bioproduct development process, biofoundries substantially reduce the time and cost associated with bringing new products to market, representing a significant advancement in biotechnological innovation.</p>
+<p>Various molecular experiments have been significantly streamlined with the advent of machines that can replace arduous laboratory work. For example, even simple gel electrophoresis experiments can be left to E-gel Electrophoresis systems (Invitrogen, ThermoFisher) for a small number of samples or fragment analyzers (Agilent) when working at scale. By leveraging such advanced technologies, researchers can focus on data interpretation and experimental design.</p>
+<p>In a biofoundry, it is typical to find such machines, each playing a specialized role in the overall experimental strategy<span class="citation" data-cites="myers2017standard"><sup><a href="references.html#ref-myers2017standard" role="doc-biblioref">1</a></sup></span>. However, when dealing with a diverse array of equipment from various manufacturers, it is common to encounter a range of challenges. These devices often require different inputs, feature distinct user interfaces (UIs) that each come with their own learning curves, utilize various file formats, and may have incompatible data structures<span class="citation" data-cites="torres2022automated"><sup><a href="references.html#ref-torres2022automated" role="doc-biblioref">2</a></sup></span>. Such discrepancies can significantly reduce the efficiency of workflows by requiring constant supervision and hinder the overall productivity of research efforts. An example of these costs can be illustrated by Amyris’ artemisinin project. This five-year, $20 million initiative reportedly dedicates 95% of its time to identifying and addressing unintended interactions between various components<span class="citation" data-cites="henkel2007economics"><sup><a href="references.html#ref-henkel2007economics" role="doc-biblioref">3</a></sup></span>.</p>
+<p>To address these challenges, the field of bio-design automation (BDA) was conceptualized. Modeled after electronic-design automation (EDA), which revolutionized the electronic industry by creating software tools for designing and managing complex electronic systems, BDA aims to enhance the efficiency and scalability of biological research and engineering<span class="citation" data-cites="appleton2017design"><sup><a href="references.html#ref-appleton2017design" role="doc-biblioref">4</a></sup></span>. This field fosters an interdisciplinary community that brings together biologists, engineers, computer scientists, and data analysts, all collaborating to address specific challenges within synthetic biology workflows. By identifying and tackling subproblems, BDA encourages the development of specialized software tools that support the design, construction, and testing of biological systems<span class="citation" data-cites="appleton2017needs"><sup><a href="references.html#ref-appleton2017needs" role="doc-biblioref">5</a></sup></span>. These tools not only streamline experimental processes but also facilitate the iterative refinement of biological constructs, ultimately enabling researchers to innovate more rapidly and effectively.</p>
+<p>For a biofoundry that necessitates the development of diverse workflows tailored to multiple applications, the adoption of open-source software is critical. Recent efforts include, SynBiopython<span class="citation" data-cites="yeoh2021synbiopython"><sup><a href="references.html#ref-yeoh2021synbiopython" role="doc-biblioref">6</a></sup></span> focuses on the standardize the file formats and tool interoperability, and BioNumpy<span class="citation" data-cites="rand2024bionumpy"><sup><a href="references.html#ref-rand2024bionumpy" role="doc-biblioref">7</a></sup></span> allows for array programming of biological data. Open-source solutions by rapidly-prototyping software offer the advantage of seamless integration of various modules and expand the range of workflows.</p>
+<p>This chapter, addresses the considerations for a biofoundry and the development of workflows, software and tools to streamline processes common in synthetic biology. Here the tools for data visualization, analysis, logging, sharing, modelling, machine operatability are exhibited. The chapter focuses on tools programmed using Python, with user interfaces developed on Streamlit, which provide a base for further chapters.</p>
 </section>
 <section id="considerations-required-for-biofoundry-development" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="considerations-required-for-biofoundry-development"><span class="header-section-number">2.2</span> Considerations required for biofoundry development</h2>
 <section id="hardware" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="hardware"><span class="header-section-number">2.2.1</span> Hardware</h3>
-<p>The concept of a biofoundry often evokes images of automated robotics operating within a biological laboratory. Given this association, automation is deemed essential for the development of biofoundries. However, the deployment of advanced automation machinery, including robotic arms, in fully automated biofoundries requires careful attention to planning. While devices like liquid handlers are crucial for high-throughput well plate-based experiments, incorporating robotic arms with other automated devices, such as automated thermal cyclers or automated incubators, significantly raises both initial and ongoing maintenance costs. Adopting a semi-automated DBTL cycle is one of the strategies that offer maximum flexibility at minimal cost.</p>
-<p>Currently, the availability of automated equipment is restricted to a handful of global companies. To broaden the options for users and ensure the provision of high-quality services, ongoing development of such equipment is essential. This necessitates long-term and continuous investment, supported by governmental policies, especially given the current limited market availability. The emphasis in hardware development should be on enhancing the connectivity and flexibility of devices to boost the overall efficiency of the DBTL cycle, rather than focusing solely on individual device specifications.</p>
+<p>The concept of a biofoundry often evokes images of automated robotics operating within a biological laboratory. Given this association, automation is deemed essential for the development of biofoundries. However, the deployment of advanced automation machinery, including robotic arms, in fully automated biofoundries requires careful attention to planning<span class="citation" data-cites="kwon2023advancing"><sup><a href="references.html#ref-kwon2023advancing" role="doc-biblioref">8</a></sup></span>. While devices like liquid handlers are crucial for high-throughput well plate-based experiments, incorporating robotic arms with other automated devices, such as automated thermal cyclers or automated incubators, significantly raises both initial and ongoing maintenance costs. Adopting a semi-automated DBTL cycle is one of the strategies that offer maximum flexibility at minimal cost.</p>
+<p>Currently, the availability of automated equipment is restricted to a handful of global companies. To broaden the options for users and ensure the provision of high-quality services, ongoing development of such equipment is essential. This necessitates long-term and continuous investment, supported by governmental policies, especially given the current limited market availability. One way to reduce costs is to make use of community labs and open DIY hardware<span class="citation" data-cites="wenzel2023open"><sup><a href="references.html#ref-wenzel2023open" role="doc-biblioref">9</a></sup></span>. However, these rely on availability of material and cannot be implemented for long-term projects. The emphasis in hardware development should be on enhancing the connectivity and flexibility of devices to boost the overall efficiency of the DBTL cycle, rather than focusing solely on individual device specifications.</p>
 <p>Furthermore, an increase in hardware throughput does not guarantee an improvement in overall biofoundry performance. One of the major reasons automated equipment may remain underutilized or idle in universities or research institutions is that data management and analysis are failed to keep pace with the hardware’s throughput. In this context, the workflows and software discussed in the subsequent chapters are pivotal considerations prior to hardware deployment.</p>
 </section>
 <section id="workflows" class="level3" data-number="2.2.2">
@@ -260,7 +306,7 @@ MathJax = {
 <p>Before delving further into biofoundry development, it’s necessary to define some key terms associated with biofoundry operation for ease of understanding. We introduce two fundamental terms: ‘workflow’ and ‘unit process.’ A unit process is the smallest protocol executed by an automated machine, while a workflow is a sequence of unit processes organized to produce a desired product. The terms ‘protocol’ and ‘process’ are employed broadly. Both unit processes and workflows can be formulated as standard operating procedures (SOPs) which are detailed instructions designed to standardize and enhance the reproducibility of operations.</p>
 <p>In constructing a biofoundry, workflows are developed by re-optimizing established manual protocols. Manual protocols frequently overlook or oversimplify sample preparation, deemed apparent. Conversely, automated protocols demand more detailed specifications, including the quantity, position, and handing of reagents and equipment, especially when using multi-well plates.</p>
 <p>Developing a workflow involves assessing the level of automation feasible with the available equipment and consumables. The initial level may resemble manual operations, progressing to the use of liquid handlers capable of managing experiments based on 96 or 384-well plates. Utilizing high-throughput equipment not only enhances experiment throughput but also improves reproducibility. Establishing quantitatively measurable metrics within the tier system is crucial for ensuring the reliability and interoperability of workflows.</p>
-<p>To enhance a biofoundry’s efficiency, it’s essential to reduce the operational costs associated with workflows and enable the simultaneous running of multiple workflows, which is key to maximizing efficiency and productivity. This challenge can be tackled in two ways. One approach is consolidating samples onto a single plate when different researchers request the same workflow. Alternatively, when different workflows are requested, they can be integrated by considering the run times of each unit process and scheduled as a single workflow. These scheduling strategies, more suitable for semi-automated biofoundries, are essential for enhancing biofoundry performance, given the limited number of machines. Additionally, waste in research, often due to avoidable design flaws or incomplete experiments, is a significant concern. Over 50% of research remains unpublished, half of which is attributable to preventable errors [9]. An integrated biofoundry can minimize these mistakes by facilitating more informed decisions from a broader range of experiments.</p>
+<p>To enhance a biofoundry’s efficiency, it’s essential to reduce the operational costs associated with workflows and enable the simultaneous running of multiple workflows, which is key to maximizing efficiency and productivity. This challenge can be tackled in two ways. One approach is consolidating samples onto a single plate when different researchers request the same workflow. Alternatively, when different workflows are requested, they can be integrated by considering the run times of each unit process and scheduled as a single workflow. These scheduling strategies, more suitable for semi-automated biofoundries, are essential for enhancing biofoundry performance, given the limited number of machines. Additionally, waste in research, often due to avoidable design flaws or incomplete experiments, is a significant concern. Over 50% of research remains unpublished, half of which is attributable to preventable errors<span class="citation" data-cites="sogi2023research"><sup><a href="references.html#ref-sogi2023research" role="doc-biblioref">10</a></sup></span>. An integrated biofoundry can minimize these mistakes by facilitating more informed decisions from a broader range of experiments.</p>
 </section>
 <section id="key-gaps-in-workflows" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="key-gaps-in-workflows"><span class="header-section-number">2.2.3</span> Key Gaps in workflows:</h3>
@@ -278,7 +324,7 @@ MathJax = {
 </section>
 <section id="software" class="level3" data-number="2.2.4">
 <h3 data-number="2.2.4" class="anchored" data-anchor-id="software"><span class="header-section-number">2.2.4</span> Software</h3>
-<p>Despite the increasing necessity for constructing biofoundries, the availability of software specifically designed for biofoundry operations remains limited. While some existing solutions for Electronic Laboratory Notebooks (ELN) or Laboratory Information Management Systems (LIMS) [10] are available, they often do not meet the unique requirements of biofoundry operations comprehensively. Furthermore, the cost of these solutions can be prohibitive for use in an extensively scaled biofoundry environment with a large team.</p>
+<p>Despite the increasing necessity for constructing biofoundries, the availability of software specifically designed for biofoundry operations remains limited. While some existing solutions for Electronic Laboratory Notebooks (ELN) or Laboratory Information Management Systems (LIMS)<span class="citation" data-cites="kwok2018"><sup><a href="references.html#ref-kwok2018" role="doc-biblioref">11</a></sup></span> are available, they often do not meet the unique requirements of biofoundry operations comprehensively. Furthermore, the cost of these solutions can be prohibitive for use in an extensively scaled biofoundry environment with a large team.</p>
 <p>Developing software for biofoundry operations is indispensable. Creating software that coordinates biological experiments across various stages of the DBTL cycle requires the collaborative, intensive efforts of IT engineers and biologists. To address this challenge, we advocate for a ‘rapid prototyping and soft integration strategy.’ This approach emphasizes the quick development of specific functionalities necessary for biofoundry operations and their integration with existing tools, like Snapgene and GitLab. Modern frameworks for developing web-based applications, such as Python’s Streamlit or R’s Shiny, are invaluable for rapidly producing streamlined software applications. Integrated Development Environments (IDEs) like Visual Studio Code (VSCode) or RStudio are instrumental in managing the entire DBTL cycle, thereby significantly boosting the efficiency and synchronization of biofoundry operations. This approach of ‘rapid prototyping and soft integration’ underscores the importance of continuous software maintenance and updates to support equipment and technological advancements, alongside evolving scientific interests.</p>
 <p>Concerning the functional requirements of biofoundry software, a major challenge in biofoundry design is operational costs. It is imperative to reduce the consumption of consumables, time, and labor in individual workflows. Initially, efforts should concentrate on optimizing workflows within a semi-automated system. Software that persistently monitors the availability of automated equipment and materials plays a vital role in maximizing resource use and coordinating the execution of workflows from various users. Moreover, given the extensive number of samples processed by a biofoundry, its operational software must manage a significantly larger volume of equipment, materials, experiments, and operations than a conventional laboratory. This necessitates a seamless system to ensure equipment availability, smooth supply of materials, and swift data analysis for designing subsequent high-throughput experiments. Furthermore, constructing an operational system capable of controlling automated devices from diverse manufacturers requires APIs that can translate the interactions between user-designed workflows and automated equipment into a universally understandable language, such as JSON.</p>
 <p>While these endeavors can be demanding and might necessitate collaboration with equipment vendors, initiating software development that monitors equipment status and suggests optimized workflows in a semi-automated system is feasible. The adaptability and compatibility offered by such a system are crucial for enhancing accessibility and interoperability among biofoundry facilities.</p>
@@ -303,11 +349,16 @@ MathJax = {
 <h2 data-number="2.3" class="anchored" data-anchor-id="computational-tools"><span class="header-section-number">2.3</span> Computational Tools:</h2>
 <section id="tools-for-data-logging-and-collaboration" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="tools-for-data-logging-and-collaboration"><span class="header-section-number">2.3.1</span> Tools for Data Logging and Collaboration:</h3>
-<p><img src="images/paste-1.png" class="img-fluid" width="352"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/server_outline.png" class="img-fluid figure-img" width="352"></p>
+<figcaption>Software and applications for Data Logs and Collaboration</figcaption>
+</figure>
+</div>
 <section id="electronic-lab-notebooks" class="level4" data-number="2.3.1.1">
 <h4 data-number="2.3.1.1" class="anchored" data-anchor-id="electronic-lab-notebooks"><span class="header-section-number">2.3.1.1</span> Electronic Lab Notebooks:</h4>
-<p>Electronic Lab Notebooks (ELNs) are essential tools in modern research environments, offering several key advantages over traditional paper notebooks. They facilitate efficient data management by allowing researchers to easily organize, store, and retrieve experimental data. ELNs enhance collaboration among team members by enabling real-time sharing and commenting on data, which fosters greater communication and collective insights. Moreover, they improve data integrity and reproducibility through built-in version control and automated backups, reducing the risk of data loss or errors. ELNs also streamline compliance with regulatory requirements by providing secure, auditable records of experiments. Additionally, their integration with other digital tools and platforms can enhance workflows and automate routine tasks, ultimately increasing productivity and accelerating the research process[10].</p>
-<p>While there are free options for ELN software, many vendors limit data storage, file sizes, and the number of users, which can hinder larger teams or projects. Portability of files can also be a concern depending upon the ELN provider; for example if it ceases operations or raises prices, users may only receive a PDF export of their data, complicating transitions to other platforms. Although infrequent, security breaches, are a potential risk that users should be aware of. Additionally, not all electronic solutions cater to every lab’s needs; for example, some ELNs do not integrate with specific biotools like CRISPR/Cas9 genome editing software. Furthermore, user experience can vary significantly; many reviews point out issues with nonintuitive interfaces and the need for extensive training, which can slow down effective implementation in the lab [11].</p>
+<p>Electronic Lab Notebooks (ELNs) are essential tools in modern research environments, offering several key advantages over traditional paper notebooks. They facilitate efficient data management by allowing researchers to easily organize, store, and retrieve experimental data. ELNs enhance collaboration among team members by enabling real-time sharing and commenting on data, which fosters greater communication and collective insights. Moreover, they improve data integrity and reproducibility through built-in version control and automated backups, reducing the risk of data loss or errors. ELNs also streamline compliance with regulatory requirements by providing secure, auditable records of experiments. Additionally, their integration with other digital tools and platforms can enhance workflows and automate routine tasks, ultimately increasing productivity and accelerating the research process[<span class="citation" data-cites="kwok2018"><sup><a href="references.html#ref-kwok2018" role="doc-biblioref">11</a></sup></span>]<span class="citation" data-cites="eblen2015comparing"><sup><a href="references.html#ref-eblen2015comparing" role="doc-biblioref">12</a></sup></span>.</p>
+<p>While there are free options for ELN software, many vendors limit data storage, file sizes, and the number of users, which can hinder larger teams or projects. Portability of files can also be a concern depending upon the ELN provider; for example if it ceases operations or raises prices, users may only receive a PDF export of their data, complicating transitions to other platforms. Although infrequent, security breaches, are a potential risk that users should be aware of. Additionally, not all electronic solutions cater to every lab’s needs; for example, some ELNs do not integrate with specific biotools like CRISPR/Cas9 genome editing software. Furthermore, user experience can vary significantly; many reviews point out issues with nonintuitive interfaces and the need for extensive training, which can slow down effective implementation in the lab<span class="citation" data-cites="Schmerker_2020"><sup><a href="references.html#ref-Schmerker_2020" role="doc-biblioref">13</a></sup></span>.</p>
 <p>Here, we describe using Visual Studio (VS) Code along with quarto markdown files as an ELN. VS Code is compatible with most types of files. VS Code allows for the creation of Markdown files, which can be used to document experiments, protocols, and results in a structured and easily readable format. The built-in version control system (Git) enables users to track changes over time, making it simple to maintain a history of experiments and revisions. Open-sourced extensions allow integration of other software such as Docker, GitHub, and Notion which can be standardized through a free account.</p>
 <p>Moreover, integration of Jupyter Notebooks allow for interactive data analysis and visualization, integrating coding directly with documentation. This can be particularly useful for analyzing data using programming languages such as Python or R. Users can also benefit from VS Code’s robust search capabilities, making it easy to locate specific notes or data points across multiple files. Overall, using VS Code as an ELN combines flexibility, organization, and collaboration, making it a compelling choice for researchers looking to streamline their documentation processes.</p>
 </section>
@@ -316,69 +367,147 @@ MathJax = {
 <p>Collaboration is streamlined on GitHub, as multiple team members can work on the same project simultaneously. Additionally, the ability to store files in cloud-based repositories (like GitHub or GitLab) ensures data portability and accessibility, even if the original workspace changes. This allows users to track changes over time, providing a clear history of modifications, which is essential for reproducibility and accountability. Users can create branches to explore new ideas or experiment with changes without affecting the main content. Pull requests enable thorough discussions and reviews of proposed changes before merging, ensuring that all contributions are vetted and enhancing the quality of the documentation.</p>
 <p>GitHub also supports Markdown, making it easy to format notes for clarity and readability. With features like issue tracking, users can manage tasks and monitor project progress efficiently. The platform’s cloud-based storage ensures that data is accessible from anywhere, minimizing the risk of loss. Overall, using GitHub for version control in an ELN not only improves organization and collaboration but also enhances the integrity and transparency of the research process.</p>
 <p>Using Docker to share workflow environments offers a powerful solution for ensuring consistency and reproducibility in research and development projects. Docker allows users to create containerized environments that encapsulate all necessary dependencies, libraries, and configurations required to run a specific application or workflow. This means that researchers can share their entire computational environment, ensuring that collaborators can run the same code with the same results, regardless of their local setups.</p>
-<p>By creating a Docker image, users can package their workflows along with any required software, making it easy to distribute and deploy on any system that supports Docker. This eliminates the common “it works on my machine” problem, as the container will behave the same way on any platform. Additionally, Docker supports versioning, allowing teams to track changes in their environment over time and roll back to previous configurations if needed. [12, 13]</p>
+<p>By creating a Docker image, users can package their workflows along with any required software, making it easy to distribute and deploy on any system that supports Docker. This eliminates the common “it works on my machine” problem, as the container will behave the same way on any platform. Additionally, Docker supports versioning, allowing teams to track changes in their environment over time and roll back to previous configurations if needed.<span class="citation" data-cites="eyersgithub"><sup><a href="references.html#ref-eyersgithub" role="doc-biblioref">14</a></sup></span>,<span class="citation" data-cites="leahy2022"><sup><a href="references.html#ref-leahy2022" role="doc-biblioref">15</a></sup></span></p>
 <p>Models and datasets can be uploaded on AI sharing platforms such as Huggingface.</p>
 </section>
 </section>
 <section id="design-tools" class="level3" data-number="2.3.2">
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="design-tools"><span class="header-section-number">2.3.2</span> Design Tools:</h3>
 <p>When managing a large number of samples, the design of DNA fragments can become a complex and cumbersome process. This challenge is exacerbated by the need to ensure specificity and efficiency in fragment design, which is crucial for downstream applications such as cloning, sequencing, or synthetic biology. As sample numbers increase, the potential for human error also rises, leading to inconsistencies that can compromise experimental outcomes. Moreover, the iterative nature of fragment design often necessitates multiple rounds of optimization, further extending the time and resources required for successful implementation. Consequently, the integration of automated design tools and software that can handle bulk DNA fragment design may prove invaluable. Such tools can streamline the process, enhance accuracy, and significantly reduce the workload associated with designing DNA fragments across numerous samples, thereby improving overall productivity in molecular biology workflows.</p>
+<p><img src="images/design_tools.png" class="img-fluid"></p>
 <section id="in-silico-mutant-generator" class="level4" data-number="2.3.2.1">
 <h4 data-number="2.3.2.1" class="anchored" data-anchor-id="in-silico-mutant-generator"><span class="header-section-number">2.3.2.1</span> <em>In-silico</em> Mutant Generator:</h4>
 <p>Optimizing DNA fragments in synthetic biology is a crucial step in the development of efficient and functional biological systems, necessitating the creation of a diverse array of mutant candidates to explore variations that can enhance performance. The traditional approaches to generating these mutants are often labor-intensive and resource-consuming, posing significant challenges in terms of time and scalability. In response to these limitations, we have developed an innovative in-silico mutant library generator that harnesses computational power to simulate a broad spectrum of mutations across selected DNA sequences. This generator creates a library of a predefined size introduces various types of mutations, including point mutations, insertions, and deletions in each mutant. By integrating it with machine learning approaches trained on extensive datasets, this tool can be used to identify appropriate optimized candidates.</p>
-<div id="alg-insilico" class="pseudocode-container quarto-float" data-caption-prefix="Algorithm" data-pseudocode-number="1">
-<div class="pseudocode">
-\begin{algorithm} \caption{In-silico Mutant Generator} \begin{algorithmic} \INPUT{Target DNA sequences (FASTA file/String)} \OUTPUT{Mutant Library as DNA and protein sequences (FASTA file)} \Function{MutantLibrary} \end{algorithmic} \end{algorithm}
-</div>
-</div>
-<p><img src="images/paste-6.png" width="444" height="879"></p>
-<p><a href="https://insilicomutantlib.streamlit.app/" class="uri">https://insilicomutantlib.streamlit.app/</a></p>
+<pre><code># Pseudocode for in-silico mutant generator
+INPUT: Target DNA Sequence (FASTA file / string) 
+OUPUT: Mutant Library (FASTA file)
+
+FUNCTION GenerateMutantLibrary(originalSequence, mutLibSize, numMutants):
+    mutantLibrary = []  # List to store mutants
+
+    FOR x FROM 1 to mutLibSize:
+        FOR i FROM 1 TO numMutants:
+            # Start with the original sequence
+            mutantSequence = originalSequence  
+
+            # Mutate a random sequence with random base
+            position = RandomPosition(originalSequence.length)
+            newBase = RandomBase(exclude=originalSequence[position])
+            mutantSequence[position] = newBase
+    
+            # Store mutant DNA and AA sequences
+            mutantLibrary.append((DNAmutantSequence, AAmutantSequence))
+
+    RETURN mutantLibrary</code></pre>
+<p>A simple user interface (UI) for the algorithm is available at <a href="https://insilicomutantlib.streamlit.app/" class="uri">https://insilicomutantlib.streamlit.app/</a></p>
 </section>
 <section id="primer-design" class="level4" data-number="2.3.2.2">
 <h4 data-number="2.3.2.2" class="anchored" data-anchor-id="primer-design"><span class="header-section-number">2.3.2.2</span> Primer design:</h4>
-<p><img src="images/paste-7.png" class="img-fluid" width="408"></p>
-<p><a href="https://mutprimergen.streamlit.app/" class="uri">https://mutprimergen.streamlit.app/</a></p>
+<p>Site-directed mutagenesis (SDM) is a technique used to introduce specific nucleotide changes into a DNA sequence, allowing researchers to study gene function, protein interactions, and other biological processes. Automating the primer design process for SDM can significantly enhance efficiency and accuracy. The algorithm generates primers in a way that accommodates various assembly techniques, including Gibson assembly, staggered Gibson assembly, and ligation assembly, for site-directed mutagenesis (SDM). For Gibson assembly, the primers are designed to be completely overlapping regions with the target mutation at the middle, facilitating the seamless integration of DNA fragments in a single reaction. In the case of staggered Gibson assembly, the algorithm designs one primer with the mutated base, and the other primer has 10bp of a flanking region. For ligation assembly, the primers are crafted to produce compatible ends, ensuring effective joining of the mutated fragments using DNA ligase. The tool can generate primers for a large number of mutants, even those containing multiple mutations, using the output from the in-silico mutant library. This capability is particularly advantageous in high-throughput experimental settings where researchers aim to explore a diverse array of genetic modifications simultaneously.</p>
+<p>The tool also designs primers for multiplexed barcode sequencing, a process elaborated upon in Chapter 4. Users can input their specific target sequences into the tool, which then generates complementary primers optimized for those sequences. A key feature of this tool is its ability to incorporate pre-defined barcodes into the primers, allowing for the simultaneous analysis of multiple samples in a single sequencing run.</p>
+<p>First, the melting temperature (Tm) is carefully calculated and adjusted to promote efficient annealing to the target DNA. This optimization helps ensure that the primers will bind effectively under the chosen PCR conditions, thereby increasing the likelihood of successful amplification. Additionally, the GC content of each primer is tailored to fall within an ideal range, typically between 40% and 60%. This balance enhances the stability of the primer-template duplex, improving the fidelity of the resulting PCR product. Importantly, the design process avoids incorporating thymine at the 3’ end of the primers, as this can lead to non-specific binding and reduced efficiency in the amplification process.<br>
+</p>
+<pre><code>
+# Pseudocode for primer design for SDM
+FUNCTION DesignPrimers(targetSequence, mutation, assemblyType):
+    # Initialize empty lists for primers
+    forwardPrimer = []
+    reversePrimer = []
+
+    # Determine mutation position
+    mutationPosition = FindMutationPosition(targetSequence, mutation)
+
+    # Generate forward primer with mutation
+    IF assemblyType == "Gibson Assembly":
+        forwardPrimer = [mutationPosition - 10:mutationPosition] + mutation + [mutationPosition:mutationPosition + 10]
+        reversePrimer = reverseComplementaryDNA(forwardPrimer)
+        forwardPrimer_final, reversePrimer_final = optimizePrimers(forwardPrimer, reversePrimer)
+    
+    ELSE IF assemblyType == "Staggered Gibson Assembly":
+        forwardPrimer = [mutationPosition - 10:mutationPosition] + mutation + [mutationPosition:mutationPosition + 15]
+        reversePrimer = reverseComplementaryDNA(mutationPosition:mutationPosition + 15)
+        forwardPrimer_final, reversePrimer_final = optimizePrimers(forwardPrimer, reversePrimer)
+
+    ELSE IF assemblyType == "Ligation Assembly":
+        forwardPrimer = [mutationPosition - 10:mutationPosition] + mutation + [mutationPosition:mutationPosition + 10]
+        reversePrimer = reverseComplementaryDNA(mutationPosition + 10: mutationPosition + 30)
+        forwardPrimer_final, reversePrimer_final = optimizePrimers(forwardPrimer, reversePrimer)
+
+    RETURN (forwardPrimer_final, reversePrimer_final)
+
+
+FUNCTION PrimersMutantLibrary(FASTAfile, mutations, assemblyType)   
+    sequences = read(FASTAfile)
+    primerList = []
+
+    FOR sequence in sequences:
+        FOR eachMutation in mutations:
+            primers = DesignPrimers(sequence, eachMutation, assemblyType)
+        primerList = [primers]
+
+    RETURN (primerList)
+    </code></pre>
+<pre><code>
+# Pseudocode for barcode primer design
+FUNCTION BarcodePrimers(frontPrimer, reversePrimer, forwardBarcodeList, reverseBarcodeList):
+    FOR barcode in forwardBarcodeList:
+        barcodedForwardPrimer = frontPrimer + barcode
+    forwardPrimerList = [barcodedForwardPrimer]
+
+    FOR barcode in reverseBarcodeList:
+        barcodedReversePrimer = reversePrimer + barcode
+    reversePrimerList = [barcodedReversePrimer]
+
+    forwardPrimer_final, reversePrimer_final = optimizePrimers(forwardPrimerList, reversePrimerList)
+
+    RETURN (forwardPrimer_final, reversePrimer_final)</code></pre>
+<p>A simple user interface (UI) for the algorithm is available at <a href="https://mutprimergen.streamlit.app/" class="uri">https://mutprimergen.streamlit.app/</a></p>
 </section>
 </section>
 <section id="machine-interoperability" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="machine-interoperability"><span class="header-section-number">2.3.3</span> Machine Interoperability:</h3>
-<section id="well-mapping" class="level4" data-number="2.3.3.1">
-<h4 data-number="2.3.3.1" class="anchored" data-anchor-id="well-mapping"><span class="header-section-number">2.3.3.1</span> Well Mapping:</h4>
-</section>
+<p>Most automated machines feature user interfaces designed to facilitate the mapping of wells for essential laboratory tasks such as aspirating, dispensing, and mixing liquids. These interfaces simplify the process by allowing users to visually select and configure the wells according to their experimental needs. Additionally, many of these systems can operate using CSV (Comma-Separated Values) files, which contain critical information, including Source Well, Destination Well, and Volume. When faced with complex workflows involving numerous samples, utilizing an automated script to map the samples in a CSV file can significantly enhance efficiency and accuracy. Workflows can be organized to work continuously in this manner. The script for the same is available on <a href="https://github.com/aputron/streamlitapps/tree/main" class="uri">https://github.com/aputron/streamlitapps/tree/main</a></p>
 </section>
 <section id="analysis-tools" class="level3" data-number="2.3.4">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="analysis-tools"><span class="header-section-number">2.3.4</span> Analysis Tools:</h3>
 <section id="nanopore-analysis" class="level4" data-number="2.3.4.1">
 <h4 data-number="2.3.4.1" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">2.3.4.1</span> Nanopore Analysis:</h4>
-<p><img src="images/paste-8.png" class="img-fluid"></p>
+<p><img src="images/nanopore_analysis.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="accesibility-to-modelling-tools" class="level3" data-number="2.3.5">
 <h3 data-number="2.3.5" class="anchored" data-anchor-id="accesibility-to-modelling-tools"><span class="header-section-number">2.3.5</span> Accesibility to Modelling Tools:</h3>
 <p>Simulation and modeling tools play a crucial role in understanding and optimizing biological processes, particularly in fields like systems biology, synthetic biology, and drug development. However, many of these advanced tools are often limited in accessibility and user-friendliness, which can restrict their widespread adoption and effective use in research and application.</p>
 <p>Many of the available tools require specialized knowledge of programming and mathematical modeling, creating a steep learning curve for researchers who may not have a strong computational background. This can discourage scientists from utilizing these tools, even when they could significantly enhance their research. Additionally, some tools may lack comprehensive documentation or user support, making it difficult for users to troubleshoot issues or fully leverage the tool’s capabilities.</p>
-<p>Even when large models are made accessible on platforms like Google Colab, such as ColabFold, their functionality can be limited due to several factors. Firstly, computational resources on free or tiered cloud platforms may be restricted, leading to longer processing times or the inability to run particularly large or complex models that require significant computational power. This limitation can frustrate users who need to conduct extensive simulations or analyses. Additionally, Colab’s environment may not support all the necessary libraries or specific versions of software that users require for their models. While Colab offers a range of pre-installed packages, researchers may still encounter compatibility issues, requiring extra time to set up their environments properly. Furthermore, the reliance on internet connectivity can also pose challenges. Interruptions or slow connections can hinder users’ ability to run or save their work, potentially resulting in data loss or incomplete analyses [14]. Having locally hosted databases and models downloaded allows for more accurate analysis and predictions [15].</p>
-<p>To address these challenges, there is a growing need for more intuitive simulation and modeling tools that offer user-friendly interfaces and robust support for data integration. Enhancements such as visual modeling environments, drag-and-drop functionalities, and real-time feedback can make these tools more accessible to a broader audience. Furthermore, fostering collaborations between computational scientists and biologists can help ensure that the tools developed are tailored to the specific needs of the research community. [16]</p>
+<p>Even when large models are made accessible on platforms like Google Colab, such as ColabFold<span class="citation" data-cites="mirdita2022colabfold"><sup><a href="references.html#ref-mirdita2022colabfold" role="doc-biblioref">16</a></sup></span>, their functionality can be limited due to several factors. Firstly, computational resources on free or tiered cloud platforms may be restricted, leading to longer processing times or the inability to run particularly large or complex models that require significant computational power. This limitation can frustrate users who need to conduct extensive simulations or analyses. Additionally, Colab’s environment may not support all the necessary libraries or specific versions of software that users require for their models. While Colab offers a range of pre-installed packages, researchers may still encounter compatibility issues, requiring extra time to set up their environments properly. Furthermore, the reliance on internet connectivity can also pose challenges. Interruptions or slow connections can hinder users’ ability to run or save their work, potentially resulting in data loss or incomplete analyses. Having locally hosted databases and models downloaded allows for more accurate analysis and predictions<span class="citation" data-cites="jumper2021highly"><sup><a href="references.html#ref-jumper2021highly" role="doc-biblioref">17</a></sup></span>.</p>
+<p>To address these challenges, there is a growing need for more intuitive simulation and modeling tools that offer user-friendly interfaces and robust support for data integration. Enhancements such as visual modeling environments, drag-and-drop functionalities, and real-time feedback can make these tools more accessible to a broader audience. Furthermore, fostering collaborations between computational scientists and biologists can help ensure that the tools developed are tailored to the specific needs of the research community.</p>
 <section id="alphafoldrosettafold-ui" class="level4" data-number="2.3.5.1">
 <h4 data-number="2.3.5.1" class="anchored" data-anchor-id="alphafoldrosettafold-ui"><span class="header-section-number">2.3.5.1</span> AlphaFold/RosettaFold UI:</h4>
-<p><img src="images/paste-2.png" class="img-fluid" width="255"></p>
+<p><img src="images/AF_UI.png" class="img-fluid" width="255"></p>
 </section>
 </section>
 <section id="visualization-tools" class="level3" data-number="2.3.6">
 <h3 data-number="2.3.6" class="anchored" data-anchor-id="visualization-tools"><span class="header-section-number">2.3.6</span> Visualization Tools:</h3>
-<p>Biological data can be intricate and multidimensional, often involving large datasets from experiments such as genomics, proteomics, and metabolomics. Visualization tools help translate this data into graphical formats, making it easier for researchers to identify patterns, trends, and anomalies that might not be apparent in raw data. [17]</p>
-<p>These tools facilitate exploratory data analysis, allowing scientists to visualize relationships and interactions among biological variables. For instance, network diagrams can depict interactions between proteins, while heatmaps can show gene expression levels across different conditions, helping researchers draw meaningful conclusions and generate hypotheses. [18,19, 20]</p>
+<p>Biological data can be intricate and multidimensional, often involving large datasets from experiments such as genomics, proteomics, and metabolomics. Visualization tools help translate this data into graphical formats, making it easier for researchers to identify patterns, trends, and anomalies that might not be apparent in raw data<span class="citation" data-cites="wong2012visualizing"><sup><a href="references.html#ref-wong2012visualizing" role="doc-biblioref">18</a></sup></span>.</p>
+<p>These tools facilitate exploratory data analysis, allowing scientists to visualize relationships and interactions among biological variables. For instance, network diagrams can depict interactions between proteins, while heatmaps can show gene expression levels across different conditions, helping researchers draw meaningful conclusions and generate hypotheses[<span class="citation" data-cites="verschaffelt2022unipept"><sup><a href="references.html#ref-verschaffelt2022unipept" role="doc-biblioref">19</a></sup></span>]<span class="citation" data-cites="kerren2017biovis"><sup><a href="references.html#ref-kerren2017biovis" role="doc-biblioref">20</a></sup></span><span class="citation" data-cites="kellergithub"><sup><a href="references.html#ref-kellergithub" role="doc-biblioref">21</a></sup></span>.</p>
+<p><img src="images/paste-1.png" class="img-fluid"></p>
 <section id="facs-visualization" class="level4" data-number="2.3.6.1">
 <h4 data-number="2.3.6.1" class="anchored" data-anchor-id="facs-visualization"><span class="header-section-number">2.3.6.1</span> FACS Visualization:</h4>
-<p>Proprietary tools, such as FlowJo, FCS Express, and Kaluza, have emerged as the predominant solutions for flow cytometry analysis, and their widespread adoption can be attributed to several key factors. These tools provide a robust and intuitive user experience (UX), which enhances usability and facilitates efficient data interpretation. Additionally, they lower the barrier to entry for users, making the technology more accessible to individuals with varying levels of expertise. Furthermore, the extensive documentation and support resources available for such tools enable users to navigate the complexities of flow cytometry with greater confidence and ease. Despite their advantages, proprietary tools for flow cytometry analysis have high licensing costs, learning curve for new users given the depth of features, and lag times with large datasets. Often, the resulting files aren’t standardized enough to enable robust integration with downstream applications like electronic lab notebooks.</p>
-<p>In this thesis, we utilize the open-sourced python library, FlowCal to extract the data from fcs files and can be used to make informed decisions on downstream processes.</p>
-<p><a href="https://facsvisualization.streamlit.app/" class="uri">https://facsvisualization.streamlit.app/</a></p>
-<p><img src="images/paste-3.png" class="img-fluid" width="412"></p>
+<p>Proprietary tools, such as FlowJo, FCS Express, and Kaluza, have emerged as the predominant solutions for flow cytometry analysis, and their widespread adoption can be attributed to several key factors. These tools provide a robust and intuitive user experience (UX), which enhances usability and facilitates efficient data interpretation. Additionally, they lower the barrier to entry for users, making the technology more accessible to individuals with varying levels of expertise<span class="citation" data-cites="white2021flowkit"><sup><a href="references.html#ref-white2021flowkit" role="doc-biblioref">22</a></sup></span>. Furthermore, the extensive documentation and support resources available for such tools enable users to navigate the complexities of flow cytometry with greater confidence and ease. Despite their advantages, proprietary tools for flow cytometry analysis have high licensing costs, learning curve for new users given the depth of features, and lag times with large datasets. Often, the resulting files aren’t standardized enough to enable robust integration with downstream applications like electronic lab notebooks.</p>
+<p>In this thesis, we utilize the open-sourced python library, FlowCal<span class="citation" data-cites="castillo2016flowcal"><sup><a href="references.html#ref-castillo2016flowcal" role="doc-biblioref">23</a></sup></span> to extract the data from fcs files and can be used to make informed decisions on downstream processes.</p>
+<p>A simple user interface (UI) for the algorithm is available at <a href="https://facsvisualization.streamlit.app/" class="uri">https://facsvisualization.streamlit.app/</a></p>
 </section>
 <section id="mutant-variability-visualizer" class="level4" data-number="2.3.6.2">
 <h4 data-number="2.3.6.2" class="anchored" data-anchor-id="mutant-variability-visualizer"><span class="header-section-number">2.3.6.2</span> Mutant Variability Visualizer:</h4>
-<p><img src="images/paste-4.png" class="img-fluid" width="411"></p>
-<p><a href="https://libraryanalysis.streamlit.app/" class="uri">https://libraryanalysis.streamlit.app/</a></p>
+<p>Directed evolution is a widely employed strategy for optimizing bio-parts, allowing researchers to enhance their functionality by exploring a diverse array of mutations within a given library. This thesis mainly focuses on analyzing long-read sequencing results derived from these mutant libraries, which provide comprehensive insights into the genetic variations present. By leveraging the advantages of long-read sequencing, the research can capture complex structural variations and facilitate the assembly of more complete sequences. Visualizing the variation within these libraries becomes crucial, as it allows for a more intuitive understanding of the data, making it easier to identify patterns and correlations between specific mutations and their resulting phenotypes. This visualization aids in pinpointing advantageous traits and helps guide subsequent rounds of evolution, ultimately driving the optimization process more efficiently.</p>
+<p>Here, the variance in WT sequenced reads are used as a threshold for the error rate in the mutant library.</p>
+<p>The variation <span class="math inline">\(v\)</span> at a specific position <span class="math inline">\(i\)</span> can be defined as:</p>
+<p><span class="math display">\[ v_i = {\sum n_i' \over n_i} * 100 \]</span></p>
+<p>where <span class="math inline">\(n_i'\)</span> are the occurrences of all nucleotides excluding WT and <span class="math inline">\(n_i\)</span> are the occurrences of the WT nucleotides at position <span class="math inline">\(i\)</span> in a sequence run of a single population.</p>
+<p>We define the variation of the <span class="math inline">\(i\)</span>th nucleotide in the mutant library as:</p>
+<p><span class="math display">\[ V_i = ({\sum ml_i' \over ml_i} * 100 ) - ({\sum wt_i' \over wt_i} * 100 ) \]</span></p>
+<p>where <span class="math inline">\(ml\)</span> refers to the mutant library sequenced samples and <span class="math inline">\(wt\)</span> refers to the the WT sequenced samples.</p>
+<p>A simple user interface (UI) for the algorithm is available at <a href="https://libraryanalysis.streamlit.app/" class="uri">https://libraryanalysis.streamlit.app/</a></p>
 </section>
 </section>
 <section id="tools-for-data-storage-and-sharing" class="level3" data-number="2.3.7">
@@ -388,37 +517,86 @@ MathJax = {
 </section>
 </section>
 </section>
-<section id="methods" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">2.4</span> Methods</h2>
-<p>All applications were developed on Python version 3.11.0. and all public applications were made on Streamlit version 1.39.0. The AlphaFold2 user interface was developed using ShinyR.</p>
+<section id="conclusion" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">2.4</span> Conclusion</h2>
+<p>Here, we demonstrate the robustness of rapidly-prototyping software to handle, analyze, and standardize workflows in a biofoundry. Although UI for the tools were developed, we encourage researchers utilizing automation to adopt a “think like a programmer” mindset to provide maximum flexibility in applications, ease of integrating modules and debugging issues that may arise.</p>
 </section>
-<section id="references" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> References</h1>
-<ol type="1">
-<li><p>Hodgman CE, Jewett MC (2012) Cell-free synthetic biology: thinking outside the cell. Metab Eng 14:261–269. https://doi.org/ 10.1016/j.ymben.2011.09.002</p></li>
-<li><p>King RD, Whelan KE, Jones FM et al (2004) Functional genomic hypothesis generation and experimentation by a robot scientist. Nature 427:247–252. https://doi.org/10.1038/nature02236</p></li>
-<li><p>King RD, Rowland J, Oliver SG et al (2009) The automation of science. Science 324:85–89. https://doi.org/10.1126/science. 1165620</p></li>
-<li><p>Köpke M, Simpson SD (2020) Pollution to products: recycling of “above ground” carbon by gas fermentation. Curr Opin Biotechnol 65:180–189. https://doi.org/10.1016/j.copbio.2020.02.017</p></li>
-<li><p>Vögeli B, Schulz L, Garg S et al (2022) Cell-free prototyping ena- bles implementation of optimized reverse β-oxidation pathways in heterotrophic and autotrophic bacteria. Nat Commun 13:3058. https://doi.org/10.1038/s41467-022-30571-6</p></li>
-<li><p>Kim KJ, Lee SJ, Kim DM (2023) The use of cell-free protein synthesis to push the boundaries of synthetic biology. Biotechnol Bioprocess Eng. https://doi.org/10.1007/s12257-022-0279-2</p></li>
-<li><p>Kelly J (2022) Grow with ginkgo. Ginkgo Bioworks. https://s28. q4cdn.com/823357996/files/doc_presentations/2022/01/2022.01. 12-Ginkgo-DNA-JPM-2022.pdf.</p></li>
-<li><p><a href="https://www.cowen.com/transactions/amyris-inc-6-4-2020/" class="uri">https://www.cowen.com/transactions/amyris-inc-6-4-2020/</a></p></li>
-<li><p>Sogi GM (2023) Research waste. Contemp Clin Dent 14:179.</p></li>
-<li><p>Kwok R (2018) How to pick an electronic laboratory notebook. Nature 560:269–270. https:// doi. org/ 10. 1038/ d41586-018-05895-3</p></li>
-<li><p><a href="https://www.idtdna.com/pages/community/blog/post/thinking-about-making-the-switch-to-an-electronic-lab-notebook-here-are-some-pros-and-cons" class="uri">https://www.idtdna.com/pages/community/blog/post/thinking-about-making-the-switch-to-an-electronic-lab-notebook-here-are-some-pros-and-cons</a></p></li>
-<li><p>David Eyers, Sarah Stevens, Andy Turner and Jeremy Cohen, Containers for reproducible research. <a href="https://github.com/ImperialCollegeLondon/2020-07-13-Containers-Online/blob/gh-pages/CITATION" class="uri">https://github.com/ImperialCollegeLondon/2020-07-13-Containers-Online/blob/gh-pages/CITATION</a></p></li>
-<li><p>Leahy, Darragh, and Christina Thorpe. “Zero trust container architecture (ztca): A framework for applying zero trust principals to docker containers.” <em>International Conference on Cyber Warfare and Security</em>. Vol. 17. No.&nbsp;1. 2022.</p></li>
-<li><p>Mirdita, M., Schütze, K., Moriwaki, Y., Heo, L., Ovchinnikov, S. and Steinegger, M., 2022. ColabFold: making protein folding accessible to all. <em>Nature methods</em>, <em>19</em>(6), pp.679-682.</p></li>
-<li><p>Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., Tunyasuvunakool, K., Bates, R., Žídek, A., Potapenko, A. and Bridgland, A., 2021. Highly accurate protein structure prediction with AlphaFold. <em>nature</em>, <em>596</em>(7873), pp.583-589.</p></li>
-<li><p>Eblen-Zayas, M., 2015. Comparing electronic and traditional Lab Notebooks in the advanced lab. In <em>Conference on Laboratory Instruction: Beyond the First Year of College, College Park, MD. Retrieved from https://www. compadre. org/Repository/document/ServeFile. cfm</em>.</p></li>
-<li><p>Wong, B., 2012. Visualizing biological data. <em>Nat Methods</em>, <em>9</em>(12), pp.1131-1131.</p></li>
-<li><p><a href="https://github.com/keller-mark/awesome-biological-visualizations" class="uri">https://github.com/keller-mark/awesome-biological-visualizations</a></p></li>
-<li><p>Verschaffelt, P., Collier, J., Botzki, A., Martens, L., Dawyndt, P. and Mesuere, B., 2022. Unipept Visualizations: an interactive visualization library for biological data. <em>Bioinformatics</em>, <em>38</em>(2), pp.562-563.</p></li>
-<li><p>Kerren, A., Kucher, K., Li, Y.F. and Schreiber, F., 2017. BioVis Explorer: A visual guide for biological data visualization techniques. <em>PLoS One</em>, <em>12</em>(11), p.e0187341.</p></li>
-<li><p>White, S., Quinn, J., Enzor, J., Staats, J., Mosier, S.M., Almarode, J., Denny, T.N., Weinhold, K.J., Ferrari, G. and Chan, C., 2021. FlowKit: a python toolkit for integrated manual and automated cytometry analysis workflows. <em>Frontiers in immunology</em>, <em>12</em>, p.768541.</p></li>
-</ol>
+<section id="methods" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="methods"><span class="header-section-number">2.5</span> Methods</h2>
+<p>All applications were developed on Python version 3.11.0. and all public applications were made on Streamlit version 1.39.0. The AlphaFold2 user interface was developed using ShinyR.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-myers2017standard" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(1) </div><div class="csl-right-inline">Myers, C. J.; Beal, J.; Gorochowski, T. E.; Kuwahara, H.; Madsen, C.; McLaughlin, J. A.; Mısırlı, G.; Nguyen, T.; Oberortner, E.; Samineni, M.; others. A Standard-Enabled Workflow for Synthetic Biology. <em>Biochemical Society Transactions</em> <strong>2017</strong>, <em>45</em> (3), 793–803.</div>
+</div>
+<div id="ref-torres2022automated" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(2) </div><div class="csl-right-inline">Torres-Acosta, M. A.; Lye, G. J.; Dikicioglu, D. Automated Liquid-Handling Operations for Robust, Resilient, and Efficient Bio-Based Laboratory Practices. <em>Biochemical Engineering Journal</em> <strong>2022</strong>, <em>188</em>, 108713.</div>
+</div>
+<div id="ref-henkel2007economics" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(3) </div><div class="csl-right-inline">Henkel, J.; Maurer, S. M. The Economics of Synthetic Biology. <em>Molecular Systems Biology</em> <strong>2007</strong>, <em>3</em> (1), 117.</div>
+</div>
+<div id="ref-appleton2017design" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(4) </div><div class="csl-right-inline">Appleton, E.; Madsen, C.; Roehner, N.; Densmore, D. Design Automation in Synthetic Biology. <em>Cold Spring Harbor perspectives in biology</em> <strong>2017</strong>, <em>9</em> (4), a023978.</div>
+</div>
+<div id="ref-appleton2017needs" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(5) </div><div class="csl-right-inline">Appleton, E.; Densmore, D.; Madsen, C.; Roehner, N. Needs and Opportunities in Bio-Design Automation: Four Areas for Focus. <em>Current Opinion in Chemical Biology</em> <strong>2017</strong>, <em>40</em>, 111–118.</div>
+</div>
+<div id="ref-yeoh2021synbiopython" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(6) </div><div class="csl-right-inline">Yeoh, J. W.; Swainston, N.; Vegh, P.; Zulkower, V.; Carbonell, P.; Holowko, M. B.; Peddinti, G.; Poh, C. L. SynBiopython: An Open-Source Software Library for Synthetic Biology, 2021.</div>
+</div>
+<div id="ref-rand2024bionumpy" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(7) </div><div class="csl-right-inline">Rand, K. D.; Grytten, I.; Pavlović, M.; Kanduri, C.; Sandve, G. K. BioNumPy: Array Programming for Biology. <em>Nature Methods</em> <strong>2024</strong>, 1–2.</div>
+</div>
+<div id="ref-kwon2023advancing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(8) </div><div class="csl-right-inline">Kwon, K. K.; Lee, J.; Kim, H.; Lee, D.-H.; Lee, S.-G. Advancing High-Throughput Screening Systems for Synthetic Biology and Biofoundry. <em>Current Opinion in Systems Biology</em> <strong>2023</strong>, 100487.</div>
+</div>
+<div id="ref-wenzel2023open" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(9) </div><div class="csl-right-inline">Wenzel, T. Open Hardware: From DIY Trend to Global Transformation in Access to Laboratory Equipment. <em>PLoS Biology</em> <strong>2023</strong>, <em>21</em> (1), e3001931.</div>
+</div>
+<div id="ref-sogi2023research" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(10) </div><div class="csl-right-inline">Sogi, G. Research Waste. <em>Contemporary Clinical Dentistry</em>, 2023, <em>14</em>, 179.</div>
+</div>
+<div id="ref-kwok2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(11) </div><div class="csl-right-inline">Kwok, R. How to Pick an Electronic Laboratory Notebook. <em>Nature</em> <strong>2018</strong>, <em>560</em> (7717), 269–270. <a href="https://doi.org/10.1038/d41586-018-05895-3">https://doi.org/10.1038/d41586-018-05895-3</a>.</div>
+</div>
+<div id="ref-eblen2015comparing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(12) </div><div class="csl-right-inline">Eblen-Zayas, M. Comparing Electronic and Traditional Lab Notebooks in the Advanced Lab. In <em>Conference on laboratory instruction: Beyond the first year of college, college park, MD. Retrieved from https://www. Compadre. Org/repository/document/ServeFile. cfm</em>; 2015.</div>
+</div>
+<div id="ref-Schmerker_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(13) </div><div class="csl-right-inline">Schmerker, J. Switch to an Electronic Lab Notebook? Pros and Cons, 2020. <a href="https://www.idtdna.com/pages/community/blog/post/thinking-about-making-the-switch-to-an-electronic-lab-notebook-here-are-some-pros-and-cons">https://www.idtdna.com/pages/community/blog/post/thinking-about-making-the-switch-to-an-electronic-lab-notebook-here-are-some-pros-and-cons</a>.</div>
+</div>
+<div id="ref-eyersgithub" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(14) </div><div class="csl-right-inline">Eyers, D.; Stevens, S.; Turner, A.; Cohen, J. Switch to an Electronic Lab Notebook? Pros and Cons, 2020. <a href="https://github.com/ImperialCollegeLondon/2020-07-13-Containers-Online/tree/gh-pages?tab=readme-ov-file">https://github.com/ImperialCollegeLondon/2020-07-13-Containers-Online/tree/gh-pages?tab=readme-ov-file</a>.</div>
+</div>
+<div id="ref-leahy2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(15) </div><div class="csl-right-inline">Leahy, D.; Thorpe, C. Zero Trust Container Architecture (ZTCA). <em>International Conference on Cyber Warfare and Security</em> <strong>2022</strong>, <em>17</em> (1), 111–120. <a href="https://doi.org/10.34190/iccws.17.1.35">https://doi.org/10.34190/iccws.17.1.35</a>.</div>
+</div>
+<div id="ref-mirdita2022colabfold" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(16) </div><div class="csl-right-inline">Mirdita, M.; Schütze, K.; Moriwaki, Y.; Heo, L.; Ovchinnikov, S.; Steinegger, M. ColabFold: Making Protein Folding Accessible to All. <em>Nature methods</em> <strong>2022</strong>, <em>19</em> (6), 679–682.</div>
+</div>
+<div id="ref-jumper2021highly" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(17) </div><div class="csl-right-inline">Jumper, J.; Evans, R.; Pritzel, A.; Green, T.; Figurnov, M.; Ronneberger, O.; Tunyasuvunakool, K.; Bates, R.; Žı́dek, A.; Potapenko, A.; others. Highly Accurate Protein Structure Prediction with AlphaFold. <em>nature</em> <strong>2021</strong>, <em>596</em> (7873), 583–589.</div>
+</div>
+<div id="ref-wong2012visualizing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(18) </div><div class="csl-right-inline">Wong, B. Visualizing Biological Data. <em>Nat Methods</em> <strong>2012</strong>, <em>9</em> (12), 1131–1131.</div>
+</div>
+<div id="ref-verschaffelt2022unipept" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(19) </div><div class="csl-right-inline">Verschaffelt, P.; Collier, J.; Botzki, A.; Martens, L.; Dawyndt, P.; Mesuere, B. Unipept Visualizations: An Interactive Visualization Library for Biological Data. <em>Bioinformatics</em> <strong>2022</strong>, <em>38</em> (2), 562–563.</div>
+</div>
+<div id="ref-kerren2017biovis" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(20) </div><div class="csl-right-inline">Kerren, A.; Kucher, K.; Li, Y.-F.; Schreiber, F. BioVis Explorer: A Visual Guide for Biological Data Visualization Techniques. <em>PLoS One</em> <strong>2017</strong>, <em>12</em> (11), e0187341.</div>
+</div>
+<div id="ref-kellergithub" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(21) </div><div class="csl-right-inline">Keller, M. Interactive Visualization of Biological Data on the Web, 2020. <a href="https://github.com/keller-mark/awesome-biological-visualizations">https://github.com/keller-mark/awesome-biological-visualizations</a>.</div>
+</div>
+<div id="ref-white2021flowkit" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(22) </div><div class="csl-right-inline">White, S.; Quinn, J.; Enzor, J.; Staats, J.; Mosier, S. M.; Almarode, J.; Denny, T. N.; Weinhold, K. J.; Ferrari, G.; Chan, C. FlowKit: A Python Toolkit for Integrated Manual and Automated Cytometry Analysis Workflows. <em>Frontiers in immunology</em> <strong>2021</strong>, <em>12</em>, 768541.</div>
+</div>
+<div id="ref-castillo2016flowcal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(23) </div><div class="csl-right-inline">Castillo-Hair, S. M.; Sexton, J. T.; Landry, B. P.; Olson, E. J.; Igoshin, O. A.; Tabor, J. J. FlowCal: A User-Friendly, Open Source Software Tool for Automatically Converting Flow Cytometry Data from Arbitrary to Calibrated Units. <em>ACS synthetic biology</em> <strong>2016</strong>, <em>5</em> (7), 774–780.</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -186,19 +186,7 @@ MathJax = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#purpose-of-thesis" id="toc-purpose-of-thesis" class="nav-link active" data-scroll-target="#purpose-of-thesis"><span class="header-section-number">1.1</span> Purpose of thesis</a>
-  <ul class="collapse">
-  <li><a href="#objectives-of-the-thesis" id="toc-objectives-of-the-thesis" class="nav-link" data-scroll-target="#objectives-of-the-thesis"><span class="header-section-number">1.1.1</span> Objectives of the Thesis</a></li>
-  </ul></li>
-  <li><a href="#anticipated-benefit-to-the-field" id="toc-anticipated-benefit-to-the-field" class="nav-link" data-scroll-target="#anticipated-benefit-to-the-field"><span class="header-section-number">1.2</span> Anticipated Benefit to the Field</a></li>
-  <li><a href="#case-study-protein-engineering-stack" id="toc-case-study-protein-engineering-stack" class="nav-link" data-scroll-target="#case-study-protein-engineering-stack"><span class="header-section-number">1.3</span> Case study: Protein Engineering Stack</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.4</span> </a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -222,63 +210,23 @@ MathJax = {
 </header>
 
 
-<section id="purpose-of-thesis" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="purpose-of-thesis"><span class="header-section-number">1.1</span> Purpose of thesis</h2>
-<p>The rapid evolution of synthetic biology and protein engineering has positioned biofoundries, automated laboratories for biological construction and analysis, as critical players in biotechnological innovation. As the integration of computational approaches with experimental methodologies becomes increasingly pivotal, this thesis seeks to bridge the gap between experimental strategies, computational techniques, and practical application in the biofoundry setting, enabling the efficient and scalable creation of novel proteins and synthetic biological systems. However, despite the potential of these technologies, several challenges remain. The complexity of biological systems, coupled with the diversity of potential protein structures and functions, makes traditional experimental approaches labor-intensive and often inefficient for data collection. Consequently, there is a pressing need for robust computational frameworks that can complement biofoundry operations, guiding the design process and reducing the trial-and-error inherent in protein engineering.</p>
-<section id="objectives-of-the-thesis" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="objectives-of-the-thesis"><span class="header-section-number">1.1.1</span> Objectives of the Thesis</h3>
-<p>This thesis has several key objectives:</p>
-<p>1. Designing effective experimental strategies: To develop reproducible, standardized, and data centric experimental methods to facilitate integration of computational tools and models for the same. Most current computational models make use of publicly available data is subject to high attrition rate due to publication survior bias, and often don’t work with sufficient experimental negative data. It is important to design experiments that maximizes the amount of data collected without compromising on quality.</p>
-<ol start="2" type="1">
-<li><p>Artificial Intelligence Applications: To explore the use of artificial intelligence algorithms in analyzing large datasets generated from high-throughput techniques. By employing techniques such as deep learning, to uncover hidden patterns and correlations that can inform the design of novel proteins with desirable properties.</p></li>
-<li><p>Integration of High-Throughput Tools, Computational Models and Biofoundries: To develop and validate computational models and experimental tools that can predict biosensor/protein/DNA activity, stability, and function based on sequence data. By integrating these tools into biofoundry workflows, the design process can be streamlined, predictability of outcomes are improved, and accessible to other biofoundries.</p></li>
-<li><p>Optimization of Biosensor Activity: To utilize high-throughput experimental and computational tools to optimize various parameters in a sensor protein’s activity, such as signal and background. </p></li>
-</ol>
-<p>Objectives</p>
+<p>The Design-Build-Test-Learn (DBTL) cycle, a foundational methodology of synthetic biology, adopts engineering principles to enhance reproducibility and efficiency in biological research. Yet, the Build and Test phases pose considerable challenges to their labor-intensive and time-consuming nature. For instance, the assembly of three DNA fragments often requires a week per circuit assembly by a skilled graduate student. Furthermore, optimizing the expression of a gene with promoters, RBSs, and terminator parts - three different types for each – necessitates creating and testing 27 distinct DNA combinations. This process could extend a graduate student’s workload to four to six months for the construction of an optimal genetic circuit.</p>
+<p>On an industrial scale, the Build and Test stages present similarly formidable challenges. The development and commercialization of Artemisinin, a treatment for malaria by Amyris, demanded an investment of $15 million and ten years, equivalent to roughly 150 person-years. Similarly, DuPont’s production of 1,3-propanediol required 575 person-years, highlighting the extensive resource commitment in synthetic biology projects [1]. These instances underline the significant time and labor investments needed to harness the benefits of synthetic biology, explaining why the field, which emerged in the early 2000s, took about a decade to prove its value.</p>
+<p>The incorporation of robotics into biology has significantly reduced the manual labor and time constraints traditionally associated with biological experiments. This advancement was pioneered by Dr.&nbsp;Ross D. King in 2004 [2], who developed the robotic scientists Adam and Eve to autonomously investigate yeast metabolism and enzyme discovery [3]. Despite their innovative potential, the application of these robotic scientists has faced limitations due to the need for specialized automation equipment tailored for specific research projects. This requirement often limits the flexibility needed to conduct a wide array of complex biological experiments, leading to significant costs and efforts to adapt commercial equipment for various research needs.</p>
+<p>However, the fundamental principles of synthetic biology, including standardized parts, assembly techniques, and an engineering-focused DBTL strategy, have demonstrated significant compatibility with automation and robotics. This synergy has not only enhanced research but also found practical industrial applications. A notable example is Lanzatech’s production of ethanol from greenhouse gases using its clostridiaBiofoundry (cBioFab) [4], which combines cell-free systems with machine learning technology to achieve remarkable industrial breakthroughs [5, 6] in producing 1-hexanol and hexanoic acid (&gt;100x improvement).</p>
+<p>A biofoundry integrates the entire DBTL cycle, from initial DNA design to testing cells modified with that DNA, by systematically linking automated hardware and software to streamline the process from gene synthesis to the final product. A key strategy in constructing an efficient biofoundry is the careful design of each DBTL stage to ensure seamless operation and eliminate bottlenecks, significantly improving development speed and throughput. For instance, Ginkgo Bioworks has shown considerable efficiency gains, with its throughput increasing two to four times annually between 2014 and 2020. In 2017, the company achieved a milestone when the cost of testing per strain became lower than that of manual handling [7]. Amyris, having launched its biofoundry in 2011, has successfully commercialized 15 new substances at a consistent rate over the last seven years [8], marking a productivity increase of more than twentyfold compared to its earlier efforts with Artemisinin. These developments underscore the transformative impact of biofoundries on synthetic biology, providing scalable and cost-efficient solutions for bioproduct development. By optimizing the bioproduct development process, biofoundries substantially reduce the time and cost associated with bringing new products to market, representing a significant advancement in biotechnological innovation.</p>
 <ol type="1">
-<li>Gaps in Biofoundry</li>
-<li>Data Collection SOP for Protein Engineering</li>
-<li>High-throughput identification of sequences</li>
-<li>Extension of protein engineering.</li>
+<li><p>Hodgman CE, Jewett MC (2012) Cell-free synthetic biology: thinking outside the cell. Metab Eng 14:261–269. https://doi.org/ 10.1016/j.ymben.2011.09.002</p></li>
+<li><p>King RD, Whelan KE, Jones FM et al (2004) Functional genomic hypothesis generation and experimentation by a robot scientist. Nature 427:247–252. https://doi.org/10.1038/nature02236</p></li>
+<li><p>King RD, Rowland J, Oliver SG et al (2009) The automation of science. Science 324:85–89. https://doi.org/10.1126/science. 1165620</p></li>
+<li><p>Köpke M, Simpson SD (2020) Pollution to products: recycling of “above ground” carbon by gas fermentation. Curr Opin Biotechnol 65:180–189. https://doi.org/10.1016/j.copbio.2020.02.017</p></li>
+<li><p>Vögeli B, Schulz L, Garg S et al (2022) Cell-free prototyping ena- bles implementation of optimized reverse β-oxidation pathways in heterotrophic and autotrophic bacteria. Nat Commun 13:3058. https://doi.org/10.1038/s41467-022-30571-6</p></li>
+<li><p>Kim KJ, Lee SJ, Kim DM (2023) The use of cell-free protein synthesis to push the boundaries of synthetic biology. Biotechnol Bioprocess Eng. https://doi.org/10.1007/s12257-022-0279-2</p></li>
+<li><p>Kelly J (2022) Grow with ginkgo. Ginkgo Bioworks. https://s28. q4cdn.com/823357996/files/doc_presentations/2022/01/2022.01. 12-Ginkgo-DNA-JPM-2022.pdf.</p></li>
+<li><p><a href="https://www.cowen.com/transactions/amyris-inc-6-4-2020/" class="uri">https://www.cowen.com/transactions/amyris-inc-6-4-2020/</a></p></li>
 </ol>
-</section>
-</section>
-<section id="anticipated-benefit-to-the-field" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="anticipated-benefit-to-the-field"><span class="header-section-number">1.2</span> Anticipated Benefit to the Field</h2>
-<p>The integration of computational approaches with biofoundry technologies in protein engineering and synthetic biology holds significant promise for advancing the field:</p>
-<p>1. Enhanced Efficiency in Protein Design</p>
-<p>By utilizing computational models, researchers can streamline the design process for engineered proteins. This leads to:</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reduced Time and Costs: Computational predictions can minimize the need for extensive experimental iterations, significantly lowering the time and financial resources required for protein engineering projects.</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Higher Throughput: Biofoundries equipped with computational tools can operate at higher throughput, enabling the rapid testing of numerous protein variants and increasing overall productivity.</p>
-<p>2. Improved Accuracy and Predictability</p>
-<p>Artificial intelligence can enhance the accuracy of protein engineering efforts:</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Better Predictions: Advanced algorithms such as Deep Learning can infer patterns between genotype and phenotypes more reliably, resulting in engineered proteins that are more likely to function as intended.</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimized Parameters: With enhanced datasets and models, multiple independent parameters can be targetted simultaneously to provide a rare, yet ideal candidate.</p>
-<p>3. Accelerated Innovation in Applications</p>
-<p>The combination of computational methods and biofoundries fosters innovation across various applications:</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Biosensors and Diagnostics: The development of novel biosensors using engineered proteins can lead to rapid, accurate diagnostic tools for environmental and health monitoring.</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bioremediation Solutions: Engineered proteins can be designed for environmental cleanup, addressing issues such as plastic degradation and waste management.</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Therapeutics Development: Accelerated discovery of large therapeutic proteins and antibodies can address urgent healthcare needs, such as in the development of vaccines and biologics.</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Industrial Enzyme Engineering: Enhanced enzyme design for industrial processes can lead to more efficient manufacturing methods, reducing waste and energy consumption.</p>
-<p>4. Data-Driven Insights and Machine Learning Advancements</p>
-<p>The integration of machine learning in analyzing biofoundry data provides several advantages:</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discovery of Patterns: Deep learning can uncover hidden patterns and correlations in large datasets, leading to insights that inform better design strategies and optimization processes.</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Adaptive Learning: Continuous learning from experimental data allows for the refinement of computational models, making them increasingly accurate over time.</p>
-<p>5. Interdisciplinary Collaboration</p>
-<p>The convergence of computational techniques and biofoundry technologies encourages collaboration across disciplines:</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cross-Disciplinary Research: Scientists from diverse fields—such as bioinformatics, molecular biology, and engineering—can collaborate to tackle complex challenges, leading to innovative solutions and broader perspectives.</p>
-<p>•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Training and Skill Development: The demand for expertise in computational biology and biofoundry technologies can enhance educational programs and training initiatives, preparing the next generation of scientists and engineers.</p>
-</section>
-<section id="case-study-protein-engineering-stack" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="case-study-protein-engineering-stack"><span class="header-section-number">1.3</span> Case study: Protein Engineering Stack</h2>
-<p><img src="images/HiAPE.png" class="img-fluid"></p>
-<p>This thesis focuses on the development of workflows and software tools with a focus on protein engineering.</p>
-</section>
-<section id="section" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="section"><span class="header-section-number">1.4</span> </h2>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
