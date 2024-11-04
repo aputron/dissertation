@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology - 3&nbsp; Data Collection for AI-based Protein Engineering</title>
+<title>Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology - 3&nbsp; Data Collection for AI-based Protein Engineering using Biosensors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -130,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/data_coll.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/data_coll.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering using Biosensors</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -176,19 +196,19 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/data_coll.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering using Biosensors</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/mutant_gen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production and multiplexed identification of mutants</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry-based Production and Multiplexed Identification of Mutants</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/dsembler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA and Further Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -244,7 +264,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering using Biosensors</span></h1>
 </div>
 
 
@@ -263,15 +283,10 @@ window.Quarto = {
 
 <section id="introduction" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
-<ul>
-<li><p>Problems with Protein Engineering</p></li>
-<li><p>AI solutions</p></li>
-<li><p>Problems with AI based Engineering</p></li>
-</ul>
 <p>Protein engineering involves the continuous collection and analysis of phenotypic and genotypic data to identify advantageous protein variants. Current methods involve either a bottom-up data-driven approach of rational protein design or a top-down high-throughput screening approach of directed evolution to obtain and enhance a specific protein’s activity. Rational engineering requires a comprehensive understanding of the protein’s structural data, mechanism, and ligand interactions, which is often non-transferable to other types of proteins. Directed evolution, on the other hand, focuses on identifying improved candidates through a phenotype-specific selection pressure on a mutant library. This method can be rapidly applied to a wide variety of proteins without necessitating an in-depth understanding of protein mechanisms. However, to obtain large datasets, it is vital to have a method that can both phenotype and genotype variants in a high-throughput manner.</p>
-<p>The advent of Artificial Intelligence (AI) in the exploration of protein landscapes has greatly accelerated identifying and generating new and advantageous variants. Despite the ingenious development of general deep learning (DL) models, a major gap in applying AI for protein engineering is the lack of large labeled, and structured datasets specific to a protein and its activity<sup>1</sup>. Obtaining such datasets depends upon experimental methods that often take too long to amass large amounts of reliable data, resulting in a compromise on quality or quantity<sup>2</sup>. Without simultaneously accelerating the collection of data, the use of AI for protein engineering may be stuck in a local minimum, constrained by unexplored areas in the protein landscape<sup>3</sup>.</p>
-<p>Here, we detail a method to generate large labelled datasets for high-throughput AI-assisted protein engineering (HiAPE). Biosensors and long-read sequencing are the foundational technology for data collection. Automated equipment including liquid handlers may be used to accelerate and scale up wet-lab experiments. Any intermediary software applications are rapidly prototyped using Python and Bash in a containerized Ubuntu environment using Docker and hosted on Streamlit.</p>
-<p>Genetically encoded biosensors can detect internal stimuli into proportional detectable signal<sup>4,5</sup>. Numerous strategies involving biosensors and a fluorescence reporter have maximized the use of high-throughput techniques such as fluorescence-activated cell sorting (FACS) to screen through active and inactive variants of proteins easily<sup>6,7,8,9</sup>. Unlike conventional protein engineering, mutants resulting in a loss of function are regarded of equal importance as advantageous variants in HiAPE and are used for further analysis. The resulting populations constitute a robust dataset with two labels of low and high activity respectively, which can be subsequently sequenced. From an AI perspective, it is important to have both “positive” and “negative” data<sup>10,11</sup>&nbsp;or data from multiple classes to develop a successful model that is adequately discriminatory. The biological interpretation of using both low and high-activity data helps pinpoint residues and inter-residue cooperativity that are directly responsible for the protein’s function.</p>
+<p>The advent of Artificial Intelligence (AI) in the exploration of protein landscapes has greatly accelerated identifying and generating new and advantageous variants. Despite the ingenious development of general deep learning (DL) models, a major gap in applying AI for protein engineering is the lack of large labeled, and structured datasets specific to a protein and its activity<span class="citation" data-cites="kouba2023machine"><sup><a href="references.html#ref-kouba2023machine" role="doc-biblioref">1</a></sup></span>. Obtaining such datasets depends upon experimental methods that often take too long to amass large amounts of reliable data, resulting in a compromise on quality or quantity<span class="citation" data-cites="kazlauskas2009finding"><sup><a href="references.html#ref-kazlauskas2009finding" role="doc-biblioref">2</a></sup></span>. Without simultaneously accelerating the collection of data, the use of AI for protein engineering may be stuck in a local minimum, constrained by unexplored areas in the protein landscape<span class="citation" data-cites="listgarten2024perpetual"><sup><a href="references.html#ref-listgarten2024perpetual" role="doc-biblioref">3</a></sup></span>.</p>
+<p>Here, we detail a method to generate large labeled datasets for high-throughput AI-assisted protein engineering (HiAPE). Biosensors and long-read sequencing are the foundational technology for data collection. Automated equipment including liquid handlers may be used to accelerate and scale up wet-lab experiments. Any intermediary software applications are rapidly prototyped using Python and Bash in a containerized Ubuntu environment using Docker and hosted on Streamlit.</p>
+<p>Genetically encoded biosensors can detect internal stimuli into proportional detectable signal<span class="citation" data-cites="slusarczyk2012foundations"><sup><a href="references.html#ref-slusarczyk2012foundations" role="doc-biblioref">4</a></sup></span>,<span class="citation" data-cites="kaczmarek2021effective"><sup><a href="references.html#ref-kaczmarek2021effective" role="doc-biblioref">5</a></sup></span>. Numerous strategies involving biosensors and a fluorescence reporter have maximized the use of high-throughput techniques such as fluorescence-activated cell sorting (FACS) to screen through active and inactive variants of proteins easily<span class="citation" data-cites="yokobayashi2002directed"><sup><a href="references.html#ref-yokobayashi2002directed" role="doc-biblioref">6</a></sup></span>,<span class="citation" data-cites="wang2018gfp"><sup><a href="references.html#ref-wang2018gfp" role="doc-biblioref">7</a></sup></span>,<span class="citation" data-cites="yeom2018synthetic"><sup><a href="references.html#ref-yeom2018synthetic" role="doc-biblioref">8</a></sup></span>,<span class="citation" data-cites="choi2014toward"><sup><a href="references.html#ref-choi2014toward" role="doc-biblioref">9</a></sup></span>. Unlike conventional protein engineering, mutants resulting in a loss of function are regarded of equal importance as advantageous variants in HiAPE and are used for further analysis. The resulting populations constitute a robust dataset with two labels of low and high activity respectively, which can be subsequently sequenced. From an AI perspective, it is important to have both “positive” and “negative” data<span class="citation" data-cites="kurczab2014influence"><sup><a href="references.html#ref-kurczab2014influence" role="doc-biblioref">10</a></sup></span>,<span class="citation" data-cites="maloney2023negative"><sup><a href="references.html#ref-maloney2023negative" role="doc-biblioref">11</a></sup></span> or data from multiple classes to develop a successful model that is adequately discriminatory. The biological interpretation of using both low and high-activity data helps pinpoint residues and inter-residue cooperativity that are directly responsible for the protein’s function.</p>
 <p>To overcome the labor-intensive, expensive, and low-throughput of sequencing individual colonies using short-read NGS techniques, such as Sanger or Illumina sequencing, we propose using long-read sequencing of all samples simultaneously. More importantly, by employing long-read sequencing, the full length of the protein and genetic circuit sequences are obtained through which the effects of concurrent mutations can be inferred. Whole populations are mini-prepped, producing a DNA pool of variants that equate to the established phenotype, following which are sequenced using Nanopore. Here, the assumption is that each full read corresponds to a single cell that was sorted, and duplicates arising from multiple plasmids of the same variant can be eliminated computationally. The resulting reads are mapped to the target sequence and filtered based on quality and length using a custom pipeline (Methods: Sequence Data processing). The final dataset ends up being of an order of 10<sup>4</sup>-10<sup>5</sup>&nbsp;labeled reads that can now be used to train an AI model.</p>
 <p>The trained AI models narrow the search space by predicting the phenotypes of mutants in an <em>in-silico</em> library. After obtaining a candidate list, liquid handlers can be used to construct the appropriate mutants in parallel and at a large scale. Barcoded-PCR combined with long-read sequencing (Methods) allows to screen through multiple colonies to identify the correctly mutated colonies with a single sequencing run. Lastly, once the candidates are constructed, their activity can be easily evaluated using plate readers based on the genetic circuit fluorescence.</p>
 <p>As a proof of concept, we employed this method to engineer a transcription factor (TF), DmpR, and an enzyme, methyl parathion hydrolase (MPH). Currently, there is limited understanding of the mechanism of both protein functionalities, and each type of protein requires additional considerations that are detailed ahead.</p>
@@ -280,43 +295,76 @@ window.Quarto = {
 <h2 data-number="3.2" class="anchored" data-anchor-id="results"><span class="header-section-number">3.2</span> Results</h2>
 <section id="engineering-dmpr-for-improved-signal" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="engineering-dmpr-for-improved-signal"><span class="header-section-number">3.2.1</span> Engineering DmpR for Improved Signal</h3>
-<p>DmpR is an NtrC-like regulatory protein that is activated in the presence of phenol<sup>12</sup>. A biosensor constructed using DmpR has been shown to detect phenol and various phenolic compounds<sup>13,14</sup>(Figure 1A). Here, we engineer DmpR to have higher activity in 10μM phenol. The diverse DmpR mutant library is sorted into two populations, low and high, depending upon their fluorescence in the presence of phenol. These populations undergo two rounds of sorting till the resulting populations diverge without much overlap in their fluorescent response to phenol (Figure 1B). The resulting populations are sequenced and processed to compose a labelled dataset of advantageous and disadvantageous mutants of DmpR. The high and low signal populations show variation across different DmpR amino acids (Figure 1C). A simple binary classification convolutional neural networks (CNN) model is trained and optimized on the dataset to have a final accuracy of 89%. The model was then used to predict the likelihood of a mutant from a single mutation <em>in-silico</em> mutant library (n = 60,000) of DmpR to be of low or high activity. Top 10 candidates predicted to have low and high activity were experimentally evaluated and found to have an accuracy of 70%. These 20 samples were used as a validation dataset to improve the model to give a final accuracy of 80% (Figure 1D and E). Previously reported variants of DmpR, such as E135K<sup>15</sup>&nbsp;were also predicted to have the correct phenotype.</p>
-<p>Contrarily, it was observed that high-fluorescence sorted populations with phenol (Signal) also had high fluorescence without it (Background). Additionally, the original high-activity population exhibited similarly high background, suggesting that that the majority of “high” variants are always in an active state, binding to sfGFP’s promoter regardless if the substratee binds to the protein or not characterizing it as dysfunctional and non-specific transcriptional activity. Inducible transcription factors, like DmpR are expected to have high signal while maintaining low background, exhibiting high sensitivity and selectivity. These properties are considered independent of each other due to experimental limitations of testing them simultaneously, making it a multi-objective<sup>1</sup> engineering problem. This is challenging when datasets come from multiple sources which can introduce numerous inconsistencies due to varying biases of different experimental methods.</p>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="images/paste-2.png" class="img-fluid quarto-figure quarto-figure-left figure-img"></p>
-<figcaption>Figure 1 Engineering DmpR for improved response to Phenol. A Genetic circuit for DmpR biosensor. The relative fluorescence expression (Y-axis) graph of multiple concentrations of phenol over time (X-axis). B FACS sorting of mutant library into low and high populations over after two rounds. C Nanopore long-read sequencing and mutant variation of high signal (HS) and low signal (LS) populations across DmpR protein sequence. DmpR domains are described in Park, KH. Et al.&nbsp;2020. Lighter colours have higher variation. D Confusion matrix of predictions of validation set by trained signal model. E FACS analysis of predicted mutants. Light green sample is WT, yellow samples are predicted to have low signal, dark green samples are predicted to have high signal. Samples marked with red are incorrectly predicted samples. F FACS analysis of mutant library and sorted populations with and without (grey) phenol.</figcaption>
+<p>DmpR is an NtrC-like regulatory protein that is activated in the presence of phenol<span class="citation" data-cites="park2020tetrameric"><sup><a href="references.html#ref-park2020tetrameric" role="doc-biblioref">12</a></sup></span>. A biosensor constructed using DmpR has been shown to detect phenol and various phenolic compounds<span class="citation" data-cites="gupta2012effective"><sup><a href="references.html#ref-gupta2012effective" role="doc-biblioref">13</a></sup></span>, <a href="@fig-dmpr_signal A">@kim2020machine</a>. Here, we engineer DmpR to have higher activity in 10μM phenol. The diverse DmpR mutant library is sorted into two populations, low and high, depending upon their fluorescence in the presence of phenol. These populations undergo two rounds of sorting till the resulting populations diverge without much overlap in their fluorescent response to phenol ( <a href="#fig-dmpr_signal" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> B). The resulting populations are sequenced and processed to compose a labelled dataset of advantageous and disadvantageous mutants of DmpR. The high and low signal populations show variation across different DmpR amino acids (<a href="#fig-dmpr_signal" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> C). A simple binary classification convolutional neural networks (CNN) model is trained and optimized on the dataset to have a final accuracy of 89% (<a href="#fig-dmpr_signal" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> D). The model was then used to predict the likelihood of a mutant from a single mutation <em>in-silico</em> mutant library (n = 60,000) of DmpR to be of low or high activity. Top 10 candidates predicted to have low and high activity were experimentally evaluated and found to have an accuracy of 70%. These 20 samples were used as a validation dataset to improve the model to give a final accuracy of 80% (<a href="#fig-dmpr_signal" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> E). Previously reported variants of DmpR, such as E135K<span class="citation" data-cites="pavel1994aromatic"><sup><a href="references.html#ref-pavel1994aromatic" role="doc-biblioref">14</a></sup></span>&nbsp;were also predicted to have the correct phenotype.</p>
+<p>Contrarily, it was observed that high-fluorescence sorted populations with phenol (Signal) also had high fluorescence without it (Background). Additionally, the original high-activity population exhibited similarly high background (<a href="#fig-dmpr_signal" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> F), suggesting that that the majority of “high” variants are always in an active state, binding to sfGFP’s promoter regardless if the substrate binds to the protein or not characterizing it as dysfunctional and non-specific transcriptional activity. Inducible transcription factors, like DmpR are expected to have high signal while maintaining low background, exhibiting high sensitivity and selectivity. These properties are considered independent of each other due to experimental limitations of testing them simultaneously, making it a multi-objective<span class="citation" data-cites="kouba2023machine"><sup><a href="references.html#ref-kouba2023machine" role="doc-biblioref">1</a></sup></span> engineering problem. This is challenging when datasets come from multiple sources which can introduce numerous inconsistencies due to varying biases of different experimental methods.</p>
+<div id="fig-dmpr_signal" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dmpr_signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/dmpr_signal.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dmpr_signal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Engineering DmpR for improved response to Phenol. <strong>A</strong> Genetic circuit for DmpR biosensor. The relative fluorescence expression (Y-axis) graph of multiple concentrations of phenol over time (X-axis). <strong>B</strong> FACS sorting of mutant library into low and high populations over after two rounds. <strong>C</strong> Nanopore long-read sequencing and mutant variation of high signal (HS) and low signal (LS) populations across DmpR protein sequence. DmpR domains are described in Park, KH. Et al.&nbsp;2020. Lighter colours have higher variation. <strong>D</strong> Confusion matrix of predictions of validation set by trained signal model. <strong>E</strong> FACS analysis of predicted mutants. Light green sample is WT, yellow samples are predicted to have low signal, dark green samples are predicted to have high signal. Samples marked with red are incorrectly predicted samples. <strong>F</strong> FACS analysis of mutant library and sorted populations with and without (grey) phenol.
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="engineering-dmpr-for-reduced-background" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="engineering-dmpr-for-reduced-background"><span class="header-section-number">3.2.2</span> Engineering DmpR for reduced Background</h3>
-<p>To overcome this challenge, we employed HiAPE with the same mutant library in the absence of phenol, considering background as a second phenotype (Figure 2). This resulted in a separate model that could predict the background of a given DmpR mutated sequence The final two populations used are not entirely distinct and exhibit considerable overlap in activity, which permits the potential for mutants existing in both populations and lack of significant variability in the populations (Figure 2B). Nonetheless, it is expected that sustained sorting will significantly reduce mutant diversity, thereby compromising the overall quality of the dataset. The final optimized trained CNN model of background had an accuracy of 80%.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/paste-3.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 2 Engineering DmpR for low response in the absence of Phenol. A FACS sorting of mutant library into low and high populations over after two rounds. B Nanopore long-read sequencing and mutant variation of high background (HB) and low background (LB), and HS and LS populations across DmpR protein sequence. DmpR domains are described in Park, KH. Et al.&nbsp;2020. Lighter colours have higher variation. D Confusion matrix of predictions of validation set by trained background model.</figcaption>
+<p>To overcome this challenge, we employed HiAPE with the same mutant library in the absence of phenol, considering background as a second phenotype (<a href="#fig-dmpr_bkg" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>). This resulted in a separate model that could predict the background of a given DmpR mutated sequence The final two populations used are not entirely distinct and exhibit considerable overlap in activity, which permits the potential for mutants existing in both populations and lack of significant variability in the populations (<a href="#fig-dmpr_bkg" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> B). Nonetheless, it is expected that sustained sorting will significantly reduce mutant diversity, thereby compromising the overall quality of the dataset. The final optimized trained CNN model of background had an accuracy of 80% (<a href="#fig-dmpr_bkg" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> C).</p>
+<div id="fig-dmpr_bkg" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dmpr_bkg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/dmpr_bkg.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dmpr_bkg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Engineering DmpR for low response in the absence of Phenol. <strong>A</strong> FACS sorting of mutant library into low and high populations over after two rounds. <strong>B</strong> Nanopore long-read sequencing and mutant variation of high background (HB) and low background (LB), and HS and LS populations across DmpR protein sequence. DmpR domains are described in Park, KH. Et al.&nbsp;2020. Lighter colours have higher variation. <strong>C</strong> Confusion matrix of predictions of validation set by trained background model.
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="engineering-dmpr-for-multiple-phenotypes" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="engineering-dmpr-for-multiple-phenotypes"><span class="header-section-number">3.2.3</span> Engineering DmpR for Multiple Phenotypes</h3>
-<p><img src="images/paste-4.png" class="img-fluid" width="419"></p>
-<p>As both Signal and Background datasets stem from the same mutant library obtained with a standardized method, the models can be used in tandem to identify an ideal DmpR candidate. A binary relevance multi-label classification is obtained using a combination of the outputs from the the signal and background models on a single mutation <em>in-silico</em> library (Figure 3A). Predicted candidates were first sorted based on low background and then for high signal.</p>
+<p>As both Signal and Background datasets stem from the same mutant library obtained with a standardized method, the models can be used in tandem to identify an ideal DmpR candidate. As the phenotypes are independent, a multi-label classification method, such as binary relevance or classifier chains, would be most suitable to predict the Signal and Background of a mutant candidate.</p>
+<div id="fig-binary_relevance" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-binary_relevance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/binary_relevance.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binary_relevance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Multiple phenotype analysis using binary relevance to identify an ideal DmpR biosensor. <strong>A</strong> Workflow to predict Signal and Background phenotypes on a given mutant sequence. <strong>B</strong> Expression analysis of mutants predicted to have low background and high signal. Relative Fluorescence (Fluorescence/OD) is across Y-axis, mutants on X-axis, green is the expression with phenol, grey is without.
+</figcaption>
+</figure>
+</div>
+<p>A binary relevance multi-label classification is obtained using a combination of the outputs from the the signal and background models on a single mutation <em>in-silico</em> library (<a href="#fig-binary_relevance" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> A). The primary advantage of binary relevance is its simplicity and ease of implementation. It allows for the use of well-established binary classification algorithms, such as logistic regression, support vector machines, or decision trees, for each label. This modular approach makes it easy to scale up the model for additional labels without needing to redesign the entire system. Moreover, binary relevance can handle imbalanced datasets relatively well, as each classifier focuses on its specific label independently. Predicted candidates were first sorted based on low background and then for high signal (<a href="#fig-binary_relevance" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> B).</p>
+<p>Top 19 mutants were constructed rapidly, and were identified with an in-house biofoundry workflow described in the next chapter. 89% of the samples had comparable background to wild type, with 53% being less than that of WT. 58% of the samples had comparable signal to WT with 42% being more than that of WT. None of the samples had high background with high activity, owing to the preference given to background while selecting the candidates. 33% of the samples (Mutants M45L, I168T, D91E, D91H, M320R and P482Q) had a higher fold change than that of WT.</p>
 <section id="alternative-strategies-for-predicting-multiple-phenotypes" class="level4" data-number="3.2.3.1">
 <h4 data-number="3.2.3.1" class="anchored" data-anchor-id="alternative-strategies-for-predicting-multiple-phenotypes"><span class="header-section-number">3.2.3.1</span> Alternative Strategies for Predicting Multiple Phenotypes</h4>
+<section id="classifier-chains" class="level5" data-number="3.2.3.1.1">
+<h5 data-number="3.2.3.1.1" class="anchored" data-anchor-id="classifier-chains"><span class="header-section-number">3.2.3.1.1</span> Classifier Chains</h5>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/classifier_chain.png" class="img-fluid figure-img" width="631"></p>
+<figcaption>Multiple phenotype analysis using classifier chains to identify an ideal DmpR biosensor. <strong>A</strong> Workflow to predict Signal and Background phenotypes by augmenting missing labels and training a new model to predict on a given mutant sequence. <strong>B</strong></figcaption>
+</figure>
+</div>
+</section>
+<section id="experimentally-creating-double-phenotypes-as-a-dataset" class="level5" data-number="3.2.3.1.2">
+<h5 data-number="3.2.3.1.2" class="anchored" data-anchor-id="experimentally-creating-double-phenotypes-as-a-dataset"><span class="header-section-number">3.2.3.1.2</span> Experimentally Creating Double Phenotypes as a Dataset</h5>
+<p><img src="images/multi-class.png" class="img-fluid"></p>
+</section>
 </section>
 </section>
 <section id="engineering-mph-for-improved-activity" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="engineering-mph-for-improved-activity"><span class="header-section-number">3.2.4</span> Engineering MPH for improved Activity</h3>
-<p>To test for a wider application, we attempt to engineer an enzyme using HiAIPE. In a recent study, an MPH-based Genetic Enzyme Screening System (GESS)<sup>9</sup> biosensor was constructed to break down toxic pesticides such as fenitrothion, chlorpyrifos, and ethyl p-nitrophenyl phenylphosphate (EPN)<sup>16</sup>. The nested genetic circuit is set up such that the substrate, here EPN is broken down by MPH, and the consequent product, para-Nitrophenol (pNP) binds to DmpR<sub>CK</sub> and causes the expression of sfGFP (Figure 2G). However, as MPH is a membrane protein, activity from a highly active protein can directly influence the fluorescence of neighbouring cells providing a dataset that has large number of false positives. To localize the effect of pNP, solid-phase screening was employed. Here, MPH was engineered to degrade 10<span class="math inline">\(\mu\)</span>M of EPN. Owing to the presence of intermediates, the absence of substrates does not affect background fluorescence and should be as much as DmpR<sub>CK</sub>. However, some mutations in DmpR<sub>CK</sub>, possibly originating during vector backbone amplification or occurring <em>de novo</em>, were enriched along with improved MPH variants. These plasmid sequences were filtered out after sequencing to reduce false positives and negatives (Supplementary Figures 5, 7). Similar to DmpR engineering, a simple binary classification CNN model was trained and used to predict the activity of a mutant in an MPH <em>in-silico</em> library (n = 100,000).</p>
+<p>To test for a wider application, we attempt to engineer an enzyme using HiAIPE. In a recent study, an MPH-based Genetic Enzyme Screening System (GESS)<span class="citation" data-cites="choi2014toward"><sup><a href="references.html#ref-choi2014toward" role="doc-biblioref">9</a></sup></span> biosensor was constructed to break down toxic pesticides such as fenitrothion, chlorpyrifos, and ethyl p-nitrophenyl phenylphosphate (EPN). The nested genetic circuit is set up such that the substrate, here EPN is broken down by MPH, and the consequent product, para-Nitrophenol (pNP) binds to DmpR<sub>CK</sub> and causes the expression of sfGFP (Figure 2G). However, as MPH is a membrane protein, activity from a highly active protein can directly influence the fluorescence of neighbouring cells providing a dataset that has large number of false positives. To localize the effect of pNP, solid-phase screening was employed. Here, MPH was engineered to degrade 10<span class="math inline">\(\mu\)</span>M of EPN. Owing to the presence of intermediates, the absence of substrates does not affect background fluorescence and should be as much as DmpR<sub>CK</sub>. However, some mutations in DmpR<sub>CK</sub>, possibly originating during vector backbone amplification or occurring <em>de novo</em>, were enriched along with improved MPH variants. These plasmid sequences were filtered out after sequencing to reduce false positives and negatives (Supplementary Figures 5, 7). Similar to DmpR engineering, a simple binary classification CNN model was trained and used to predict the activity of a mutant in an MPH <em>in-silico</em> library (n = 100,000).</p>
+<p><img src="images/mph_epn_activity.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="future-considerations" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="future-considerations"><span class="header-section-number">3.3</span> Future Considerations</h2>
-<p>Although this method focuses on engineering transcription factor proteins, it can be modified to target other types of proteins. Nested genetic circuits used in tools such as GESS can expand the range of proteins that can be screened on the basis of fluorescence using a single TF. Alternative approaches to high-throughput screening of enzymes for example, using chemoselective<sup>16</sup> probes attached to the substrate and observing the change in fluorescence to determine the enzyme activity can substitute the use of a biosensor.<br>
+<p>Although this method focuses on engineering transcription factor proteins, it can be modified to target other types of proteins. Nested genetic circuits used in tools such as GESS can expand the range of proteins that can be screened on the basis of fluorescence using a single TF. Alternative approaches to high-throughput screening of enzymes for example, using chemoselective<span class="citation" data-cites="hecko2023enlightening"><sup><a href="references.html#ref-hecko2023enlightening" role="doc-biblioref">15</a></sup></span> probes attached to the substrate and observing the change in fluorescence to determine the enzyme activity can substitute the use of a biosensor.<br>
 Another limitation is relying on the raw read accuracy of Nanopore which is estimated at 99.5% which often results in random insertions and deletions in the reads. Nonetheless, technology is rapidly evolving to reduce such errors (Supplementary Figure 9). Alternatively, raw reads from PacBio HiFi long reads sequencing that has a raw read accuracy of 99.9% can be used in the same manner.</p>
-<p>HiAPE is a method to salvage and utilize the data that is often lost during directed evolution to generate an AI model that can provide a comprehensive outlook of a protein landscape. It can be applied as a general strategy to a variety of proteins provided the low and high-activity phenotypes can be separated. Multiple models on different properties can be developed and run in parallel from the same mutant library to provide an ideal candidate that fulfills all criteria. Although a fairly simple CNN model was utilized in this study, the data acquired can also be used to train more sophisticated single and multi-label architectures or to fine-tune pre-trained models, including language models to predict novel protein sequences for a targeted function. Through advanced data collection techniques, we can construct personalized models for different proteins which can be supplemented by autonomous robotic laboratories<sup>17</sup> to facilitate rapid and efficient protein engineering.</p>
+<p>HiAPE is a method to salvage and utilize the data that is often lost during directed evolution to generate an AI model that can provide a comprehensive outlook of a protein landscape. It can be applied as a general strategy to a variety of proteins provided the low and high-activity phenotypes can be separated. Multiple models on different properties can be developed and run in parallel from the same mutant library to provide an ideal candidate that fulfills all criteria. Although a fairly simple CNN model was utilized in this study, the data acquired can also be used to train more sophisticated single and multi-label architectures or to fine-tune pre-trained models, including language models to predict novel protein sequences for a targeted function. Through advanced data collection techniques, we can construct personalized models for different proteins which can be supplemented by autonomous robotic laboratories<span class="citation" data-cites="rapp2024self"><sup><a href="references.html#ref-rapp2024self" role="doc-biblioref">16</a></sup></span> to facilitate rapid and efficient protein engineering.</p>
 </section>
 <section id="methods" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">3.4</span> Methods</h2>
@@ -327,7 +375,7 @@ Another limitation is relying on the raw read accuracy of Nanopore which is esti
 </section>
 <section id="design-genetic-circuit" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="design-genetic-circuit"><span class="header-section-number">3.4.2</span> Design: Genetic Circuit</h3>
-<p>The DmpR construct was a double module adaptation of the GESS system described by SL Choi<sup>9</sup> into a single plasmid, and the MPH construct was a modified high activity circuit (PH) to detect pesticides performed in a previous study (WJS, 2024). A B0032 ribosome binding site along with constitutive promoters J231109 and J231103 were used for expressing DmpR in the DmpR and MPH circuits respectively. Po, a DmpR-inducible promoter was used to express sfGFP for both constructs. The L2U3H03 terminator was used for DmpR<sub>WT</sub> and sfGfP in the DmpR construct. The same was used for MPH and sfGFP, and L2U5H11 terminator was used for DmpR<sub>CK</sub> in the MPH circuit (ref ML). Additionally, a RiboJ insulator was used on sfGFP and MPH. A palindromic sequence present between DmpR<sub>CK</sub> and sfGFP in the original MPH circuit was replaced with the spacer used in the DmpR circuit. This was done to avoid inconsistencies that may occur during vector backbone elongation resulting in different expression levels of sfGFP (Appendix Figure **#TODO**). The detailed sequences of the plasmids used are provided in the Appendix<strong>.</strong></p>
+<p>The DmpR construct was a double module adaptation of the GESS system described by SL Choi<span class="citation" data-cites="choi2014toward"><sup><a href="references.html#ref-choi2014toward" role="doc-biblioref">9</a></sup></span> into a single plasmid, and the MPH construct was a modified high activity circuit (PH) to detect pesticides performed in a previous study (WJS, 2024). A B0032 ribosome binding site along with constitutive promoters J231109 and J231103 were used for expressing DmpR in the DmpR and MPH circuits respectively. Po, a DmpR-inducible promoter was used to express sfGFP for both constructs. The L2U3H03 terminator was used for DmpR<sub>WT</sub> and sfGfP in the DmpR construct. The same was used for MPH and sfGFP, and L2U5H11 terminator was used for DmpR<sub>CK</sub> in the MPH circuit (ref ML). Additionally, a RiboJ insulator was used on sfGFP and MPH. A palindromic sequence present between DmpR<sub>CK</sub> and sfGFP in the original MPH circuit was replaced with the spacer used in the DmpR circuit. This was done to avoid inconsistencies that may occur during vector backbone elongation resulting in different expression levels of sfGFP. The detailed sequences of the plasmids used are provided in the Appendix<strong>.</strong></p>
 </section>
 <section id="build-mutant-library" class="level3" data-number="3.4.3">
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="build-mutant-library"><span class="header-section-number">3.4.3</span> Build: Mutant Library</h3>
@@ -358,7 +406,7 @@ Another limitation is relying on the raw read accuracy of Nanopore which is esti
 <h3 data-number="3.4.5" class="anchored" data-anchor-id="learn"><span class="header-section-number">3.4.5</span> Learn</h3>
 <section id="sequence-data-preprocessing" class="level4" data-number="3.4.5.1">
 <h4 data-number="3.4.5.1" class="anchored" data-anchor-id="sequence-data-preprocessing"><span class="header-section-number">3.4.5.1</span> Sequence Data Preprocessing</h4>
-<p>The reads were first mapped to the WT sequence using Minimap2<sup>20</sup> to make SAM files, which were then consolidated, sorted, and managed using SAMtools<sup>21</sup>. As we needed the entire length of the reads, BEDtools<sup>22</sup> was used to identify fully mapped reads and a custom python script was used to extract these reads by name. For observing the variance across the different rounds, command line IGVtools<sup>23</sup> was used to generate WIG files on the distribution of nucleotides observed at each position. All third-party software was incorporated into a single Docker<sup>24</sup> container for ease of use and custom scripts are available on GitHub (Availablility of Data and Code).</p>
+<p>The reads were first mapped to the WT sequence using Minimap2<span class="citation" data-cites="li2018minimap2"><sup><a href="references.html#ref-li2018minimap2" role="doc-biblioref">17</a></sup></span> to make SAM files, which were then consolidated, sorted, and managed using SAMtools<span class="citation" data-cites="danecek2021twelve"><sup><a href="references.html#ref-danecek2021twelve" role="doc-biblioref">18</a></sup></span>. As we needed the entire length of the reads, BEDtools<span class="citation" data-cites="quinlan2010bedtools"><sup><a href="references.html#ref-quinlan2010bedtools" role="doc-biblioref">19</a></sup></span> was used to identify fully mapped reads and a custom python script was used to extract these reads by name. For observing the variance across the different rounds, command line IGVtools<span class="citation" data-cites="thorvaldsdottir2013integrative"><sup><a href="references.html#ref-thorvaldsdottir2013integrative" role="doc-biblioref">20</a></sup></span> was used to generate WIG files on the distribution of nucleotides observed at each position. All third-party software was incorporated into a single Docker<span class="citation" data-cites="merkel2014docker"><sup><a href="references.html#ref-merkel2014docker" role="doc-biblioref">21</a></sup></span> container for ease of use and custom scripts are available on GitHub (Availablility of Data and Code).</p>
 </section>
 <section id="training-deep-learning-models" class="level4" data-number="3.4.5.2">
 <h4 data-number="3.4.5.2" class="anchored" data-anchor-id="training-deep-learning-models"><span class="header-section-number">3.4.5.2</span> Training Deep Learning Models</h4>
@@ -375,16 +423,87 @@ Another limitation is relying on the raw read accuracy of Nanopore which is esti
 </section>
 <section id="analyzing-data-for-visualization" class="level4" data-number="3.4.5.4">
 <h4 data-number="3.4.5.4" class="anchored" data-anchor-id="analyzing-data-for-visualization"><span class="header-section-number">3.4.5.4</span> Analyzing Data for Visualization</h4>
-<p>To observe the spread and variation in the error-prone PCR mutagenesis, the mutant library and WT were sequence at the same time. Nanopore sequencing with R10.4.1 chemistry and SUP basecalling is known to have a single read accuracy of ~99.5%<sup>25</sup> <strong>(Supplementary Data 9)</strong>, suggesting there are ~5 errors per kb. Here, the variance in WT sequenced reads are used as a threshold for the error rate in the mutant library.</p>
+<p>To observe the spread and variation in the error-prone PCR mutagenesis, the mutant library and WT were sequence at the same time. Nanopore sequencing with R10.4.1 chemistry and SUP basecalling is known to have a single read accuracy of ~99.5%<span class="citation" data-cites="Oxford_Nanopore_Technologies_2024"><sup><a href="references.html#ref-Oxford_Nanopore_Technologies_2024" role="doc-biblioref">22</a></sup></span>, suggesting there are ~5 errors per kb. Here, the variance in WT sequenced reads are used as a threshold for the error rate in the mutant library.</p>
 <p>The variation <span class="math inline">\(v\)</span> at a specific position <span class="math inline">\(i\)</span> can be defined as:</p>
 <p><span class="math display">\[ v_i = {\sum n_i' \over n_i} * 100 \]</span></p>
 <p>where <span class="math inline">\(n_i'\)</span> are the occurrences of all nucleotides excluding WT and <span class="math inline">\(n_i\)</span> are the occurrences of the WT nucleotides at position <span class="math inline">\(i\)</span> in a sequence run of a single population.</p>
 <p>We define the variation of the <span class="math inline">\(i\)</span>th nucleotide in the mutant library as:</p>
 <p><span class="math display">\[ V_i = ({\sum ml_i' \over ml_i} * 100 ) - ({\sum wt_i' \over wt_i} * 100 ) \]</span></p>
 <p>where <span class="math inline">\(ml\)</span> refers to the mutant library sequenced samples and <span class="math inline">\(wt\)</span> refers to the the WT sequenced samples.</p>
-<p>All graphs were constructed on python using the seaborn package (v0.13.0) in Python. Data from FACS was analyzed using the FlowCal package (v1.3.0)<sup>26</sup> and visualized using seaborn. WIG files of sequenced mutant libraries generated using IGVtools<sup>23</sup> provided positional nucleotide information and visualized using seaborn. Streamlit applications for both were constructed for public use (<a href="https://facsvisualization.streamlit.app/" class="uri">https://facsvisualization.streamlit.app/</a> and <a href="https://libraryanalysis.streamlit.app/" class="uri">https://libraryanalysis.streamlit.app/</a>).</p>
+<p>All graphs were constructed on python using the seaborn package (v0.13.0) in Python. Data from FACS was analyzed using the FlowCal package (v1.3.0)<span class="citation" data-cites="castillo2016flowcal"><sup><a href="references.html#ref-castillo2016flowcal" role="doc-biblioref">23</a></sup></span> and visualized using seaborn. WIG files of sequenced mutant libraries generated using IGVtools<sup>23</sup> provided positional nucleotide information and visualized using seaborn. Streamlit applications for both were constructed for public use (<a href="https://facsvisualization.streamlit.app/" class="uri">https://facsvisualization.streamlit.app/</a> and <a href="https://libraryanalysis.streamlit.app/" class="uri">https://libraryanalysis.streamlit.app/</a>).</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-kouba2023machine" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(1) </div><div class="csl-right-inline">Kouba, P.; Kohout, P.; Haddadi, F.; Bushuiev, A.; Samusevich, R.; Sedlar, J.; Damborsky, J.; Pluskal, T.; Sivic, J.; Mazurenko, S. Machine Learning-Guided Protein Engineering. <em>ACS catalysis</em> <strong>2023</strong>, <em>13</em> (21), 13863–13895.</div>
+</div>
+<div id="ref-kazlauskas2009finding" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(2) </div><div class="csl-right-inline">Kazlauskas, R. J.; Bornscheuer, U. T. Finding Better Protein Engineering Strategies. <em>Nature chemical biology</em> <strong>2009</strong>, <em>5</em> (8), 526–529.</div>
+</div>
+<div id="ref-listgarten2024perpetual" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(3) </div><div class="csl-right-inline">Listgarten, J. The Perpetual Motion Machine of AI-Generated Data and the Distraction of ChatGPT as a <span>“Scientist.”</span> <em>Nature Biotechnology</em> <strong>2024</strong>, <em>42</em> (3), 371–373.</div>
+</div>
+<div id="ref-slusarczyk2012foundations" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(4) </div><div class="csl-right-inline">Slusarczyk, A. L.; Lin, A.; Weiss, R. Foundations for the Design and Implementation of Synthetic Genetic Circuits. <em>Nature Reviews Genetics</em> <strong>2012</strong>, <em>13</em> (6), 406–420.</div>
+</div>
+<div id="ref-kaczmarek2021effective" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(5) </div><div class="csl-right-inline">Kaczmarek, J. A.; Prather, K. L. Effective Use of Biosensors for High-Throughput Library Screening for Metabolite Production. <em>Journal of Industrial Microbiology and Biotechnology</em> <strong>2021</strong>, <em>48</em> (9-10), kuab049.</div>
+</div>
+<div id="ref-yokobayashi2002directed" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(6) </div><div class="csl-right-inline">Yokobayashi, Y.; Weiss, R.; Arnold, F. H. Directed Evolution of a Genetic Circuit. <em>Proceedings of the National Academy of Sciences</em> <strong>2002</strong>, <em>99</em> (26), 16587–16591.</div>
+</div>
+<div id="ref-wang2018gfp" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(7) </div><div class="csl-right-inline">Wang, G.; Jia, W.; Chen, N.; Zhang, K.; Wang, L.; Lv, P.; He, R.; Wang, M.; Zhang, D. A GFP-Fusion Coupling FACS Platform for Advancing the Metabolic Engineering of Filamentous Fungi. <em>Biotechnology for biofuels</em> <strong>2018</strong>, <em>11</em>, 1–12.</div>
+</div>
+<div id="ref-yeom2018synthetic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(8) </div><div class="csl-right-inline">Yeom, S.-J.; Kim, M.; Kwon, K. K.; Fu, Y.; Rha, E.; Park, S.-H.; Lee, H.; Kim, H.; Lee, D.-H.; Kim, D.-M.; others. A Synthetic Microbial Biosensor for High-Throughput Screening of Lactam Biocatalysts. <em>Nature Communications</em> <strong>2018</strong>, <em>9</em> (1), 5053.</div>
+</div>
+<div id="ref-choi2014toward" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(9) </div><div class="csl-right-inline">Choi, S.-L.; Rha, E.; Lee, S. J.; Kim, H.; Kwon, K.; Jeong, Y.-S.; Rhee, Y. H.; Song, J. J.; Kim, H.-S.; Lee, S.-G. Toward a Generalized and High-Throughput Enzyme Screening System Based on Artificial Genetic Circuits. <em>ACS synthetic biology</em> <strong>2014</strong>, <em>3</em> (3), 163–171.</div>
+</div>
+<div id="ref-kurczab2014influence" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(10) </div><div class="csl-right-inline">Kurczab, R.; Smusz, S.; Bojarski, A. J. The Influence of Negative Training Set Size on Machine Learning-Based Virtual Screening. <em>Journal of cheminformatics</em> <strong>2014</strong>, <em>6</em>, 1–9.</div>
+</div>
+<div id="ref-maloney2023negative" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(11) </div><div class="csl-right-inline">Maloney, M. P.; Coley, C. W.; Genheden, S.; Carson, N.; Helquist, P.; Norrby, P.-O.; Wiest, O. Negative Data in Data Sets for Machine Learning Training. <em>Organic Letters</em>, 2023, <em>25</em>, 2945–2947.</div>
+</div>
+<div id="ref-park2020tetrameric" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(12) </div><div class="csl-right-inline">Park, K.-H.; Kim, S.; Lee, S.-J.; Cho, J.-E.; Patil, V. V.; Dumbrepatil, A. B.; Song, H.-N.; Ahn, W.-C.; Joo, C.; Lee, S.-G.; others. Tetrameric Architecture of an Active Phenol-Bound Form of the AAA+ Transcriptional Regulator DmpR. <em>Nature communications</em> <strong>2020</strong>, <em>11</em> (1), 2728.</div>
+</div>
+<div id="ref-gupta2012effective" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(13) </div><div class="csl-right-inline">Gupta, S.; Saxena, M.; Saini, N.; Mahmooduzzafar; Kumar, R.; Kumar, A. An Effective Strategy for a Whole-Cell Biosensor Based on Putative Effector Interaction Site of the Regulatory DmpR Protein. <strong>2012</strong>.</div>
+</div>
+<div id="ref-pavel1994aromatic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(14) </div><div class="csl-right-inline">Pavel, H.; Forsman, M.; Shingler, V. An Aromatic Effector Specificity Mutant of the Transcriptional Regulator DmpR Overcomes the Growth Constraints of Pseudomonas Sp. Strain CF600 on Para-Substituted Methylphenols. <em>Journal of bacteriology</em> <strong>1994</strong>, <em>176</em> (24), 7550–7557.</div>
+</div>
+<div id="ref-hecko2023enlightening" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(15) </div><div class="csl-right-inline">Hecko, S.; Schiefer, A.; Badenhorst, C. P.; Fink, M. J.; Mihovilovic, M. D.; Bornscheuer, U. T.; Rudroff, F. Enlightening the Path to Protein Engineering: Chemoselective Turn-on Probes for High-Throughput Screening of Enzymatic Activity. <em>Chemical Reviews</em> <strong>2023</strong>, <em>123</em> (6), 2832–2901.</div>
+</div>
+<div id="ref-rapp2024self" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(16) </div><div class="csl-right-inline">Rapp, J. T.; Bremer, B. J.; Romero, P. A. Self-Driving Laboratories to Autonomously Navigate the Protein Fitness Landscape. <em>Nature chemical engineering</em> <strong>2024</strong>, <em>1</em> (1), 97–107.</div>
+</div>
+<div id="ref-li2018minimap2" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(17) </div><div class="csl-right-inline">Li, H. Minimap2: Pairwise Alignment for Nucleotide Sequences. <em>Bioinformatics</em> <strong>2018</strong>, <em>34</em> (18), 3094–3100.</div>
+</div>
+<div id="ref-danecek2021twelve" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(18) </div><div class="csl-right-inline">Danecek, P.; Bonfield, J. K.; Liddle, J.; Marshall, J.; Ohan, V.; Pollard, M. O.; Whitwham, A.; Keane, T.; McCarthy, S. A.; Davies, R. M.; others. Twelve Years of SAMtools and BCFtools. <em>Gigascience</em> <strong>2021</strong>, <em>10</em> (2), giab008.</div>
+</div>
+<div id="ref-quinlan2010bedtools" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(19) </div><div class="csl-right-inline">Quinlan, A. R.; Hall, I. M. BEDTools: A Flexible Suite of Utilities for Comparing Genomic Features. <em>Bioinformatics</em> <strong>2010</strong>, <em>26</em> (6), 841–842.</div>
+</div>
+<div id="ref-thorvaldsdottir2013integrative" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(20) </div><div class="csl-right-inline">Thorvaldsdóttir, H.; Robinson, J. T.; Mesirov, J. P. Integrative Genomics Viewer (IGV): High-Performance Genomics Data Visualization and Exploration. <em>Briefings in bioinformatics</em> <strong>2013</strong>, <em>14</em> (2), 178–192.</div>
+</div>
+<div id="ref-merkel2014docker" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(21) </div><div class="csl-right-inline">Merkel, D.; others. Docker: Lightweight Linux Containers for Consistent Development and Deployment. <em>Linux j</em> <strong>2014</strong>, <em>239</em> (2), 2.</div>
+</div>
+<div id="ref-Oxford_Nanopore_Technologies_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(22) </div><div class="csl-right-inline">Technologies, O. N. 2024. <a href="https://nanoporetech.com/accuracy">https://nanoporetech.com/accuracy</a>.</div>
+</div>
+<div id="ref-castillo2016flowcal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(23) </div><div class="csl-right-inline">Castillo-Hair, S. M.; Sexton, J. T.; Landry, B. P.; Olson, E. J.; Igoshin, O. A.; Tabor, J. J. FlowCal: A User-Friendly, Open Source Software Tool for Automatically Converting Flow Cytometry Data from Arbitrary to Calibrated Units. <em>ACS synthetic biology</em> <strong>2016</strong>, <em>5</em> (7), 774–780.</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -784,8 +903,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/mutant_gen.html" class="pagination-link" aria-label="Biofoundry based production and multiplexed identification of mutants">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry based production and multiplexed identification of mutants</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/mutant_gen.html" class="pagination-link" aria-label="Biofoundry-based Production and Multiplexed Identification of Mutants">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry-based Production and Multiplexed Identification of Mutants</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
