@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -158,7 +178,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Abstract</span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -194,7 +214,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/dsembler.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA and Further Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -239,7 +259,7 @@ window.Quarto = {
   <li><a href="#phenotyping-using-a-plate-reader" id="toc-phenotyping-using-a-plate-reader" class="nav-link" data-scroll-target="#phenotyping-using-a-plate-reader"><span class="header-section-number">4.4.3</span> Phenotyping using a Plate Reader</a></li>
   </ul></li>
   <li><a href="#learn-structure-predictions" id="toc-learn-structure-predictions" class="nav-link" data-scroll-target="#learn-structure-predictions"><span class="header-section-number">4.5</span> Learn: Structure Predictions</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4.6</span> Discussion</a></li>
+  <li><a href="#impact" id="toc-impact" class="nav-link" data-scroll-target="#impact"><span class="header-section-number">4.6</span> Impact</a></li>
   </ul>
 </nav>
     </div>
@@ -291,13 +311,25 @@ Figure&nbsp;4.1: Automated pipeline to generate and screen through mutants A. An
 </section>
 <section id="generative-ai-and-language-models" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="generative-ai-and-language-models"><span class="header-section-number">4.2.2</span> Generative AI and Language Models</h3>
-<p><img src="images/paste-2.png" class="img-fluid"></p>
-<p>An alternative method to generate candidates could be to use pre-trained protein language models such as ProtBert, ProGen or ESM.</p>
+<div id="fig-llm" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-llm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/llm.png" id="fig-llm" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-llm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2
+</figcaption>
+</figure>
+</div>
+<p>An alternative method to generate candidates could be to use pre-trained protein language models such as ProtBERT<span class="citation" data-cites="brandes2022proteinbert"><sup><a href="references.html#ref-brandes2022proteinbert" role="doc-biblioref">1</a></sup></span>, ProGen<span class="citation" data-cites="madani2020progen"><sup><a href="references.html#ref-madani2020progen" role="doc-biblioref">2</a></sup></span> or ESM<span class="citation" data-cites="rives2019biological rao2021msa rao2020transformer meier2021language lin2022language hsu2022learning"><sup><a href="references.html#ref-rives2019biological" role="doc-biblioref">3</a>–<a href="references.html#ref-hsu2022learning" role="doc-biblioref">8</a></sup></span>. These models leverage techniques similar to those used in natural language processing (NLP) but are adapted to the unique structure and functions of proteins. Just as words are composed of letters in natural languages, proteins are made up of sequences of amino acids, the building blocks of proteins. The sequence of amino acids in a protein determines its three-dimensional structure and, ultimately, its function. Each amino acid is represented by a single letter, and the entire protein sequence can be treated similarly to how text is processed in language models. In NLP, language models are trained to predict the next word in a sentence or to understand the meaning of a passage by learning patterns in large corpora of text. In a similar way, protein language models are trained on massive datasets of protein sequences, learning patterns, motifs, and functional relationships between amino acids that allow the model to predict key properties of proteins; the “grammar” of proteins if you will.</p>
+<p>To employ these models to predict novel proteins with a desired function, a dataset is used to fine-tune the pre-trained models to look for patterns that follow protein rules, as well as patterns specific to the target protein<span class="citation" data-cites="ferruz2022controllable"><sup><a href="references.html#ref-ferruz2022controllable" role="doc-biblioref">9</a></sup></span>. The resulting model can provide a sequence, often very different that that of the WT, that is predicted to have the activity as the target protein. These sequences can be constructed using an assembly method described in the next chapter.</p>
+<p>In this thesis we attempt to employ the MPH high activity dataset (Chapter 3) to fine tune ProtBERT. To fine-tune the model, the input dataset is of protein sequences with the desired target activity. The first and most complex issue is to translate the output from nanopore. The dataset obtained from nanopore has a read accuracy of 99.6%, suggesting there are on an average of 4 errors per kb. These errors occur due to repetitive base sequences which causes the basecaller algorithm to mistake the sequence to have an insertion or deletion of a base. This can be problematic when translating as it may result in frameshifts that don’t actually exist in the actual dataset. As there are negligible amounts of INDELS caused by random mutagenesis by Takara (Tokyo), a script to ignore these mutations and either delete an insertion or add WT base for a deletion at the position is used to translate the sequences. However, there is a caveat as there might be point mutations at the WT base additions which are not accounted for. This problem can be overcome with improved nanopore sequencing or basecalling technology, or the use of PacBio long-read sequencing that has a 99.9% read accuracy.</p>
+<p>The fine-tuning using translated sequences is continued with the assumption that they accurately represent the samples. Fine-tuning utilizes large amounts of computational power. The roughly 30,000 reads used 100% of four 25GB memory GPU systems for 163 hours to fine tune the model. This represents as a challenge as it utilizes resources that can be devoted elsewhere. The resulting model was asked to predict MPH sequences with a length of 394aa when the first 20 aa were provided. However, the resulting sequences upon structure prediction did not show much similarity with that of the WT. Although they might still function as MPH, optimization and further modeling is required prior to experimentally validating the same.</p>
 </section>
 </section>
 <section id="build-mutants-generation-with-automated-machines" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="build-mutants-generation-with-automated-machines"><span class="header-section-number">4.3</span> Build: Mutants Generation with Automated Machines</h2>
-<p>The construction of the mutants is performed by K-Biofoundry <em>beta</em> (KRIBB, Daejeon, South Korea) (<a href="#fig-sdm" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> A). Mutant primers were designed using a custom python script (Chapter 2: Design Tools) and obtained from Macrogen (Korea). PCR with these primers, KOD One polymerase, and the template DNA was executed to form linear mutated DNA. All primers were dispensed using Echo 525 (Beckman Coulter, IN) to a 96-well PCR plate (BIO-RAD), and other components were dispensed using the Janus G3 Liquid handler (Revvity, MA). This was circularized using T4 Ligase and T4 PNK, and was treated with DpnI (NEB) at 37<sup>o</sup>C for 1 hour, 24<sup>o</sup>C for 2 hours, and deactivated at 65<sup>o</sup>C for 10 min. This was then transformed via heat shock and spotted on a Cell-culture plate (SPL Life Sciences, South Korea) using Janus.</p>
+<p>The construction of the mutants is performed by K-Biofoundry <em>beta</em> (KRIBB, Daejeon, South Korea) (<a href="#fig-sdm" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> A). Mutant primers were designed using a custom python script (Chapter 2: Design Tools) and obtained from Macrogen (Korea). PCR with these primers, KOD One polymerase, and the template DNA was executed to form linear mutated DNA. All primers were dispensed using Echo 525 (Beckman Coulter, IN) to a 96-well PCR plate (BIO-RAD), and other components were dispensed using the Janus G3 Liquid handler (Revvity, MA), with the well-maps constructed using the script described in Chapter 2. This was circularized using T4 Ligase and T4 PNK, and was treated with DpnI (NEB) at 37<sup>o</sup>C for 1 hour, 24<sup>o</sup>C for 2 hours, and deactivated at 65<sup>o</sup>C for 10 min. This was then transformed via heat shock and spotted on a Cell-culture plate (SPL Life Sciences, South Korea) using Janus.</p>
 </section>
 <section id="test" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="test"><span class="header-section-number">4.4</span> Test</h2>
@@ -374,17 +406,52 @@ End Function
 <section id="learn-structure-predictions" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="learn-structure-predictions"><span class="header-section-number">4.5</span> Learn: Structure Predictions</h2>
 <p>A locally installed AlphaFold (v.2.3.2) was run on DmpR<sub>WT</sub>, MPH<sub>WT</sub> and variants was run to obtain structures of the partially/non-identified proteins. Both were constructed as monomers.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/paste-1.png" class="img-fluid figure-img"></p>
-<figcaption>A. Domain positions of DmpR across the protein sequence, adapted from Park, Kwang-Hyun, et al, 2020. In blue is the sensory domain or substrate binding domain, in green is the B-linker which links the substrate binding domain and the ATPase domain in pink. The gray regions are peptide sequences which were deleted to resolve the protein structure. The C-terminal is the DNA-binding domain for the transcription factor.B. An AlphaFold predicted structure (visualized in PyMol) of a DmpR monomer color coded to A, to incorporate the DNA-binding domain. The residue at the 482nd residue is highlighted. Proline is the WT amino acid and on substituting it for Glutamine there is an improved response to phenol. Proline is known to contribute to conformational rigidity, and when replacing it with Glutamine allows for a flexible linker between the two domains. Additionally, the polarity of glutamine may contribute to H-bonding with other amino acids or water molecules in the environment, providing stability in the structure.C. (Left)FACS analysis comparisons of P482Q (green) and WT (blue). (Right) FACS analysis comparisons of the Signal (green) and Background (gray) of P482Q.</figcaption>
+<p>Using the positional information, the role and importance of the residue can be interpreted. For example, P482Q is present at a linker between the ATPase domain of DmpR and the DNA binding domain (<a href="#fig-AF_dmpr_P482Q" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>). Substituting proline for glutamine may promote water-based H-bonding which improves flexible binding and release of the TF from the promoter DNA.</p>
+<div id="fig-AF_dmpr_P482Q" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-AF_dmpr_P482Q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/p482q.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-AF_dmpr_P482Q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: A. Domain positions of DmpR across the protein sequence, adapted from Park, Kwang-Hyun, et al, 2020. In blue is the sensory domain or substrate binding domain, in green is the B-linker which links the substrate binding domain and the ATPase domain in pink. The gray regions are peptide sequences which were deleted to resolve the protein structure. The C-terminal is the DNA-binding domain for the transcription factor.B. An AlphaFold predicted structure (visualized in PyMol) of a DmpR monomer color coded to A, to incorporate the DNA-binding domain. The residue at the 482nd residue is highlighted. Proline is the WT amino acid and on substituting it for Glutamine there is an improved response to phenol. Proline is known to contribute to conformational rigidity, and when replacing it with Glutamine allows for a flexible linker between the two domains. Additionally, the polarity of glutamine may contribute to H-bonding with other amino acids or water molecules in the environment, providing stability in the structure.C. (Left)FACS analysis comparisons of P482Q (green) and WT (blue). (Right) FACS analysis comparisons of the Signal (green) and Background (gray) of P482Q.
+</figcaption>
 </figure>
 </div>
 </section>
-<section id="discussion" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="discussion"><span class="header-section-number">4.6</span> Discussion</h2>
+<section id="impact" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="impact"><span class="header-section-number">4.6</span> Impact</h2>
+<p>This method was considerably faster than manually mutating, allowing upto 96 simultaneous 3-mutation mutants to be created by iterating the SDM process. Each round of SDM took about 3 working days from construction to verification. Additionally, by multiplexed barcode-PCR sequencing, the cost of per sample was reduced considerably when compared to that of Sanger Sequencing performed by sequencing companies. Lastly, as the number of Nanopore sequences are 96, and if using 384-well plates, theoretically, upto 36,864 samples could be sequenced simultaneously. The multiplexed sequencing can be used not only during protein engineering, but verifying sequences for regulatory elements, or whole genetic circuits.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-brandes2022proteinbert" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(1) </div><div class="csl-right-inline">Brandes, N.; Ofer, D.; Peleg, Y.; Rappoport, N.; Linial, M. ProteinBERT: A Universal Deep-Learning Model of Protein Sequence and Function. <em>Bioinformatics</em> <strong>2022</strong>, <em>38</em> (8), 2102–2110.</div>
+</div>
+<div id="ref-madani2020progen" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(2) </div><div class="csl-right-inline">Madani, A.; McCann, B.; Naik, N.; Keskar, N. S.; Anand, N.; Eguchi, R. R.; Huang, P.-S.; Socher, R. Progen: Language Modeling for Protein Generation. <em>arXiv preprint arXiv:2004.03497</em> <strong>2020</strong>.</div>
+</div>
+<div id="ref-rives2019biological" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(3) </div><div class="csl-right-inline">Rives, A.; Meier, J.; Sercu, T.; Goyal, S.; Lin, Z.; Liu, J.; Guo, D.; Ott, M.; Zitnick, C. L.; Ma, J.; Fergus, R. Biological Structure and Function Emerge from Scaling Unsupervised Learning to 250 Million Protein Sequences. <em>PNAS</em> <strong>2019</strong>. <a href="https://doi.org/10.1101/622803">https://doi.org/10.1101/622803</a>.</div>
+</div>
+<div id="ref-rao2021msa" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(4) </div><div class="csl-right-inline">Rao, R.; Liu, J.; Verkuil, R.; Meier, J.; Canny, J. F.; Abbeel, P.; Sercu, T.; Rives, A. MSA Transformer. <em>bioRxiv</em> <strong>2021</strong>. <a href="https://doi.org/10.1101/2021.02.12.430858">https://doi.org/10.1101/2021.02.12.430858</a>.</div>
+</div>
+<div id="ref-rao2020transformer" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(5) </div><div class="csl-right-inline">Rao, R. M.; Meier, J.; Sercu, T.; Ovchinnikov, S.; Rives, A. Transformer Protein Language Models Are Unsupervised Structure Learners. <em>bioRxiv</em> <strong>2020</strong>. <a href="https://doi.org/10.1101/2020.12.15.422761">https://doi.org/10.1101/2020.12.15.422761</a>.</div>
+</div>
+<div id="ref-meier2021language" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(6) </div><div class="csl-right-inline">Meier, J.; Rao, R.; Verkuil, R.; Liu, J.; Sercu, T.; Rives, A. Language Models Enable Zero-Shot Prediction of the Effects of Mutations on Protein Function. <em>bioRxiv</em> <strong>2021</strong>. <a href="https://doi.org/10.1101/2021.07.09.450648">https://doi.org/10.1101/2021.07.09.450648</a>.</div>
+</div>
+<div id="ref-lin2022language" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(7) </div><div class="csl-right-inline">Lin, Z.; Akin, H.; Rao, R.; Hie, B.; Zhu, Z.; Lu, W.; Smetanin, N.; Santos Costa, A. dos; Fazel-Zarandi, M.; Sercu, T.; Candido, S.; others. Language Models of Protein Sequences at the Scale of Evolution Enable Accurate Structure Prediction. <em>bioRxiv</em> <strong>2022</strong>.</div>
+</div>
+<div id="ref-hsu2022learning" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(8) </div><div class="csl-right-inline">Hsu, C.; Verkuil, R.; Liu, J.; Lin, Z.; Hie, B.; Sercu, T.; Lerer, A.; Rives, A. Learning Inverse Folding from Millions of Predicted Structures. <em>ICML</em> <strong>2022</strong>. <a href="https://doi.org/10.1101/2022.04.10.487779">https://doi.org/10.1101/2022.04.10.487779</a>.</div>
+</div>
+<div id="ref-ferruz2022controllable" class="csl-entry" role="listitem">
+<div class="csl-left-margin">(9) </div><div class="csl-right-inline">Ferruz, N.; Höcker, B. Controllable Protein Design with Language Models. <em>Nature Machine Intelligence</em> <strong>2022</strong>, <em>4</em> (6), 521–532.</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -782,8 +849,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/dsembler.html" class="pagination-link" aria-label="Assembling Long-DNA and Further Analysis">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA and Further Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/dsembler.html" class="pagination-link" aria-label="Assembling Long-DNA">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
