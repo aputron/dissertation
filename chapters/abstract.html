@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology - 4&nbsp; Biofoundry-based Production and Multiplexed Identification of Mutants</title>
+<title>Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology - Abstract</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/dsembler.html" rel="next">
-<link href="../chapters/data_coll.html" rel="prev">
+<link href="../chapters/introduction.html" rel="next">
+<link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,35 +89,6 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -130,7 +101,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/mutant_gen.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry-based Production and Multiplexed Identification of Mutants</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/abstract.html">Abstract</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +134,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/abstract.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/abstract.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Abstract</span></a>
   </div>
 </li>
@@ -187,7 +158,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/mutant_gen.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/mutant_gen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry-based Production and Multiplexed Identification of Mutants</span></span></a>
   </div>
 </li>
@@ -221,34 +192,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
-  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design"><span class="header-section-number">4.2</span> Design:</a>
-  <ul class="collapse">
-  <li><a href="#random-in-silico-modelling" id="toc-random-in-silico-modelling" class="nav-link" data-scroll-target="#random-in-silico-modelling"><span class="header-section-number">4.2.1</span> Random <em>In-silico</em> modelling</a></li>
-  <li><a href="#generative-ai-and-language-models" id="toc-generative-ai-and-language-models" class="nav-link" data-scroll-target="#generative-ai-and-language-models"><span class="header-section-number">4.2.2</span> Generative AI and Language Models</a></li>
-  </ul></li>
-  <li><a href="#build-mutants-generation-with-automated-machines" id="toc-build-mutants-generation-with-automated-machines" class="nav-link" data-scroll-target="#build-mutants-generation-with-automated-machines"><span class="header-section-number">4.3</span> Build: Mutants Generation with Automated Machines</a></li>
-  <li><a href="#test" id="toc-test" class="nav-link" data-scroll-target="#test"><span class="header-section-number">4.4</span> Test</a>
-  <ul class="collapse">
-  <li><a href="#genotyping-with-barcoded-pcr" id="toc-genotyping-with-barcoded-pcr" class="nav-link" data-scroll-target="#genotyping-with-barcoded-pcr"><span class="header-section-number">4.4.1</span> Genotyping with Barcoded PCR</a></li>
-  <li><a href="#nanopore-analysis" id="toc-nanopore-analysis" class="nav-link" data-scroll-target="#nanopore-analysis"><span class="header-section-number">4.4.2</span> Nanopore Analysis</a></li>
-  <li><a href="#phenotyping-using-a-plate-reader" id="toc-phenotyping-using-a-plate-reader" class="nav-link" data-scroll-target="#phenotyping-using-a-plate-reader"><span class="header-section-number">4.4.3</span> Phenotyping using a Plate Reader</a></li>
-  </ul></li>
-  <li><a href="#learn-structure-predictions" id="toc-learn-structure-predictions" class="nav-link" data-scroll-target="#learn-structure-predictions"><span class="header-section-number">4.5</span> Learn: Structure Predictions</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4.6</span> Discussion</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Biofoundry-based Production and Multiplexed Identification of Mutants</span></h1>
+<h1 class="title">Abstract</h1>
 </div>
 
 
@@ -265,127 +216,11 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
-<p>Protein engineering involves the continuous collection and analysis of phenotypic and genotypic data to identify advantageous protein variants. Traditional methods involve either a bottom-up data-driven approach of rational protein design or a top-down high-throughput screening approach of directed evolution to obtain and enhance a specific protein’s activity. Rational engineering requires a comprehensive understanding of the protein’s structural data, mechanism, and ligand interactions. Directed evolution, on the other hand, focuses on identifying improved candidates through a phenotype-specific selection pressure on a mutant library. This method can be rapidly applied to a wide variety of proteins without necessitating an in-depth understanding of protein mechanisms.</p>
-<p>Recent engineering efforts involve the use of structure or sequence based artificial intelligence models trained on general models that narrow the search space to target and the advantageous mutation they provide. These models can be consolidated into a single, cohesive framework to enhance the efficiency of protein engineering and reduce the need for human intervention. By leveraging algorithms to intelligently explore the variant landscape and employing highly adaptable automation robotics for experimental execution, we foresee the development of automated closed-loop protein evolution, or in vitro continuous protein evolution.</p>
-<p>Laboratory automation has the potential to significantly enhance throughput, streamline workflows, ensure reproducibility, reduce turnaround time, and generate substantial labor savings. Directed protein evolution (DPE) has yet to fully capitalize on the advancements made in biofoundries. While in vivo continuous evolution approaches present challenges in adapting to diverse proteins and pathways, the development of in vitro continuous protein evolution platforms offers a promising new direction. Despite recent progress in machine learning-driven directed evolution (MLDE), laboratory work remains labor-intensive and requires significant attention from skilled researchers. Moreover, automation offers the potential to explore higher-order variants and global protein landscapes, an area traditionally constrained by experimental limitations. For example, exploring libraries of higher-order variants, such as the diverse AAV (adeno-associated virus) capsid library with 12–29 mutations or the functional GFP library with up to 48 mutations, can benefit significantly from integrated laboratory automation platforms. A fully autonomous system would minimize the need for human supervision, accelerating the construction and analysis of predicted protein variants.</p>
-<p>In the context of MLDE, wet-lab experiments typically involve repetitive cycles of molecular biology techniques such as PCR, mutagenesis, library creation, colony picking, plasmid preparation (miniprep), sequencing, and functional assays—many of which are well-suited to full automation. Previous efforts, including PlasmidMaker, automated yeast genome-scale engineering, and BioAutomata, have already automated several of these protocols. Once individual protocols are automated, high-throughput processes can be integrated using robotic arms and scheduling software to create end-to-end pipelines. For example, the researchers behind these initiatives have utilized the Thermo F5 robotic arm, coupled with Thermo Momentum scheduler software, to integrate various core and peripheral equipment. Many commercially available instruments designed for laboratory automation, such as high-throughput liquid handlers from companies like TECAN, Hamilton, Beckman Coulter, and Agilent, can be customized to accommodate smaller instruments like thermocyclers, shakers, and colony pickers. These liquid handlers, including acoustic dispensers like the Echo, can precisely dispense nanoliter quantities and are easily integrated with robotic arms to perform a wide range of assays.</p>
-<p>Furthermore, robotics-compatible thermocyclers, fragment analyzers, and sequencers can be incorporated into robotic systems to automate mutagenesis protocols, both site-directed and random. High-throughput plate readers, compatible with laboratory automation, can facilitate automated enzymatic assays. Recent innovations in automated microfluidic devices, with applications in synthetic biology and proteomics, introduce additional possibilities for laboratory automation. Microfluidic devices capable of automating proteomics assays further extend the reach of in vitro continuous protein evolution strategies to a broader array of proteins.</p>
-<div id="fig-sdm" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sdm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/SDM.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sdm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Automated pipeline to generate and screen through mutants A. An automated pipeline to generate site-directed mutagenesis. Predictions from trained models on an in-silico mutant library of the target protein are used to identify possible candidates. Primers for the candidates are designed depending upon the type of assembly to be done, and ordered. Primers are transferred to a 384 well plate to dispense using Echo. A PCR master mix including KOD, water and template DNA is dispensed to the required wells using Janus/Opentrons2. PCR reaction using a thermocycler is performed after which DNA is purified using AMPure magnetic beads (optional). Once purified, a T4 ligase, T4 PNK, and DpnI mix is dispensed and the reaction is run on the thermocycler. Transformation using the resulting DNA is performed, with the resulting cells grown on an LB + antibiotic plate via spotting overnight in 37oC. Colonies are picked next morning and incubated in a 96-deep well plate to grow cells. B. An automated pipeline to screen through multiple colonies of candidate mutants. A colony PCR plate is prepared using barcoding PCR primers, similar to the plate preparation in A. Phenotyping plates to be performed by Victor/Tecan are prepared from the picked colonies. Colonies undergo a PCR reaction, are pooled and sequenced using Nanopore sequencing. The resulting reads are processed and demultiplexed to provide the final sequence.
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="design" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="design"><span class="header-section-number">4.2</span> Design:</h2>
-<section id="random-in-silico-modelling" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="random-in-silico-modelling"><span class="header-section-number">4.2.1</span> Random <em>In-silico</em> modelling</h3>
-<p>A <em>in-silico</em> library of <span class="math inline">\(1 \times 10^6\)</span> unique variants with each having one to four mutations was generated using a Python script. A single base was substituted randomly across a WT template sequence to develop the mutants. The resulting mutants were encoded in a one-hot encoded manner, and the trained models were used to predict their phenotypes. For each of the mutants, their corresponding primers based on using a site directed mutatagensis method were generated using the primer generator described in Chapter 2.</p>
-</section>
-<section id="generative-ai-and-language-models" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="generative-ai-and-language-models"><span class="header-section-number">4.2.2</span> Generative AI and Language Models</h3>
-<p><img src="images/paste-2.png" class="img-fluid"></p>
-<p>An alternative method to generate candidates could be to use pre-trained protein language models such as ProtBert, ProGen or ESM.</p>
-</section>
-</section>
-<section id="build-mutants-generation-with-automated-machines" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="build-mutants-generation-with-automated-machines"><span class="header-section-number">4.3</span> Build: Mutants Generation with Automated Machines</h2>
-<p>The construction of the mutants is performed by K-Biofoundry <em>beta</em> (KRIBB, Daejeon, South Korea) (<a href="#fig-sdm" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> A). Mutant primers were designed using a custom python script (Chapter 2: Design Tools) and obtained from Macrogen (Korea). PCR with these primers, KOD One polymerase, and the template DNA was executed to form linear mutated DNA. All primers were dispensed using Echo 525 (Beckman Coulter, IN) to a 96-well PCR plate (BIO-RAD), and other components were dispensed using the Janus G3 Liquid handler (Revvity, MA). This was circularized using T4 Ligase and T4 PNK, and was treated with DpnI (NEB) at 37<sup>o</sup>C for 1 hour, 24<sup>o</sup>C for 2 hours, and deactivated at 65<sup>o</sup>C for 10 min. This was then transformed via heat shock and spotted on a Cell-culture plate (SPL Life Sciences, South Korea) using Janus.</p>
-</section>
-<section id="test" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="test"><span class="header-section-number">4.4</span> Test</h2>
-<section id="genotyping-with-barcoded-pcr" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="genotyping-with-barcoded-pcr"><span class="header-section-number">4.4.1</span> Genotyping with Barcoded PCR</h3>
-<p>To confirm the mutations, 3 colonies for each mutant were picked and grown overnight in 200 <span class="math inline">\(\mu\)</span>l cultures in 96-well deep well plates. These were genotyped using an in-house automated pipeline to screen through multiple colonies is described here for the first time (<a href="#fig-sdm" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> B).</p>
-<p>By using 8 forward and 12 reverse barcoded primers, 96 unique combination of barcoded PCR product could be generated. These primers were generated by a custom script available at <a href="https://mutprimergen.streamlit.app/" class="uri">https://mutprimergen.streamlit.app/</a>. These primers that are accurately dispensed using Echo, were used to perform colony PCR on 2 <span class="math inline">\(\mu\)</span>l of aforementioned cultures. All 96-samples were then pooled using Janus and sequenced using GridION as described previously. For genotyping site-directed mutated colonies, sequencing on a flow cell with 500+ pores were run until an estimate of 2k reads per sample were sequenced; for example: 80 samples = 160k reads. This saved cost and effort to screen through hundreds and thousands of colonies for obtaining expected mutants.</p>
-<p>A custom algorithm was developed in Python for demultiplexing barcoded PCR products. Although only DNA of a single length is generated after colony PCR and thereby sequenced, the output contains sequences that are much longer possibly owing to the ligase reactions occurring during the sequencing sample library preparation. Reads are trimmed down to the target sequence along with +20 bases length on either ends. The sequences are then sorted into 96 different FASTA files by identifying the forward and reverse barcodes. The sequences are then concatenated using SAMtools.</p>
-<p>While constructing single mutants, the entire initial and resulting plasmids were verified using the Rapid Barcoding Kit (SQK-RBK114.24) by ONT, ensuring the construct remained constant throughout. 600ng of each sample were sequenced while following the manufacturer’s instructions. The data processing was the same as described in Chapter 3: Methods: <strong>Sequence Data Processing</strong> with an additional step of making a consensus file using SAMtools.</p>
-</section>
-<section id="nanopore-analysis" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">4.4.2</span> Nanopore Analysis</h3>
-<p>The output of the Nanopore sequencing is the pooled result of the above PCR products, which comprises of different samples with different samples. It is important to demultiplex the samples to differentiate the sequences appropriately.</p>
-<pre><code># Pseudocode for demultiplexing sequences 
-Function sort_reads(options):
-    # Extract input and output options
-    fastafile = options.fastafile
-    folder_name = options.output
-
-    # Initialize an empty list to store sequences from the FASTA file
-    a = []
-
-    # Parse the FASTA file and store sequences in list 'a'
-    For each record in SeqIO.parse(fastafile, "fasta"):
-        Add the string of record sequence to list 'a'
-
-    # Define the list of reverse and forward barcodes
-    barcodes_R = ["CCCTATGACA", "TAATGGCAAG", "AACAAGGCGT", "GTATGTAGAA", "TTCTATGGGG", "CCTCGCAACC", "TGGATGCTTA", "AGAGTGCGGC"]
-    barcodes_F = ["aatcccactac", "tgaactgagcg", "TATCTGACCTT", "ATATGAGACG", "CGCTCATTAG", "TAATCTCGTC", "GCGCGATTTT", "AGAGCACTAG", "TGCCTTGATC", "CTACTCAGTC", "TCGTCTGACT", "GAACATACGG"]
-
-    # Initialize lists to store barcodes and results
-    index = []
-    act_barcode = []
-
-    # Loop through each sequence in list 'a'
-    For i from 0 to length of 'a' - 1:
-        Initialize empty list 'barcodes' to store matched barcodes
-        Initialize empty list 'bar' to store barcode directions (e.g., "R" or "F")
-
-        # Check for reverse barcode matches
-        For each barcode in barcodes_R:
-            Reverse complement the barcode
-            If the original or reverse complement of the barcode is found in 'a[i]':
-                Append the barcode index (1-based) to 'barcodes'
-                Append "R" to the list 'bar' (indicating reverse barcode)
-
-        # Check for forward barcode matches
-        For each barcode in barcodes_F:
-            Reverse complement the barcode
-            If the original or reverse complement of the barcode (uppercased) is found in 'a[i]':
-                Append the barcode index (1-based) to 'barcodes'
-                Append "F" to the list 'bar' (indicating forward barcode)
-
-        # Join the 'bar' list into a string (e.g., "R_F")
-        Join all elements of 'bar' with underscore ("_") and store in 'bar'
-
-        # If both reverse and forward barcodes are found (i.e., "R_F")
-        If 'bar' is equal to "R_F" and the length of 'barcodes' is exactly 2:
-            Construct the active barcode string as "barcodes[0]_" + "barcodes[1]"
-            
-            # Open a file for writing sequences with the active barcode name
-            Open a file with the name format '{folder_name}/{active barcode}.fasta' in append mode:
-                Write the header line with the barcode information ("&gt;bar")
-                Write the sequence 'a[i]'
-
-End Function
-    </code></pre>
-</section>
-<section id="phenotyping-using-a-plate-reader" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="phenotyping-using-a-plate-reader"><span class="header-section-number">4.4.3</span> Phenotyping using a Plate Reader</h3>
-<p>The triplicates of individual samples were analyzed using Victor (Perkin Elmer; Waltham, MA, USA) using 96-well plates (Sigma Aldrich; St.&nbsp;Louis, MO, USA). Following the identification of a correctly constructed mutant, 1% of each mutant sample was inoculated in 200ml of LB using Janus and grown at 37<sup>o</sup>C for 16hrs in a shaking incubator. Relative Fluorescence was calculated using fluorescence over optical density at 595nm.</p>
-</section>
-</section>
-<section id="learn-structure-predictions" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="learn-structure-predictions"><span class="header-section-number">4.5</span> Learn: Structure Predictions</h2>
-<p>A locally installed AlphaFold (v.2.3.2) was run on DmpR<sub>WT</sub>, MPH<sub>WT</sub> and variants was run to obtain structures of the partially/non-identified proteins. Both were constructed as monomers.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/paste-1.png" class="img-fluid figure-img"></p>
-<figcaption>A. Domain positions of DmpR across the protein sequence, adapted from Park, Kwang-Hyun, et al, 2020. In blue is the sensory domain or substrate binding domain, in green is the B-linker which links the substrate binding domain and the ATPase domain in pink. The gray regions are peptide sequences which were deleted to resolve the protein structure. The C-terminal is the DNA-binding domain for the transcription factor.B. An AlphaFold predicted structure (visualized in PyMol) of a DmpR monomer color coded to A, to incorporate the DNA-binding domain. The residue at the 482nd residue is highlighted. Proline is the WT amino acid and on substituting it for Glutamine there is an improved response to phenol. Proline is known to contribute to conformational rigidity, and when replacing it with Glutamine allows for a flexible linker between the two domains. Additionally, the polarity of glutamine may contribute to H-bonding with other amino acids or water molecules in the environment, providing stability in the structure.C. (Left)FACS analysis comparisons of P482Q (green) and WT (blue). (Right) FACS analysis comparisons of the Signal (green) and Background (gray) of P482Q.</figcaption>
-</figure>
-</div>
-</section>
-<section id="discussion" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="discussion"><span class="header-section-number">4.6</span> Discussion</h2>
+<p>This thesis explores the integration of computational approaches with biofoundry-based protein engineering and synthetic biology to advance the design, optimization, and industrial-scale production of novel biological systems. Biofoundries—automated laboratories equipped with high-throughput capabilities—are transforming the landscape of synthetic biology by enabling the rapid construction and testing of genetic circuits and engineered proteins. However, the complexity of biological systems, including non-linear gene interactions, cellular variability, and metabolic feedback, presents significant challenges in predicting and controlling engineered behaviors. In this context, computational tools offer critical solutions by providing predictive models, optimizing genetic designs, and automating iterative design-build-test cycles.</p>
+<p>The work presented in this thesis focuses on the development and application of computational methodologies to enhance protein engineering efforts within the biofoundry framework. First, I investigate the use of machine learning algorithms to predict protein function and stability based on sequence and structural features, facilitating the design of novel proteins with tailored properties. Second, I explore computational tools for pathway design, enabling the optimization of metabolic networks for the efficient production of high-value bioproducts, including biofuels, pharmaceuticals, and specialty chemicals. A key aspect of this research involves the integration of experimental data with computational models to iteratively refine and validate design predictions. Through case studies and practical applications, I demonstrate how the synergy between computational approaches and biofoundry automation accelerates the development of synthetic biological systems.</p>
+<p>The findings of this thesis highlight the potential of computational methods to address the inherent challenges of protein engineering and synthetic biology, providing a pathway toward more rational, scalable, and predictable design strategies. Ultimately, this work contributes to the growing field of computational synthetic biology and biofoundry research, with implications for industrial biotechnology, biomanufacturing, and the broader application of engineered biological systems. By leveraging advanced computational tools, biofoundries are poised to drive the next generation of innovations in biotechnology, enabling the large-scale production of custom proteins and other biologically derived materials.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -777,13 +612,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/data_coll.html" class="pagination-link" aria-label="Data Collection for AI-based Protein Engineering using Biosensors">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Collection for AI-based Protein Engineering using Biosensors</span></span>
+      <a href="../index.html" class="pagination-link" aria-label="Abstract">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Abstract</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/dsembler.html" class="pagination-link" aria-label="Assembling Long-DNA and Further Analysis">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Assembling Long-DNA and Further Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/introduction.html" class="pagination-link" aria-label="Introduction">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -134,6 +134,12 @@ MathJax = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/abstract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
@@ -250,6 +256,27 @@ MathJax = {
 </section>
 <section id="psuedocode" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="psuedocode"><span class="header-section-number">5.3</span> Psuedocode</h2>
+<pre><code>INPUT dna_seq, oligo_size, overlap_size, tm, tm_range
+
+rough_oligo_size=oligo_size – overlap_size 
+high_overlap_size = overlap_szie + n 
+low_temp = tm – tm_range
+high_temp = tm + tm_range
+
+FOR length(dna_seq) at rough_oligo_size intervals rough_oligomers = oligo_splice()
+
+FOR overlap in range(overlap_size, high_overlap_size) candidate_oligomers = ADD overlap to rough_oligomer
+
+IF candidate_oligomers
+    T at 3' end = FALSE
+    low_temp =&lt; overlap_tm =&lt; high_temp
+    40 =&lt; overlap_GC% =&lt; 60 
+    final_oligomers = candiate_oligomer
+
+IF NOT repeats in final_oligomers 
+    cluster = final_oligomers
+
+OUTPUT oligomers.xlsx, oligomers.fasta</code></pre>
 </section>
 <section id="user-interface" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="user-interface"><span class="header-section-number">5.4</span> User Interface</h2>
@@ -276,6 +303,7 @@ The designed gene fragments were synthesized and subsequently assembled using PC
 </section>
 <section id="discussion" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="discussion"><span class="header-section-number">5.5</span> Discussion</h2>
+<p>Efficient oliogmer design is the foremost step to a lucrative assembly. Our DNA Assembly Designer, Dsembler, has a straightforward and streamlined algorithmic design to produce optimized oligomers for gene or genome based assemblies. It has an easy to navigate user interface, with default values to guide the user at all fronts. More parameters may be incorporated in the future, such as identifying any secondary structures, codon optimization, insert-backbone based assembly. Lastly, as the Design, Build, Test, Learn cycle advises, evaluating Dsembler outputs and resulting assemblies can help improve and fast-track genome assemblies.</p>
 <ul>
 <li>Integrating with the Biofoundry and sample tracking to mass produce samples</li>
 <li>Structure predictions</li>

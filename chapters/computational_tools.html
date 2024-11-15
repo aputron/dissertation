@@ -217,6 +217,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/abstract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
@@ -282,7 +288,6 @@ window.Quarto = {
   <li><a href="#analysis-tools" id="toc-analysis-tools" class="nav-link" data-scroll-target="#analysis-tools"><span class="header-section-number">2.2.4</span> Analysis Tools:</a></li>
   <li><a href="#accesibility-to-modelling-tools" id="toc-accesibility-to-modelling-tools" class="nav-link" data-scroll-target="#accesibility-to-modelling-tools"><span class="header-section-number">2.2.5</span> Accesibility to Modelling Tools:</a></li>
   <li><a href="#visualization-tools" id="toc-visualization-tools" class="nav-link" data-scroll-target="#visualization-tools"><span class="header-section-number">2.2.6</span> Visualization Tools:</a></li>
-  <li><a href="#tools-for-data-storage-and-sharing" id="toc-tools-for-data-storage-and-sharing" class="nav-link" data-scroll-target="#tools-for-data-storage-and-sharing"><span class="header-section-number">2.2.7</span> Tools for Data Storage and Sharing:</a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">2.3</span> Conclusion</a></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">2.4</span> Methods</a></li>
@@ -331,16 +336,16 @@ window.Quarto = {
 </div>
 <section id="electronic-lab-notebooks" class="level4" data-number="2.2.1.1">
 <h4 data-number="2.2.1.1" class="anchored" data-anchor-id="electronic-lab-notebooks"><span class="header-section-number">2.2.1.1</span> Electronic Lab Notebooks:</h4>
-<p>Electronic Lab Notebooks (ELNs) are essential tools in modern research environments, offering several key advantages over traditional paper notebooks. They facilitate efficient data management by allowing researchers to easily organize, store, and retrieve experimental data. ELNs enhance collaboration among team members by enabling real-time sharing and commenting on data, which fosters greater communication and collective insights. Moreover, they improve data integrity and reproducibility through built-in version control and automated backups, reducing the risk of data loss or errors. ELNs also streamline compliance with regulatory requirements by providing secure, auditable records of experiments. Additionally, their integration with other digital tools and platforms can enhance workflows and automate routine tasks, ultimately increasing productivity and accelerating the research process[<span class="citation" data-cites="kwok2018"><sup><a href="references.html#ref-kwok2018" role="doc-biblioref">8</a></sup></span>]<span class="citation" data-cites="eblen2015comparing"><sup><a href="references.html#ref-eblen2015comparing" role="doc-biblioref">9</a></sup></span>.</p>
+<p>Electronic Lab Notebooks (ELNs) are essential tools in modern research environments, offering several key advantages over traditional paper notebooks. They facilitate efficient data management by allowing researchers to easily organize, store, and retrieve experimental data. ELNs enhance collaboration among team members by enabling real-time sharing and commenting on data, which fosters greater communication and collective insights. Moreover, they improve data integrity and reproducibility through built-in version control and automated backups, reducing the risk of data loss or errors. ELNs also streamline compliance with regulatory requirements by providing secure, auditable records of experiments. Additionally, their integration with other digital tools and platforms can enhance workflows and automate routine tasks, ultimately increasing productivity and accelerating the research process<span class="citation" data-cites="kwok2018"><sup><a href="references.html#ref-eblen2015comparing" role="doc-biblioref">9</a></sup></span>.</p>
 <p>While there are free options for ELN software, many vendors limit data storage, file sizes, and the number of users, which can hinder larger teams or projects. Portability of files can also be a concern depending upon the ELN provider; for example if it ceases operations or raises prices, users may only receive a PDF export of their data, complicating transitions to other platforms. Although infrequent, security breaches, are a potential risk that users should be aware of. Additionally, not all electronic solutions cater to every lab’s needs; for example, some ELNs do not integrate with specific biotools like CRISPR/Cas9 genome editing software. Furthermore, user experience can vary significantly; many reviews point out issues with nonintuitive interfaces and the need for extensive training, which can slow down effective implementation in the lab<span class="citation" data-cites="Schmerker_2020"><sup><a href="references.html#ref-Schmerker_2020" role="doc-biblioref">10</a></sup></span>.</p>
-<p>Here, we describe using Visual Studio (VS) Code along with quarto markdown files as an ELN. VS Code is compatible with most types of files. VS Code allows for the creation of Markdown files, which can be used to document experiments, protocols, and results in a structured and easily readable format. The built-in version control system (Git) enables users to track changes over time, making it simple to maintain a history of experiments and revisions. Open-sourced extensions allow integration of other software such as Docker, GitHub, and Notion which can be standardized through a free account.</p>
+<p>Here, we describe using Visual Studio (VS) Code along with quarto markdown files as an ELN. VS Code is compatible with most types of files. VS Code allows for the creation of Markdown files, which can be used to document experiments, protocols, and results in a structured and easily readable format (Appendix: <a href="appendix.html#fig-VS_code" class="quarto-xref">Figure&nbsp;<span>1</span></a>). The built-in version control system (Git) enables users to track changes over time, making it simple to maintain a history of experiments and revisions. Open-sourced extensions allow integration of other software such as Docker, GitHub, and Notion which can be standardized through a free account.</p>
 <p>Moreover, integration of Jupyter Notebooks allow for interactive data analysis and visualization, integrating coding directly with documentation. This can be particularly useful for analyzing data using programming languages such as Python or R. Users can also benefit from VS Code’s robust search capabilities, making it easy to locate specific notes or data points across multiple files. Overall, using VS Code as an ELN combines flexibility, organization, and collaboration, making it a compelling choice for researchers looking to streamline their documentation processes.</p>
 </section>
 <section id="version-control" class="level4" data-number="2.2.1.2">
 <h4 data-number="2.2.1.2" class="anchored" data-anchor-id="version-control"><span class="header-section-number">2.2.1.2</span> Version Control:</h4>
-<p>Collaboration is streamlined on GitHub, as multiple team members can work on the same project simultaneously. Additionally, the ability to store files in cloud-based repositories (like GitHub or GitLab) ensures data portability and accessibility, even if the original workspace changes. This allows users to track changes over time, providing a clear history of modifications, which is essential for reproducibility and accountability. Users can create branches to explore new ideas or experiment with changes without affecting the main content. Pull requests enable thorough discussions and reviews of proposed changes before merging, ensuring that all contributions are vetted and enhancing the quality of the documentation.</p>
+<p>Collaboration is streamlined on GitHub, as multiple team members can work on the same project simultaneously. Additionally, the ability to store files in cloud-based repositories (like GitHub or GitLab) ensures data portability and accessibility, even if the original workspace changes. This allows users to track changes over time, providing a clear history of modifications, which is essential for reproducibility and accountability. Users can create branches to explore new ideas or experiment with changes without affecting the main content. Pull requests enable thorough discussions and reviews of proposed changes before merging, ensuring that all contributions are vetted and enhancing the quality of the documentation (Appendix: <a href="appendix.html#fig-AF_git" class="quarto-xref">Figure&nbsp;<span>2</span></a>).</p>
 <p>GitHub also supports Markdown, making it easy to format notes for clarity and readability. With features like issue tracking, users can manage tasks and monitor project progress efficiently. The platform’s cloud-based storage ensures that data is accessible from anywhere, minimizing the risk of loss. Overall, using GitHub for version control in an ELN not only improves organization and collaboration but also enhances the integrity and transparency of the research process.</p>
-<p>Using Docker to share workflow environments offers a powerful solution for ensuring consistency and reproducibility in research and development projects. Docker allows users to create containerized environments that encapsulate all necessary dependencies, libraries, and configurations required to run a specific application or workflow. This means that researchers can share their entire computational environment, ensuring that collaborators can run the same code with the same results, regardless of their local setups.</p>
+<p>Using Docker to share workflow environments offers a powerful solution for ensuring consistency and reproducibility in research and development projects. Docker allows users to create containerized environments that encapsulate all necessary dependencies, libraries, and configurations required to run a specific application or workflow. This means that researchers can share their entire computational environment, ensuring that collaborators can run the same code with the same results, regardless of their local setups (Appendix: <a href="appendix.html#fig-dockerfile" class="quarto-xref">Figure&nbsp;<span>3</span></a>).</p>
 <p>By creating a Docker image, users can package their workflows along with any required software, making it easy to distribute and deploy on any system that supports Docker. This eliminates the common “it works on my machine” problem, as the container will behave the same way on any platform. Additionally, Docker supports versioning, allowing teams to track changes in their environment over time and roll back to previous configurations if needed.<span class="citation" data-cites="eyersgithub"><sup><a href="references.html#ref-eyersgithub" role="doc-biblioref">11</a></sup></span>,<span class="citation" data-cites="leahy2022"><sup><a href="references.html#ref-leahy2022" role="doc-biblioref">12</a></sup></span></p>
 <p>Models and datasets can be uploaded on AI sharing platforms such as Huggingface.</p>
 </section>
@@ -348,11 +353,21 @@ window.Quarto = {
 <section id="design-tools" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="design-tools"><span class="header-section-number">2.2.2</span> Design Tools:</h3>
 <p>When managing a large number of samples, the design of DNA fragments can become a complex and cumbersome process. This challenge is exacerbated by the need to ensure specificity and efficiency in fragment design, which is crucial for downstream applications such as cloning, sequencing, or synthetic biology. As sample numbers increase, the potential for human error also rises, leading to inconsistencies that can compromise experimental outcomes. Moreover, the iterative nature of fragment design often necessitates multiple rounds of optimization, further extending the time and resources required for successful implementation. Consequently, the integration of automated design tools and software that can handle bulk DNA fragment design may prove invaluable. Such tools can streamline the process, enhance accuracy, and significantly reduce the workload associated with designing DNA fragments across numerous samples, thereby improving overall productivity in molecular biology workflows.</p>
-<p><img src="images/design_tools.png" class="img-fluid"></p>
+<div id="fig-design" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/design_tools.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: DNA Design tools: The user interfaces for <strong>A)</strong> <em>In-silico</em> mutant library generator <strong>B)</strong> Primer generator
+</figcaption>
+</figure>
+</div>
 <section id="in-silico-mutant-generator" class="level4" data-number="2.2.2.1">
 <h4 data-number="2.2.2.1" class="anchored" data-anchor-id="in-silico-mutant-generator"><span class="header-section-number">2.2.2.1</span> <em>In-silico</em> Mutant Generator:</h4>
-<p>Optimizing DNA fragments in synthetic biology is a crucial step in the development of efficient and functional biological systems, necessitating the creation of a diverse array of mutant candidates to explore variations that can enhance performance. The traditional approaches to generating these mutants are often labor-intensive and resource-consuming, posing significant challenges in terms of time and scalability. In response to these limitations, we have developed an innovative in-silico mutant library generator that harnesses computational power to simulate a broad spectrum of mutations across selected DNA sequences. This generator creates a library of a predefined size introduces various types of mutations, including point mutations, insertions, and deletions in each mutant. By integrating it with machine learning approaches trained on extensive datasets, this tool can be used to identify appropriate optimized candidates.</p>
+<p>Optimizing DNA fragments in synthetic biology is a crucial step in the development of efficient and functional biological systems, necessitating the creation of a diverse array of mutant candidates to explore variations that can enhance performance. The traditional approaches to generating these mutants are often labor-intensive and resource-consuming, posing significant challenges in terms of time and scalability. In response to these limitations, we have developed an innovative <em>in-silico</em> mutant library generator that harnesses computational power to simulate a broad spectrum of mutations across selected DNA sequences. This generator creates a library of a predefined size introduces various types of point mutations in each mutant. By integrating it with machine learning approaches trained on extensive datasets, this tool can be used to identify appropriate optimized candidates.</p>
 <pre><code># Pseudocode for in-silico mutant generator
+
 INPUT: Target DNA Sequence (FASTA file / string) 
 OUPUT: Mutant Library (FASTA file)
 
@@ -373,16 +388,17 @@ FUNCTION GenerateMutantLibrary(originalSequence, mutLibSize, numMutants):
             mutantLibrary.append((DNAmutantSequence, AAmutantSequence))
 
     RETURN mutantLibrary</code></pre>
-<p>A simple user interface (UI) for the algorithm is available at <a href="https://insilicomutantlib.streamlit.app/" class="uri">https://insilicomutantlib.streamlit.app/</a></p>
+<p>A simple user interface (UI) for the algorithm (<a href="#fig-design" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>: A) is available at <a href="https://insilicomutantlib.streamlit.app/" class="uri">https://insilicomutantlib.streamlit.app/</a></p>
 </section>
 <section id="primer-design" class="level4" data-number="2.2.2.2">
 <h4 data-number="2.2.2.2" class="anchored" data-anchor-id="primer-design"><span class="header-section-number">2.2.2.2</span> Primer design:</h4>
 <p>Site-directed mutagenesis (SDM) is a technique used to introduce specific nucleotide changes into a DNA sequence, allowing researchers to study gene function, protein interactions, and other biological processes. Automating the primer design process for SDM can significantly enhance efficiency and accuracy. The algorithm generates primers in a way that accommodates various assembly techniques, including Gibson assembly, staggered Gibson assembly, and ligation assembly, for site-directed mutagenesis (SDM). For Gibson assembly, the primers are designed to be completely overlapping regions with the target mutation at the middle, facilitating the seamless integration of DNA fragments in a single reaction. In the case of staggered Gibson assembly, the algorithm designs one primer with the mutated base, and the other primer has 10bp of a flanking region. For ligation assembly, the primers are crafted to produce compatible ends, ensuring effective joining of the mutated fragments using DNA ligase. The tool can generate primers for a large number of mutants, even those containing multiple mutations, using the output from the in-silico mutant library. This capability is particularly advantageous in high-throughput experimental settings where researchers aim to explore a diverse array of genetic modifications simultaneously.</p>
 <p>The tool also designs primers for multiplexed barcode sequencing, a process elaborated upon in Chapter 4. Users can input their specific target sequences into the tool, which then generates complementary primers optimized for those sequences. A key feature of this tool is its ability to incorporate pre-defined barcodes into the primers, allowing for the simultaneous analysis of multiple samples in a single sequencing run.</p>
-<p>First, the melting temperature (Tm) is carefully calculated and adjusted to promote efficient annealing to the target DNA. This optimization helps ensure that the primers will bind effectively under the chosen PCR conditions, thereby increasing the likelihood of successful amplification. Additionally, the GC content of each primer is tailored to fall within an ideal range, typically between 40% and 60%. This balance enhances the stability of the primer-template duplex, improving the fidelity of the resulting PCR product. Importantly, the design process avoids incorporating thymine at the 3’ end of the primers, as this can lead to non-specific binding and reduced efficiency in the amplification process.<br>
+<p>First, the melting temperature (Tm) is carefully calculated and adjusted to promote efficient annealing to the target DNA. This optimization helps ensure that the primers will bind effectively under the chosen PCR conditions, thereby increasing the likelihood of successful amplification. Additionally, the GC content of each primer is tailored to fall within an ideal range, typically between 40% and 60%. This balance enhances the stability of the primer-template duplex, improving the fidelity of the resulting PCR product. Importantly, the design process avoids incorporating thymine at the 3’ end of the primers, as this can lead to non-specific binding and reduced efficiency in the amplification process. All outputs are provided as a CSV file with primers organized by name in a 5’ to 3’ manner for easy order placement by a DNA synthesis company.<br>
 </p>
 <pre><code>
 # Pseudocode for primer design for SDM
+
 FUNCTION DesignPrimers(targetSequence, mutation, assemblyType):
     # Initialize empty lists for primers
     forwardPrimer = []
@@ -423,6 +439,7 @@ FUNCTION PrimersMutantLibrary(FASTAfile, mutations, assemblyType)
     </code></pre>
 <pre><code>
 # Pseudocode for barcode primer design
+
 FUNCTION BarcodePrimers(frontPrimer, reversePrimer, forwardBarcodeList, reverseBarcodeList):
     FOR barcode in forwardBarcodeList:
         barcodedForwardPrimer = frontPrimer + barcode
@@ -435,18 +452,24 @@ FUNCTION BarcodePrimers(frontPrimer, reversePrimer, forwardBarcodeList, reverseB
     forwardPrimer_final, reversePrimer_final = optimizePrimers(forwardPrimerList, reversePrimerList)
 
     RETURN (forwardPrimer_final, reversePrimer_final)</code></pre>
-<p>A simple user interface (UI) for the algorithm is available at <a href="https://mutprimergen.streamlit.app/" class="uri">https://mutprimergen.streamlit.app/</a></p>
+<p>A simple user interface (UI) (<a href="#fig-design" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>) for the algorithm is available at <a href="https://mutprimergen.streamlit.app/" class="uri">https://mutprimergen.streamlit.app/</a></p>
 </section>
 </section>
 <section id="machine-interoperability" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="machine-interoperability"><span class="header-section-number">2.2.3</span> Machine Interoperability:</h3>
-<p>Most automated machines feature user interfaces designed to facilitate the mapping of wells for essential laboratory tasks such as aspirating, dispensing, and mixing liquids. These interfaces simplify the process by allowing users to visually select and configure the wells according to their experimental needs. Additionally, many of these systems can operate using CSV (Comma-Separated Values) files, which contain critical information, including Source Well, Destination Well, and Volume. When faced with complex workflows involving numerous samples, utilizing an automated script to map the samples in a CSV file can significantly enhance efficiency and accuracy. Workflows can be organized to work continuously in this manner. The script for the same is available on <a href="https://github.com/aputron/streamlitapps/tree/main" class="uri">https://github.com/aputron/streamlitapps/tree/main</a></p>
+<p>Most automated machines feature user interfaces designed to facilitate the mapping of wells for essential laboratory tasks such as aspirating, dispensing, and mixing liquids. These interfaces simplify the process by allowing users to visually select and configure the wells according to their experimental needs. Additionally, many of these systems can operate using CSV (Comma-Separated Values) files, which contain critical information, including Source Well, Destination Well, and Volume.</p>
+<p>However it can be cumbersome to use the UI when working with large number of samples or continuously repeated protocols. When faced with such complex workflows, utilizing an automated script to map the samples in a CSV file can significantly enhance efficiency and accuracy. Workflows can be organized to work continuously in this manner. The script for the same is available on <a href="https://github.com/aputron/streamlitapps/tree/main" class="uri">https://github.com/aputron/streamlitapps/tree/main</a></p>
 </section>
 <section id="analysis-tools" class="level3" data-number="2.2.4">
 <h3 data-number="2.2.4" class="anchored" data-anchor-id="analysis-tools"><span class="header-section-number">2.2.4</span> Analysis Tools:</h3>
 <section id="nanopore-analysis" class="level4" data-number="2.2.4.1">
 <h4 data-number="2.2.4.1" class="anchored" data-anchor-id="nanopore-analysis"><span class="header-section-number">2.2.4.1</span> Nanopore Analysis:</h4>
-<p><img src="images/nanopore_analysis.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/nanopore_analysis.png" class="img-fluid figure-img"></p>
+<figcaption>Nanopore Analysis pipeline (right) and the available code in DockerHub (left top) and GitHub (left below)</figcaption>
+</figure>
+</div>
 <p>Sequenced reads with unique barcodes are outputted in individual folders as fastq files with 4000 reads in each file. The following process is run as a bash file</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">FOR</span> every fastq file:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -463,7 +486,7 @@ FUNCTION BarcodePrimers(frontPrimer, reversePrimer, forwardBarcodeList, reverseB
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">PYSAM</span> extract only reference regions from reads <span class="at">-</span><span class="op">&gt;</span> BAM file</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">IGVTOOLS</span> obtain positional metadata of nucleotides <span class="at">-</span><span class="op">&gt;</span> WIG file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The final BAM file is used to train the models, and the WIG files are used to visualize the variation across the sequence.</p>
+<p>The final BAM file is used to train the models, and the WIG files are used to visualize the variation across the sequence (See: <a href="#sec-mutantvis" class="quarto-xref"><span>Section 2.2.6.2</span></a>).</p>
 </section>
 </section>
 <section id="accesibility-to-modelling-tools" class="level3" data-number="2.2.5">
@@ -481,15 +504,20 @@ FUNCTION BarcodePrimers(frontPrimer, reversePrimer, forwardBarcodeList, reverseB
 <h3 data-number="2.2.6" class="anchored" data-anchor-id="visualization-tools"><span class="header-section-number">2.2.6</span> Visualization Tools:</h3>
 <p>Biological data can be intricate and multidimensional, often involving large datasets from experiments such as genomics, proteomics, and metabolomics. Visualization tools help translate this data into graphical formats, making it easier for researchers to identify patterns, trends, and anomalies that might not be apparent in raw data<span class="citation" data-cites="wong2012visualizing"><sup><a href="references.html#ref-wong2012visualizing" role="doc-biblioref">15</a></sup></span>.</p>
 <p>These tools facilitate exploratory data analysis, allowing scientists to visualize relationships and interactions among biological variables. For instance, network diagrams can depict interactions between proteins, while heatmaps can show gene expression levels across different conditions, helping researchers draw meaningful conclusions and generate hypotheses[<span class="citation" data-cites="verschaffelt2022unipept"><sup><a href="references.html#ref-verschaffelt2022unipept" role="doc-biblioref">16</a></sup></span>]<span class="citation" data-cites="kerren2017biovis"><sup><a href="references.html#ref-kerren2017biovis" role="doc-biblioref">17</a></sup></span><span class="citation" data-cites="kellergithub"><sup><a href="references.html#ref-kellergithub" role="doc-biblioref">18</a></sup></span>.</p>
-<p><img src="images/visualizing.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/visualizing.png" class="img-fluid figure-img"></p>
+<figcaption>User Interfaces for visualtization tools for different forms of data. <strong>A)</strong> FACS visualizer <strong>B)</strong> variation in sequenced data</figcaption>
+</figure>
+</div>
 <section id="facs-visualization" class="level4" data-number="2.2.6.1">
 <h4 data-number="2.2.6.1" class="anchored" data-anchor-id="facs-visualization"><span class="header-section-number">2.2.6.1</span> FACS Visualization:</h4>
 <p>Proprietary tools, such as FlowJo, FCS Express, and Kaluza, have emerged as the predominant solutions for flow cytometry analysis, and their widespread adoption can be attributed to several key factors. These tools provide a robust and intuitive user experience (UX), which enhances usability and facilitates efficient data interpretation. Additionally, they lower the barrier to entry for users, making the technology more accessible to individuals with varying levels of expertise<span class="citation" data-cites="white2021flowkit"><sup><a href="references.html#ref-white2021flowkit" role="doc-biblioref">19</a></sup></span>. Furthermore, the extensive documentation and support resources available for such tools enable users to navigate the complexities of flow cytometry with greater confidence and ease. Despite their advantages, proprietary tools for flow cytometry analysis have high licensing costs, learning curve for new users given the depth of features, and lag times with large datasets. Often, the resulting files aren’t standardized enough to enable robust integration with downstream applications like electronic lab notebooks.</p>
 <p>In this thesis, we utilize the open-sourced python library, FlowCal<span class="citation" data-cites="castillo2016flowcal"><sup><a href="references.html#ref-castillo2016flowcal" role="doc-biblioref">20</a></sup></span> to extract the data from fcs files and can be used to make informed decisions on downstream processes.</p>
 <p>A simple user interface (UI) for the algorithm is available at <a href="https://facsvisualization.streamlit.app/" class="uri">https://facsvisualization.streamlit.app/</a></p>
 </section>
-<section id="mutant-variability-visualizer" class="level4" data-number="2.2.6.2">
-<h4 data-number="2.2.6.2" class="anchored" data-anchor-id="mutant-variability-visualizer"><span class="header-section-number">2.2.6.2</span> Mutant Variability Visualizer:</h4>
+<section id="sec-mutantvis" class="level4" data-number="2.2.6.2">
+<h4 data-number="2.2.6.2" class="anchored" data-anchor-id="sec-mutantvis"><span class="header-section-number">2.2.6.2</span> Mutant Variability Visualizer:</h4>
 <p>Directed evolution is a widely employed strategy for optimizing bio-parts, allowing researchers to enhance their functionality by exploring a diverse array of mutations within a given library. This thesis mainly focuses on analyzing long-read sequencing results derived from these mutant libraries, which provide comprehensive insights into the genetic variations present. By leveraging the advantages of long-read sequencing, the research can capture complex structural variations and facilitate the assembly of more complete sequences. Visualizing the variation within these libraries becomes crucial, as it allows for a more intuitive understanding of the data, making it easier to identify patterns and correlations between specific mutations and their resulting phenotypes. This visualization aids in pinpointing advantageous traits and helps guide subsequent rounds of evolution, ultimately driving the optimization process more efficiently.</p>
 <p>Here, the variance in WT sequenced reads are used as a threshold for the error rate in the mutant library.</p>
 <p>The variation <span class="math inline">\(v\)</span> at a specific position <span class="math inline">\(i\)</span> can be defined as:</p>
@@ -501,20 +529,14 @@ FUNCTION BarcodePrimers(frontPrimer, reversePrimer, forwardBarcodeList, reverseB
 <p>A simple user interface (UI) for the algorithm is available at <a href="https://libraryanalysis.streamlit.app/" class="uri">https://libraryanalysis.streamlit.app/</a></p>
 </section>
 </section>
-<section id="tools-for-data-storage-and-sharing" class="level3" data-number="2.2.7">
-<h3 data-number="2.2.7" class="anchored" data-anchor-id="tools-for-data-storage-and-sharing"><span class="header-section-number">2.2.7</span> Tools for Data Storage and Sharing:</h3>
-<section id="server-management" class="level4" data-number="2.2.7.1">
-<h4 data-number="2.2.7.1" class="anchored" data-anchor-id="server-management"><span class="header-section-number">2.2.7.1</span> Server Management:</h4>
-</section>
-</section>
 </section>
 <section id="conclusion" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">2.3</span> Conclusion</h2>
-<p>Here, we demonstrate the robustness of rapidly-prototyping software to handle, analyze, and standardize workflows in a biofoundry. Although UI for the tools were developed, we encourage researchers utilizing automation to adopt a “think like a programmer” mindset to provide maximum flexibility in applications, ease of integrating modules and debugging issues that may arise.</p>
+<p>Here, we describe the robustness of rapidly-prototyping software to handle, analyze, and standardize workflows in a biofoundry. Although UI for the tools were developed, we encourage researchers utilizing automation to adopt a “think like a programmer” mindset to provide maximum flexibility in applications, ease of integrating modules and debugging issues that may arise. These tools are employed in the next chapters to streamline a protein engineering workflow.</p>
 </section>
 <section id="methods" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">2.4</span> Methods</h2>
-<p>All applications were developed on Python version 3.11.0. and all public applications were made on Streamlit version 1.39.0. The AlphaFold2 user interface was developed using ShinyR.</p>
+<p>All applications were developed on Python version 3.11.0. and all public applications were made on Streamlit version 1.39.0. The AlphaFold2 user interface was developed using ShinyR. The Nanopore Analysis was performed in bash, utilizing a docker environment described earlier with scripts in both python and bash.</p>
 
 
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
