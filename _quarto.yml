@@ -7,6 +7,7 @@ book:
 
   chapters:
     - index.qmd
+    # - chapters/abstract.qmd
     - chapters/introduction.qmd
     - chapters/computational_tools.qmd
     - chapters/data_coll.qmd
@@ -39,6 +40,7 @@ filters:
   - pseudocode
 
 bibliography: references.bib
+csl: american-chemical-society.csl
 
 format:
   html:
