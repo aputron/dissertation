@@ -94,7 +94,7 @@ Considering the gaps in Biofoundry development, we aim to address the following 
 
 The development of workflows and the encompassing software will focus on protein engineering, however, can be applied in other part engineering and optimizations.
 
-# Thesis Outline
+## Thesis Outline
 
 **Chapter 2: Computational Tools for Streamlined Biofoundry Workflows**
 
