@@ -3,7 +3,7 @@ project:
 
 book:
   title: "Computational Approaches to Biofoundry-based Protein Engineering and Synthetic Biology "
-  author: "Aporva Gupta"
+  author: "Aporva Kamath"
 
   chapters:
     - index.qmd
